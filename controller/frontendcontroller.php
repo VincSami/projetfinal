@@ -20,6 +20,12 @@ function home()
     require('view/frontend/indexView.php');
 }
 
+function connectAdministrator()
+{
+    $adminManager = new AdminManager();
+    $connectAdministrator = $adminManager->connectAdmin($_POST['pseudo'], $_POST['password']);
+}
+
 function places()
 {
     $placeManager = new PlaceManager();
