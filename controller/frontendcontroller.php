@@ -47,11 +47,19 @@ function weddingPlanner($weddingplannerId)
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
     require('view/frontend/weddingplannerView.php');
 }
+
 function helpers()
 {
     $helperManager = new HelperManager();
     $helpers = $helperManager->getHelpers();
     require('view/frontend/helpersView.php');
+}
+
+function helpersType($typeId)
+{
+    $helperManager = new HelperManager();
+    $helpersType = $helperManager->getHelpersType($_GET['id']);
+    require('view/frontend/helpersTypeView.php');
 }
 
 function helper($helperId)

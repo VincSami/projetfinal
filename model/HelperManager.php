@@ -26,19 +26,20 @@ class HelperManager extends Manager
 	    return $helpers;
 	}
 
-    public function getHelpersByType($typeId)
+    public function getHelpersType($typeId)
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title FROM helpers WHERE typeId = ?');
-	    $req->execute(array($typeId));
-	    $helpersByType = $req->fetch();
+		$req = $db->prepare(
+		'SELECT *
+		FROM helpers
+		INNER JOIN helpertypes ON helpers.id_type = helpertypes.id
+		WHERE helpertypes.id = ?'
+		);
+		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->execute(array($typeId));
+		$helpersType = $req->fetchAll();
 
-	    if(! $helpersByType){
-	    	throw new Exception("le helper n'existe pas");
-	    }
-	    else {
-	    return $helpersByType;
-		}
+	    return $helpersType;
 	}
 
     public function getHelper($helperId)

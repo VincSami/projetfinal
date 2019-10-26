@@ -11,12 +11,32 @@
 </form>
 <?php $form_content = ob_get_clean(); ?>
 
-<?php $page_title = $helpersType[''] ?>
+<?php $page_title = "Les prestataires" ?>
 
-<?php $page_subtitle = "" ?>
+<?php $page_subtitle = ""; ?>
 
-<?php $main_content = 
-
-$helperTypes['title'] ?>
+<?php ob_start(); ?>
+<section id="prestataires">
+          <h2 class="titre_section">Prestataires</h2>
+          <article>
+            <ul>
+              <?php
+              foreach($helpersType as $helperType)
+              {
+              ?>
+              <li>
+                <figure>
+                  <a href="index.php?action=helperType&amp;id=<?= $helperType['id'] ?>">
+                    <img src="public/img/helperType<?= $helperType['id'] ?>.jpg">
+                  </a>
+                </figure>
+              </li>
+              <?php
+              }
+              ?>
+            </ul>
+          </article>
+        </section>
+<?php $main_content = ob_get_clean(); ?>
 
 <?php require('templateFrontend.php'); ?>

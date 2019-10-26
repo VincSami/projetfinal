@@ -26,7 +26,10 @@ function frontendRouter()
         }
         elseif ($_GET['action'] == 'helpers') {
             helpers();
-        }        
+        }
+        elseif ($_GET['action'] == 'helpersType') {
+            helpersType($_GET['id']);
+        }              
         elseif ($_GET['action'] == 'helper') {
             helper($_GET['id']);
         }

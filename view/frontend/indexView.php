@@ -67,7 +67,7 @@
               ?>
               <li>
                 <figure>
-                   <a href="index.php?action=helperType&amp;id=<?= $helperType['id'] ?>">
+                   <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>">
                     <img src="#">
                   </a>
                 </figure>
