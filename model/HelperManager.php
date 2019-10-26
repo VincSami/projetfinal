@@ -18,12 +18,27 @@ class HelperManager extends Manager
 	public function getHelpers()
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title, specialty FROM helpers');
+	    $req = $db->prepare('SELECT id, pseudo, content FROM helpers');
         $req->setFetchMode(PDO::FETCH_ASSOC);
 	    $req->execute();
         $helpers = $req->fetchAll();
 
 	    return $helpers;
+	}
+
+	public function getHelper($helperId)
+    {	
+    	$db = $this->dbConnect();  
+	    $req = $db->prepare('SELECT id, pseudo, content FROM helpers WHERE id = ?');
+	    $req->execute(array($helperId));
+        $helper = $req->fetch();
+		//On vérifie que le lieu de réception demandé existe bien
+	    if(! $helper){
+	    	throw new Exception("le lieu de réception n'existe pas");
+	    }
+	    else {
+	    return $helper;
+		}
 	}
 
     public function getHelpersType($typeId)
@@ -40,20 +55,5 @@ class HelperManager extends Manager
 		$helpersType = $req->fetchAll();
 
 	    return $helpersType;
-	}
-
-    public function getHelper($helperId)
-    {	
-    	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title, specialty FROM helpers WHERE id = ?');
-	    $req->execute(array($helperId));
-	    $helper = $req->fetch();
-
-	    if(! $helper){
-	    	throw new Exception("le helper n'existe pas");
-	    }
-	    else {
-	    return $helper;
-		}
 	}
 }

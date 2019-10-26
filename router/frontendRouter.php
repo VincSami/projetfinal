@@ -10,7 +10,7 @@ function frontendRouter()
         }
         elseif ($_GET['action'] == 'placesByType') {
             if(isset($_GET['type_id']) && $_GET['type_id'] > 0){
-            placesByType($_GET['type_id']);
+            placesByType($_GET['id']);
             }
         }
         elseif ($_GET['action'] == 'place') {

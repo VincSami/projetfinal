@@ -13,30 +13,40 @@
 
 <?php $page_title = "Les prestataires" ?>
 
-<?php $page_subtitle = ""; ?>
+<?php ob_start(); ?>
+  <?php
+  foreach($helpersType as $helperType)
+  {
+  ?>
+    <p><?= $helperType['title'] ?></p>
+  <?php
+  }
+  ?>
+<?php $page_subtitle = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
 <section id="prestataires">
-          <h2 class="titre_section">Prestataires</h2>
-          <article>
-            <ul>
-              <?php
-              foreach($helpersType as $helperType)
-              {
-              ?>
-              <li>
-                <figure>
-                  <a href="index.php?action=helperType&amp;id=<?= $helperType['id'] ?>">
-                    <img src="public/img/helperType<?= $helperType['id'] ?>.jpg">
-                  </a>
-                </figure>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </article>
-        </section>
+  <h2 class="titre_section">Prestataires</h2>
+  <article>
+    <ul>
+      <?php
+      foreach($helpersType as $helperType)
+      {
+      ?>
+      <li>
+        <figure>
+          <a href="index.php?action=helper&amp;id=<?= $helperType['id'] ?>">
+            <img src="public/img/helper<?= $helperType['id'] ?>.jpg">
+          </a>
+          <p><?= $helperType['pseudo'] ?></p>
+        </figure>
+      </li>
+      <?php
+      }
+      ?>
+    </ul>
+  </article>
+</section>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php require('templateFrontend.php'); ?>

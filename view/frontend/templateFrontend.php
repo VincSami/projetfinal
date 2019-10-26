@@ -13,9 +13,9 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="index.php">Lieux de réception</a></li>
+                    <li><a href="index.php?action=places">Lieux de réception</a></li>
                     <li><a href="index.php?action=weddingplanners">Wedding Planner</a></li>
-                    <li><a href="index.php">Prestataires</a></li>
+                    <li><a href="index.php?action=helpers">Prestataires</a></li>
                 </ul>
                 <div id="admin">
                     <button class="boutonVert" id="adminButton">S'identifier</button>
