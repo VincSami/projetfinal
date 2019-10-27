@@ -4,7 +4,7 @@ require_once('model/Manager.php');
 
 class AdminManager extends Manager
 {
-	public function connectAdmin($pseudo, $password)
+	public function connectAdmin($pseudo, $pass)
 	{
 		//Si l'admin est déjà connecté on termine la fonction ici
 		if(isset($_SESSION['id'])){
@@ -12,23 +12,25 @@ class AdminManager extends Manager
 		}
 		//Sinon on se connecte à la bdd
 		$db = $this->dbConnect();
-		$pseudo = $_POST['pseudo'];
+		$pseudo = $_POST['pseudoMember'];
 		//On récupère l'id et le mdp lié au pseudo renseigné
-		$req = $db->prepare('SELECT id, password FROM members WHERE pseudo = ?');
+		$req = $db->prepare('SELECT id, pass, member_type FROM members WHERE pseudo = ?');
 		$req->execute(array($pseudo));
 		//on stocke le résultat de la requête dans l'array résultat
 		$resultat = $req->fetch();
 		//On vérifie que le mot de passe renseigné par rapport à celui stocké dans la bdd (qui a été haché préalablement) avec la fonction password_verify
-		$isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
 		//Si le pseudo renseigné n'est pas trouvé dans la bdd...
 		if (!$resultat)
 		{
    			throw new Exception('Mauvais identifiant ou mot de passe !');
 		}
 		//Si le pseudo est trouvé et que le mdp renseigné est correct, on connecte l'admin
-    	if ($isPasswordCorrect) {
-	        $_SESSION['id'] = $resultat['id'];
-	        $_SESSION['pseudo'] = $pseudo;
+    	if ($_POST['passMember'] == $resultat['pass']) {
+			if($resultat['member_type'] == "admin"){
+			$_SESSION['type'] = "admin";
+			$_SESSION['id'] = $resultat['id'];
+			$_SESSION['pseudo'] = $pseudo;
+			}
     	}
     	//Si mauvais mdp ...
     	else {

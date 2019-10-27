@@ -1,9 +1,9 @@
 <?php
 
-require('controller/backendController.php');
+/*require('controller/memberController.php');
 
 
-function backendRouter()
+function memberRouter()
 {
     if (isset($_GET['action'])) {                 
         if ($_GET['action'] == 'homeAdmin') {
@@ -149,4 +149,4 @@ function backendRouter()
     else{
         homeAdmin();
     }
-}
+}*/

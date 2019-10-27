@@ -20,12 +20,18 @@
                 <div id="admin">
                     <button class="boutonVert" id="adminButton">S'identifier</button>
                     <form id="adminAccess" action="index.php?action=connect" method="post">
-                        <input type="text" id="pseudo" name="pseudo" placeholder="Identifiant">
-                        <input type="password" id="password" name="password" placeholder="Mot de passe">
+                        <input type="text" id="pseudoMember" name="pseudoMember" placeholder="Identifiant">
+                        <input type="password" id="passMember" name="passMember" placeholder="Mot de passe">
                         <button id="submitAccess" type="submit">Se connecter</button>
                     </form>
                     <button class="boutonRouge" id="cancelAdminAccess">Annuler</button>
-                    <button class="boutonRouge" id="cancelAdminAccess">Pas encore inscrit ?</button>
+                    <button class="boutonVert" id="subscribeMember">Pas encore membre ? Inscrivez-vous !</button>
+                    <form id="memberSubscription" action="index.php?action=subscribe" method="post">
+                        <input type="text" id="pseudoSubscriber" name="pseudoSubscriber" placeholder="Votre pseudo">
+                        <input type="password" id="passSubscriber" name="passSubscriber" placeholder="Votre mot de passe">
+                        <input type="email" id="email" name="email" placeholder="Votre email">
+                        <button id="submitSubscription" type="submit">S'inscrire</button>
+                    </form>
                 </div>
             </nav>
             <?= $image_page ?>

@@ -21,3 +21,8 @@ form.addEventListener("submit", function() {
 	adminAccess.style.display = "none";
 	cancelAdminAccess.style.display = "none";
 });
+
+const subscribeMemberButton = document.getElementById("subscribeMember");
+subscribeMemberButton.addEventListener("click", function(){
+	document.getElementById("memberSubscription").style.display = "block";
+});

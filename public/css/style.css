@@ -137,6 +137,10 @@ header{
     display: none;
 }
 
+#memberSubscription{
+	display: none;
+}
+
 #cancelAdminAccess {
     display: none;
     padding : 6px;

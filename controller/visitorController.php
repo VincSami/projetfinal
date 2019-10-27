@@ -4,7 +4,8 @@
 require_once('model/PlaceManager.php');
 require_once('model/WeddingplannerManager.php');
 require_once('model/HelperManager.php');
-
+require_once('model/MemberManager.php');
+require_once('model/AdminManager.php');
 
 //Affichage des posts sur la page d'acceuil visiteur
 function home()
@@ -20,10 +21,18 @@ function home()
     require('view/frontend/indexView.php');
 }
 
-function connectAdministrator()
+function subscribe($pseudo, $pass, $email)
+{
+    $memberManager = new MemberManager();
+
+    $newMember = $memberManager->subscribeMember($_POST['pseudoSubscriber'], $_POST['passSubscriber'], $_POST['email']);
+    header('Location:index.php');
+}
+
+    function connectAdministrator()
 {
     $adminManager = new AdminManager();
-    $connectAdministrator = $adminManager->connectAdmin($_POST['pseudo'], $_POST['password']);
+    $connectAdministrator = $adminManager->connectAdmin($_POST['pseudoMember'], $_POST['passMember']);
 }
 
 function places()

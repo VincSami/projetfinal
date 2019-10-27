@@ -1,11 +1,28 @@
 <?php
 
-require('controller/frontendController.php');
+require('controller/visitorController.php');
 
-function frontendRouter()
+function visitorRouter()
 {
     if (isset($_GET['action'])) { 
-        if ($_GET['action'] == 'places') {
+        if ($_GET['action'] == 'subscribe') {
+            if(!empty($_POST['pseudoSubscriber']) && !empty($_POST['passSubscriber']) && !empty($_POST['email'])){
+                subscribe($_POST['pseudoSubscriber'], $_POST['passSubscriber'], $_POST['email']);
+            }
+            else{
+                throw new Exception ("Tous les champs ne sont pas remplis !");
+            }
+        }
+        elseif ($_GET['action'] == 'connect') {
+            if ((!empty($_POST['pseudoMember'])) && (!empty($_POST['passMember']))) {
+              connectAdministrator($_POST['pseudoMember'], $_POST['passMember']);
+              header('Location:index.php');
+            } 
+            else {
+             throw new Exception('Tous les champs ne sont pas remplis !');
+            }
+        }     
+        elseif ($_GET['action'] == 'places') {
             places();
         }
         elseif ($_GET['action'] == 'placesByType') {
