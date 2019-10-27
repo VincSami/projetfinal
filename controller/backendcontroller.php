@@ -1,71 +1,192 @@
 <?php
-//On charge Manager.php (pour récupérer la connexion à la bdd)
-require_once('model/Manager.php');
+//Chargement des classes avec require_once (pour éviter des appels en doublons)
+require_once('model/PlaceManager.php');
+require_once('model/WeddingplannerManager.php');
+require_once('model/HelperManager.php');
 
-class AdminManager extends Manager
+//Accueil Administrateur
+function homeAdmin()
 {
-//Suppression d'un épisode
-  	public function deletePlace($placeId)
-	{
-	        $db = $this->dbConnect();  
-	        $req = $db->prepare('DELETE FROM places WHERE id = ?');
-	        $req->execute(array($placeId));
-	        $deletePlace = $req->fetch(); 
-	}
-	//Suppression des commentaires
-  	public function deleteComments($postId)
-	{
-	        $db = $this->dbConnect();  
-	        $req = $db->prepare('DELETE FROM comments WHERE post_id = ?');
-	        $req->execute(array($postId));
-	        $deleteComments = $req->fetch(); 
-	}
-	//Suppression d'un commentaire
-	public function deleteComment($commentId, $postId)
-	{
-	        $db = $this->dbConnect();  
-	        $req = $db->prepare('DELETE FROM comments WHERE id = ? AND post_id = ?');
-	        $req->execute(array($commentId, $postId));
-	        $deleteComment = $req->fetch(); 
-	}
-	//Modification d'un épisode existant
-	public function modifyPost($title, $content, $postId)
-	{
-		if(isset($_POST['submit'])){
-		        $db = $this->dbConnect();  
-		        $posts = $db->prepare('UPDATE posts SET title = ?, content = ?, updated_date = NOW() WHERE id = ?');
-		        $updatedPost = $posts->execute(array($title, $content, $postId));
-		        return $updatedPost;
-		}
-	}
-	//Création d'un nouvel épisode
-	public function createPost($title, $content)
-	{
-	    $db = $this->dbConnect();
-	    $posts = $db->prepare('INSERT INTO posts(title, creation_date, content) VALUES(?, NOW(), ?)');
-	    $postCreated = $posts->execute(array($title, $content));
-	    
-	    return $db->lastInsertId();
-	}
-	//Upload d'une nouvelle image pour un épisode (création ou modification d'un épisode)
-	public function postImage($postId)
-	{
-	    //Si un fichier a été transmis
-	    if (isset($_FILES['image'])){
-	    	//Si le fichier ne pèse pas plus de 5 Mo
-	    	if ($_FILES['image']['size'] <= 5000000){
-	    		//On récupère le nom du fichier
-	    		$infosfichier = pathinfo($_FILES['image']['name']);
-                //On récupère l'extension du fichier
-                $extension_upload = $infosfichier['extension'];
-                //On crée un array des extensions permises
-                $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
-                //On compare l'extension du fichier transmis aux types d'extension autorisés
-                if (in_array($extension_upload, $extensions_autorisees)){
-                	//On place l'image dans le dossier adéquat et on lui donne un nouveau nom pour faciliter sa récupération
-                	move_uploaded_file($_FILES['image']['tmp_name'], 'public/img/episode' . $postId . "." . $extension_upload);
-                }
-	    	}
-		}
+    $placeManager = new PlaceManager();
+    $weddingplannerManager = new WeddingplannerManager();
+    $helperManager = new HelperManager();
+    
+    $topPlaces = $placeManager->getTopPlaces();
+    $topWeddingplanners = $weddingplannerManager->getTopWeddingplanners();
+    $helperTypes = $helperManager->getHelperTypes();
+
+    require('view/backend/indexAdminView.php');
+}
+
+//Page de suppression du billet et des commentaires
+function deletePlacePage()
+{ 
+    $placeManager = new PlaceManager();
+
+    $place = $placeManager->getPlace($_GET['id']);
+    require('view/backend/deletePlaceView.php');
+}
+
+function deleteWeddingplannerPage()
+{ 
+    $weddingplannerManager = new WeddingplannerManager();
+
+    $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
+    require('view/backend/deleteWeddingplannerView.php');
+}
+
+function deleteHelperPage()
+{ 
+    $helperManager = new HelperManager();
+
+    $helper = $helperManager->getHelper($_GET['id']);
+    require('view/backend/deleteHelperView.php');
+}
+
+//Suppression du billet et des commentaires
+function erasePlace($placeId)
+{
+    $adminManager = new AdminManager();
+    $deletePlace = $adminManager->deletePlace($placeId);
+    header('Location:index.php');
+}
+
+function eraseWeddingplanner($weddingplannerId)
+{
+    $adminManager = new AdminManager();
+    $deleteWeddingplanner = $adminManager->deleteWeddingplanner($weddingplannerId);
+    header('Location:index.php');
+}
+
+function eraseHelper($helperId)
+{
+    $adminManager = new AdminManager();
+    $deleteHelper = $adminManager->deleteHelper($helperId);
+    header('Location:index.php');
+}
+
+function updatePlacePage()
+{ 
+    $placeManager = new PlaceManager();
+
+    $place = $placeManager->getPlace($_GET['id']);
+    require('view/backend/updatePlaceView.php');
+}
+
+function updateWeddingplannerPage()
+{ 
+    $weddingplannerManager = new WeddingplannerManager();
+
+    $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
+    require('view/backend/updateWeddingplannerView.php');
+}
+
+function updateHelperPage()
+{ 
+    $helperManager = new HelperManager();
+
+    $helper = $helperManager->getHelper($_GET['id']);
+    require('view/backend/updateHelperView.php');
+}
+
+//Modification du billet
+function updatePlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+{  
+    $adminManager = new AdminManager();
+    
+    $updatedPlace = $adminManager->modifyPlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation);
+    $placeImage = $adminManager->placeImage($placeId);
+    
+    if ($updatedPlace === false) {
+        throw new Exception('Impossible de modifier le lieu de réception !');
+    } 
+    else {
+        header('Location: index.php?action=place&id=' . $placeId);
+    }
+}
+
+function updateWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
+{  
+    $adminManager = new AdminManager();
+    
+    $updatedWeddingplanner = $adminManager->modifyWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail);
+    $weddingplannerImage = $adminManager->weddingplannerImage($weddingplannerId);
+    
+    if ($updatedWeddingplanner === false) {
+        throw new Exception('Impossible de modifier le wedding-planner !');
+    } 
+    else {
+        header('Location: index.php?action=weddingplanner&id=' . $weddingplannerId);
+    }
+}
+
+function updateHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type)
+{  
+    $adminManager = new AdminManager();
+    
+    $updatedHelper = $adminManager->modifyHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type);
+    $helperImage = $adminManager->helperImage($helperId);
+    
+    if ($updatedHelper === false) {
+        throw new Exception('Impossible de modifier le prestataire !');
+    } 
+    else {
+        header('Location: index.php?action=helper&id=' . $helperId);
+    }
+}
+
+//Page de création d'un billet
+function placeCreationPage()
+{
+  require('view/backend/createPlaceView.php');
+}
+
+function weddingplannerCreationPage()
+{
+  require('view/backend/createWeddingplannerView.php');
+}
+
+function helperCreationPage()
+{
+  require('view/backend/createHelperView.php');
+}
+
+//Création d'un nouveau billet
+function newPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+{
+    $adminManager = new AdminManager();
+    $placeCreated = $adminManager->createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation);
+    $placeImage = $adminManager->placeImage($placeCreated);
+    if ($placeCreated === false) {
+        throw new Exception('Impossible d\'ajouter le lieu de réception !');
+    } 
+    else {
+        header('Location: index.php');
+    }
+}
+
+function newWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail)
+{
+    $adminManager = new AdminManager();
+    $weddingplannerCreated = $adminManager->createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail);
+    $weddingplannerImage = $adminManager->weddingplannerImage($weddingplannerCreated);
+    if ($weddingplannerCreated === false) {
+        throw new Exception('Impossible d\'ajouter le wedding-planner !');
+    } 
+    else {
+        header('Location: index.php');
+    }
+}
+
+function newHelper($pseudo, $presentation, $website, $tel, $mail, $id_type)
+{
+    $adminManager = new AdminManager();
+    $helperCreated = $adminManager->createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type);
+    $helperImage = $adminManager->helperImage($helperCreated);
+    if ($helperCreated === false) {
+        throw new Exception('Impossible d\'ajouter le prestataire !');
+    } 
+    else {
+        header('Location: index.php');
     }
 }

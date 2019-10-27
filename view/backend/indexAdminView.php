@@ -1,40 +1,98 @@
 <?php ob_start(); ?>
-    <img class="fullwidth" src="public/img/alaska_accueil.jpg" alt="image alaska accueil">
-<?php $image_post = ob_get_clean(); ?>
+  <img class="fullwidth" src="public/img/accueil.jpg" alt="image acceuil">
+<?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur la page d\'administration du site de Jean Forteroche'; ?>
+<?php $page_title = 'Bienvenue sur Wedding & Love !'; ?>
 
-<?php $page_subtitle = ''; ?>
-
-<?php $main_content_title = 'Gestion des épisodes et des commentaires'; ?>
-
-<?php $main_content_subtitle = 'Ecrivez de nouveaux épisodes, modifiez ou supprimez des épisodes existants ou encore gérez les commentaires signalés à partir de cette page.'; ?>
+<?php $page_subtitle = 'Préparez votre marriage en toute sérénité !'; ?>
 <?php ob_start(); ?>
-      <div id="newPost">
-        <button class="boutonVert"><a href="index.php?action=newPost">Ecrire un nouvel épisode</a></button><br>
-      </div>
-<?php $creation_post = ob_get_clean(); ?>
+<form action="#" method="post">
+  <label for="location">Où ?</label>
+  <input type="text" name="location" id="location" />
+  <label for="date">Quand ?</label>
+  <input type="date" name="date" id="date" />
+</form>
+<?php $form_content = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-      <div class="postPresentation">
-      <?php
-         foreach($posts as $post) 
-        {
-      ?>
-            <figure><a href="index.php?action=postAdmin&amp;id=<?= $post['id'] ?>">
-            <img src="public/img/episode<?= $post['id'] ?>.jpg" alt="image alaska épisodes"></a>
-            <figcaption>
-              Billet simple pour l'Alaska<br><?= $post['title'] ?><br>
-              <button class="boutonRouge" id="deletePostPage"><a href="index.php?action=goToDeletePage&amp;id=<?= $post['id'] ?>">Supprimer</a></button>
-              <button class="boutonOrange" id="updatePostPage"><a href="index.php?action=goToUpdatePage&amp;id=<?= $post['id'] ?>">Modifier</a></button>
-            </figcaption>
-            </figure>
-      <?php
-        }
-      ?>   
-      </div>   
-<?php $article_content = ob_get_clean(); ?>
-
-<?php $comment_content = "" ?>
+<section id="place">
+          <h2 class="titre_section">Lieux de réception</h2>
+          <article>
+            <ul>
+              <?php
+              foreach($topPlaces as $topPlace)
+              {
+              ?>
+              <li>
+                <figure>
+                  <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>">
+                    <img src="public/img/place<?= $topPlace['id'] ?>.jpg">
+                  </a>
+                  <figcaption>
+                    <?= $topPlace['title'] ?><br>
+                    <button class="boutonRouge" id="deletePlacePage"><a href="index.php?action=deletePlacePage&amp;id=<?= $place['id'] ?>">Supprimer</a></button>
+                    <button class="boutonOrange" id="updatePlacePage"><a href="index.php?action=updatePlacePage&amp;id=<?= $place['id'] ?>">Modifier</a></button>
+                  </figcaption>
+                </figure>
+              </li>
+              <?php
+              }
+              ?>
+            </ul>
+          </article>
+        </section>
+        <section id="weddingPlanner">
+          <h2 class="titre_section">Wedding Planner</h2>
+          <article>
+          <ul>
+              <?php
+              foreach($topWeddingplanners as $topWeddingplanner)
+              {
+              ?>
+              <li>
+                <figure>
+                   <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>">
+                    <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg">
+                  </a>
+                  <figcaption>
+                    <?= $topWeddingplanner['title'] ?><br>
+                    <button class="boutonRouge" id="deleteWeddingplannerPage"><a href="index.php?action=deleteWeddingplannerPage&amp;id=<?= $topWeddingplanner['id'] ?>">Supprimer</a></button>
+                    <button class="boutonOrange" id="updateWeddingplannerPage"><a href="index.php?action=updateWeddingplannerPage&amp;id=<?= $topWeddingplanner['id'] ?>">Modifier</a></button>
+                  </figcaption>
+                </figure>
+              </li>
+              <?php
+              }
+              ?>
+            </ul>
+          </article>
+        </section>
+        <section id="helpers"></section>
+          <h2 class="titre_section">les helpers</h2>
+          <article>
+            <ul>
+              <?php
+              foreach($helperTypes as $helperType)
+              {
+              ?>
+              <li>
+                <figure>
+                   <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>">
+                    <img src="#">
+                  </a>
+                  <figcaption>
+                    Billet simple pour l'Alaska<br><?= $post['title'] ?><br>
+                    <button class="boutonRouge" id="deletePostPage"><a href="index.php?action=goToDeletePage&amp;id=<?= $post['id'] ?>">Supprimer</a></button>
+                    <button class="boutonOrange" id="updatePostPage"><a href="index.php?action=goToUpdatePage&amp;id=<?= $post['id'] ?>">Modifier</a></button>
+                  </figcaption>
+                </figure>
+              </li>
+              <?php
+              }
+              ?>
+            </ul>
+          </article>
+        </section>
+<?php $main_content = ob_get_clean(); ?>
 
 <?php require('templateBackend.php'); ?>

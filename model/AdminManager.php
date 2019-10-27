@@ -62,34 +62,34 @@ class AdminManager extends Manager
 	}
 
 	//Modification d'un épisode existant
-	public function modifyPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+	public function modifyPlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
 	{
 		if(isset($_POST['submit'])){
 		        $db = $this->dbConnect();  
 		        $places = $db->prepare('UPDATE places SET title = ?, city = ?, positionx = ?, positiony = ?, region = ?, website = ?, tel = ?, presentation = ? WHERE id = ?');
-		        $updatedPlace = $places->execute(array($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation));
+		        $updatedPlace = $places->execute(array($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation));
 		        return $updatedPlace;
 		}
 	}
 	
 	//Modification d'un épisode existant
-	public function modifyWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail)
+	public function modifyWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
 	{
 		if(isset($_POST['submit'])){
 		        $db = $this->dbConnect();  
 		        $places = $db->prepare('UPDATE weddingplanners SET pseudo = ?, specialty = ?, presentation = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
-		        $updatedWeddingplanner = $places->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail));
+		        $updatedWeddingplanner = $places->execute(array($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail));
 		        return $updatedWeddingplanner;
 		}
 	}
 	
 	//Modification d'un épisode existant
-	public function modifyHelper($pseudo, $presentation, $website, $tel, $mail, $id_type)
+	public function modifyHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type)
 	{
 		if(isset($_POST['submit'])){
 		        $db = $this->dbConnect();  
 		        $places = $db->prepare('UPDATE helpers SET pseudo = ?, presentation = ?, website = ?, tel = ?, mail = ?, id_type WHERE id = ?');
-		        $updatedPlace = $places->execute(array($pseudo, $presentation, $website, $tel, $mail, $id_type));
+		        $updatedPlace = $places->execute(array($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type));
 		        return $updatedHelper;
 		}
 	}

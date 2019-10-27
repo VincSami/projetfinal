@@ -11,42 +11,22 @@
         
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Billet simple pour l'Alaska
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <?php 
-                          foreach ($posts as $post)
-                          {
-                          ?>
-                          <a class="dropdown-item" href="index.php?action=postAdmin&amp;id=<?= $post['id'] ?>"> <?= $post['title'] ?> </a>
-                          <?php
-                          }
-                          ?>
-                        </div>
-                      </li>
-                    </ul>
+            <nav>
+                <ul>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="index.php?action=places">Lieux de réception</a></li>
+                    <li><a href="index.php?action=weddingplanners">Wedding Planner</a></li>
+                    <li><a href="index.php?action=helpers">Prestataires</a></li>
+                </ul>
                 <div id="infoSession">
-                <p id="helloAdmin"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
-                <button class="boutonRouge" id="exitAdmin"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
-                </div>
+                  <p id="helloAdmin"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
+                  <button class="boutonRouge" id="exitAdmin"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
                 </div>
             </nav>
-            <?= $image_post ?>
+            <?= $image_page ?>
             <div id="titre_principal">
-            <h1><?= $page_title ?></h1><br>
-            <h2><?= $page_subtitle ?></h2>
+              <h1><?= $page_title ?></h1><br>
+              <h2><?= $page_subtitle ?></h2>
             </div>
         </header>
 
@@ -56,31 +36,7 @@
           <?= $creation_post ?>
         </section> 
 
-        <section id="main_content">
-          <article>
-          <?= $article_content ?>
-          </article>
-          <aside>
-            <img src="public/img/avatar.jpg" alt="portrait auteur">
-            <h2>Jean Forteroche</h2>
-            <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-            ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-            ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-          </aside>
-        </section>
-
-        <section id="comments">
-          <?= $comment_content ?>
-        </section>
+        <?= $main_content ?>
 
         <footer>
             <div id="contact">
