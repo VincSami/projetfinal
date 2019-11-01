@@ -1,10 +1,10 @@
 <?php ob_start(); ?>
-  <img class="fullwidth" src="public/img/accueil.jpg" alt="image acceuil">
+<iframe width="100%" height="600" src="https://www.youtube.com/embed/EWsv_E1k_bk?&autoplay=1?&mute=1" frameborder="0" allowfullscreen></iframe>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur Wedding & Love !'; ?>
+<?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
 
-<?php $page_subtitle = 'Préparez votre marriage en toute sérénité !'; ?>
+<?php $page_subtitle = 'Votre mariage à La Réunion les pieds dans l\'eau ou la tête dans les nuages'; ?>
 <?php ob_start(); ?>
 <form action="#" method="post">
   <label for="location">Où ?</label>
@@ -25,7 +25,7 @@
               ?>
               <li>
                 <figure>
-                  <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>">
+                  <a href="index.php?action=placeMember&amp;id=<?= $topPlace['id'] ?>">
                     <img src="public/img/place<?= $topPlace['id'] ?>.jpg">
                   </a>
                 </figure>
@@ -46,7 +46,7 @@
               ?>
               <li>
                 <figure>
-                   <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>">
+                   <a href="index.php?action=weddingplannerMember&amp;id=<?= $topWeddingplanner['id'] ?>">
                     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg">
                   </a>
                 </figure>
@@ -67,8 +67,8 @@
               ?>
               <li>
                 <figure>
-                   <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>">
-                    <img src="#">
+                   <a href="index.php?action=helpersTypeMember&amp;id=<?= $helperType['id'] ?>">
+                    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg">
                   </a>
                 </figure>
               </li>
@@ -80,4 +80,4 @@
         </section>
 <?php $main_content = ob_get_clean(); ?>
 
-<?php require('templateFrontend.php'); ?>
+<?php require('templateUser.php'); ?>

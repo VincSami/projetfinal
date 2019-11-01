@@ -14,9 +14,9 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="index.php?action=places">Lieux de réception</a></li>
-                    <li><a href="index.php?action=weddingplanners">Wedding Planner</a></li>
-                    <li><a href="index.php?action=helpers">Prestataires</a></li>
+                    <li><a href="index.php?action=placesAdmin">Lieux de réception</a></li>
+                    <li><a href="index.php?action=weddingplannersAdmin">Wedding Planner</a></li>
+                    <li><a href="index.php?action=helpersAdmin">Prestataires</a></li>
                 </ul>
                 <div id="infoSession">
                   <p id="helloAdmin"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
@@ -29,13 +29,7 @@
               <h2><?= $page_subtitle ?></h2>
             </div>
         </header>
-
-        <section id="introduction">
-          <h2><?= $main_content_title ?></h2>
-          <p><?= $main_content_subtitle ?></p>
-          <?= $creation_post ?>
-        </section> 
-
+        
         <?= $main_content ?>
 
         <footer>

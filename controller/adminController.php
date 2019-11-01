@@ -3,6 +3,8 @@
 require_once('model/PlaceManager.php');
 require_once('model/WeddingplannerManager.php');
 require_once('model/HelperManager.php');
+require_once('model/MemberManager.php');
+require_once('model/AdminManager.php');
 
 //Accueil Administrateur
 function homeAdmin()
@@ -15,32 +17,81 @@ function homeAdmin()
     $topWeddingplanners = $weddingplannerManager->getTopWeddingplanners();
     $helperTypes = $helperManager->getHelperTypes();
 
-    require('view/backend/indexAdminView.php');
+    require('view/admin/indexAdminView.php');
+}
+
+function placesAdmin()
+{
+    $placeManager = new PlaceManager();
+    $places = $placeManager->getPlaces();
+    require('view/visitor/placesView.php');
+}
+
+function placeAdmin($placeId)
+{
+    $placeManager = new PlaceManager();
+    $place = $placeManager->getPlace($_GET['id']);
+    require('view/visitor/placeView.php');
+}
+
+function weddingPlannersAdmin()
+{
+    $weddingplannerManager = new WeddingplannerManager();
+    $weddingplanners = $weddingplannerManager->getWeddingplanners();
+    require('view/visitor/weddingplannersView.php');
+}
+
+function weddingPlannerAdmin($weddingplannerId)
+{
+    $weddingplannerManager = new WeddingplannerManager();
+    $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
+    require('view/visitor/weddingplannerView.php');
+}
+
+function helpersAdmin()
+{
+    $helperManager = new HelperManager();
+    $helpers = $helperManager->getHelpers();
+    require('view/visitor/helpersView.php');
+}
+
+function helpersTypeAdmin($typeId)
+{
+    $helperManager = new HelperManager();
+    $helpersType = $helperManager->getHelpersType($_GET['id']);
+    require('view/visitor/helpersTypeView.php');
+}
+
+function helperAdmin($helperId)
+{
+    $helperManager = new HelperManager();
+    $helper = $helperManager->getHelper($_GET['id']);
+    require('view/visitor/helperView.php');
 }
 
 //Page de suppression du billet et des commentaires
-function deletePlacePage()
+function deletePlacePageAdmin()
 { 
     $placeManager = new PlaceManager();
 
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/backend/deletePlaceView.php');
+    require('view/admin/deletePlaceView.php');
 }
 
-function deleteWeddingplannerPage()
+function deleteWeddingplannerPageAdmin()
 { 
     $weddingplannerManager = new WeddingplannerManager();
 
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
-    require('view/backend/deleteWeddingplannerView.php');
+    require('view/admin/deleteWeddingplannerView.php');
 }
 
-function deleteHelperPage()
+function deleteHelperPageAdmin()
 { 
     $helperManager = new HelperManager();
 
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/backend/deleteHelperView.php');
+    require('view/admin/deleteHelperView.php');
 }
 
 //Suppression du billet et des commentaires
@@ -51,46 +102,46 @@ function erasePlace($placeId)
     header('Location:index.php');
 }
 
-function eraseWeddingplanner($weddingplannerId)
+function eraseWeddingplannerAdmin($weddingplannerId)
 {
     $adminManager = new AdminManager();
     $deleteWeddingplanner = $adminManager->deleteWeddingplanner($weddingplannerId);
     header('Location:index.php');
 }
 
-function eraseHelper($helperId)
+function eraseHelperAdmin($helperId)
 {
     $adminManager = new AdminManager();
     $deleteHelper = $adminManager->deleteHelper($helperId);
     header('Location:index.php');
 }
 
-function updatePlacePage()
+function updatePlacePageAdmin()
 { 
     $placeManager = new PlaceManager();
 
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/backend/updatePlaceView.php');
+    require('view/admin/updatePlaceView.php');
 }
 
-function updateWeddingplannerPage()
+function updateWeddingplannerPageAdmin()
 { 
     $weddingplannerManager = new WeddingplannerManager();
 
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
-    require('view/backend/updateWeddingplannerView.php');
+    require('view/admin/updateWeddingplannerView.php');
 }
 
-function updateHelperPage()
+function updateHelperPageAdmin()
 { 
     $helperManager = new HelperManager();
 
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/backend/updateHelperView.php');
+    require('view/admin/updateHelperView.php');
 }
 
 //Modification du billet
-function updatePlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+function updatePlaceAdmin($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
 {  
     $adminManager = new AdminManager();
     
@@ -105,7 +156,7 @@ function updatePlace($placeId, $title, $city, $positionx, $positiony, $region, $
     }
 }
 
-function updateWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
+function updateWeddingplannerAdmin($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
 {  
     $adminManager = new AdminManager();
     
@@ -120,7 +171,7 @@ function updateWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentat
     }
 }
 
-function updateHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type)
+function updateHelperAdmin($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type)
 {  
     $adminManager = new AdminManager();
     
@@ -136,23 +187,23 @@ function updateHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, 
 }
 
 //Page de création d'un billet
-function placeCreationPage()
+function placeCreationPageAdmin()
 {
-  require('view/backend/createPlaceView.php');
+  require('view/admin/createPlaceView.php');
 }
 
-function weddingplannerCreationPage()
+function weddingplannerCreationPageAdmin()
 {
-  require('view/backend/createWeddingplannerView.php');
+  require('view/admin/createWeddingplannerView.php');
 }
 
-function helperCreationPage()
+function helperCreationPageAdmin()
 {
-  require('view/backend/createHelperView.php');
+  require('view/admin/createHelperView.php');
 }
 
 //Création d'un nouveau billet
-function newPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+function newPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
 {
     $adminManager = new AdminManager();
     $placeCreated = $adminManager->createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation);
@@ -165,7 +216,7 @@ function newPlace($title, $city, $positionx, $positiony, $region, $website, $tel
     }
 }
 
-function newWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail)
+function newWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail)
 {
     $adminManager = new AdminManager();
     $weddingplannerCreated = $adminManager->createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail);
@@ -178,7 +229,7 @@ function newWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $
     }
 }
 
-function newHelper($pseudo, $presentation, $website, $tel, $mail, $id_type)
+function newHelperAdmin($pseudo, $presentation, $website, $tel, $mail, $id_type)
 {
     $adminManager = new AdminManager();
     $helperCreated = $adminManager->createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type);

@@ -8,10 +8,10 @@ require('router/memberRouter.php');
 
 try {
     if (isset($_SESSION['id'])) {
-        if ($_SESSION['type'] == "admin") {
+        if ($_SESSION['member_type'] == "admin") {
             adminRouter();
         }
-        else {
+        elseif ($_SESSION['member_type'] == "user") {
             memberRouter();
         }
     } else {

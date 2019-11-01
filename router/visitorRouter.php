@@ -15,8 +15,7 @@ function visitorRouter()
         }
         elseif ($_GET['action'] == 'connect') {
             if ((!empty($_POST['pseudoMember'])) && (!empty($_POST['passMember']))) {
-              connectAdministrator($_POST['pseudoMember'], $_POST['passMember']);
-              header('Location:index.php');
+              connectMember($_POST['pseudoMember'], $_POST['passMember']);
             } 
             else {
              throw new Exception('Tous les champs ne sont pas remplis !');

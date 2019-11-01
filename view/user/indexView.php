@@ -1,10 +1,10 @@
 <?php ob_start(); ?>
-  <img class="fullwidth" src="public/img/accueil.jpg" alt="image acceuil">
+<iframe width="100%" height="600" src="https://www.youtube.com/embed/EWsv_E1k_bk?&autoplay=1?&mute=1" frameborder="0" allowfullscreen></iframe>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur Wedding & Love !'; ?>
+<?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
 
-<?php $page_subtitle = 'Préparez votre marriage en toute sérénité !'; ?>
+<?php $page_subtitle = 'Votre mariage à La Réunion les pieds dans l\'eau ou la tête dans les nuages'; ?>
 <?php ob_start(); ?>
 <form action="#" method="post">
   <label for="location">Où ?</label>
@@ -28,11 +28,6 @@
                   <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>">
                     <img src="public/img/place<?= $topPlace['id'] ?>.jpg">
                   </a>
-                  <figcaption>
-                    <?= $topPlace['title'] ?><br>
-                    <button class="boutonRouge" id="deletePlacePage"><a href="index.php?action=deletePlacePage&amp;id=<?= $place['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updatePlacePage"><a href="index.php?action=updatePlacePage&amp;id=<?= $place['id'] ?>">Modifier</a></button>
-                  </figcaption>
                 </figure>
               </li>
               <?php
@@ -46,7 +41,7 @@
           <article>
           <ul>
               <?php
-              foreach($topWeddingplanners as $topWeddingplanner)
+              foreach($topWeddingplanners as$topWeddingplanner)
               {
               ?>
               <li>
@@ -54,11 +49,6 @@
                    <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>">
                     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg">
                   </a>
-                  <figcaption>
-                    <?= $topWeddingplanner['title'] ?><br>
-                    <button class="boutonRouge" id="deleteWeddingplannerPage"><a href="index.php?action=deleteWeddingplannerPage&amp;id=<?= $topWeddingplanner['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updateWeddingplannerPage"><a href="index.php?action=updateWeddingplannerPage&amp;id=<?= $topWeddingplanner['id'] ?>">Modifier</a></button>
-                  </figcaption>
                 </figure>
               </li>
               <?php
@@ -78,13 +68,8 @@
               <li>
                 <figure>
                    <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>">
-                    <img src="#">
+                    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg">
                   </a>
-                  <figcaption>
-                    Billet simple pour l'Alaska<br><?= $post['title'] ?><br>
-                    <button class="boutonRouge" id="deletePostPage"><a href="index.php?action=goToDeletePage&amp;id=<?= $post['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updatePostPage"><a href="index.php?action=goToUpdatePage&amp;id=<?= $post['id'] ?>">Modifier</a></button>
-                  </figcaption>
                 </figure>
               </li>
               <?php
@@ -95,4 +80,4 @@
         </section>
 <?php $main_content = ob_get_clean(); ?>
 
-<?php require('templateBackend.php'); ?>
+<?php require('templateFrontend.php'); ?>
