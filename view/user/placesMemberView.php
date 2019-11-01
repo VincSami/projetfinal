@@ -17,7 +17,7 @@
               ?>
               <li>
                 <figure>
-                  <a href="index.php?action=place&amp;id=<?= $place['id'] ?>">
+                  <a href="index.php?action=placeMember&amp;id=<?= $place['id'] ?>">
                     <img src="public/img/place<?= $place['id'] ?>.jpg">
                   </a>
                 </figure>
@@ -30,4 +30,4 @@
         </section>
 <?php $main_content = ob_get_clean(); ?>
 
-<?php require('templateFrontend.php'); ?>
+<?php require('templateUser.php'); ?>

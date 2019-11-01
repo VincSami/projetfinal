@@ -14,7 +14,7 @@
   ?>
   <li>
     <figure>
-       <a href="index.php?action=weddingplanner&amp;id=<?= $weddingplanner['id'] ?>">
+       <a href="index.php?action=weddingplannerMember&amp;id=<?= $weddingplanner['id'] ?>">
         <img src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg">
       </a>
     </figure>
@@ -26,4 +26,4 @@
 <?php $main_content = ob_get_clean(); ?>
 
 
-<?php require('templateFrontend.php'); ?>
+<?php require('templateUser.php'); ?>

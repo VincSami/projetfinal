@@ -35,7 +35,7 @@
       ?>
       <li>
         <figure>
-          <a href="index.php?action=helper&amp;id=<?= $helperType['id'] ?>">
+          <a href="index.php?action=helperAdmin&amp;id=<?= $helperType['id'] ?>">
             <img src="public/img/helper<?= $helperType['id'] ?>.jpg">
           </a>
           <p><?= $helperType['pseudo'] ?></p>
@@ -49,4 +49,4 @@
 </section>
 <?php $main_content = ob_get_clean(); ?>
 
-<?php require('templateFrontend.php'); ?>
+<?php require('templateBackend.php'); ?>

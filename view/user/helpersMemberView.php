@@ -14,7 +14,7 @@
   ?>
   <li>
     <figure>
-       <a href="index.php?action=helper&amp;id=<?= $helper['id'] ?>">
+       <a href="index.php?action=helperMember&amp;id=<?= $helper['id'] ?>">
         <img src="public/img/helper<?= $helper['id'] ?>.jpg">
       </a>
       <p><?= $helper['pseudo'] ?></p>
@@ -26,4 +26,4 @@
 </ul>
 <?php $main_content = ob_get_clean(); ?>
 
-<?php require('templateFrontend.php'); ?>
+<?php require('templateUser.php'); ?>

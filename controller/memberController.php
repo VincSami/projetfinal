@@ -22,47 +22,47 @@ function placesMember()
 {
     $placeManager = new PlaceManager();
     $places = $placeManager->getPlaces();
-    require('view/visitor/placesView.php');
+    require('view/user/placesMemberView.php');
 }
 
 function placeMember($placeId)
 {
     $placeManager = new PlaceManager();
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/visitor/placeView.php');
+    require('view/user/placeMemberView.php');
 }
 
 function weddingPlannersMember()
 {
     $weddingplannerManager = new WeddingplannerManager();
     $weddingplanners = $weddingplannerManager->getWeddingplanners();
-    require('view/visitor/weddingplannersView.php');
+    require('view/user/weddingplannersMemberView.php');
 }
 
 function weddingPlannerMember($weddingplannerId)
 {
     $weddingplannerManager = new WeddingplannerManager();
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
-    require('view/visitor/weddingplannerView.php');
+    require('view/user/weddingplannerMemberView.php');
 }
 
 function helpersMember()
 {
     $helperManager = new HelperManager();
     $helpers = $helperManager->getHelpers();
-    require('view/visitor/helpersView.php');
+    require('view/user/helpersMemberView.php');
 }
 
 function helpersTypeMember($typeId)
 {
     $helperManager = new HelperManager();
     $helpersType = $helperManager->getHelpersType($_GET['id']);
-    require('view/visitor/helpersTypeView.php');
+    require('view/user/helpersTypeMemberView.php');
 }
 
 function helperMember($helperId)
 {
     $helperManager = new HelperManager();
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/visitor/helperView.php');
+    require('view/user/helperMemberView.php');
 }

@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-    <img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg">
+    <img class="fullwidth" src="public/img/helper<?= $helper['id'] ?>.jpg">
 <?php $image_page = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
@@ -11,10 +11,10 @@
 </form>
 <?php $form_content = ob_get_clean(); ?>
 
-<?php $page_title = "Lieu de réception" ?>
+<?php $page_title = "les prestataires" ?>
 
-<?php $page_subtitle = $weddingplanner['pseudo'] ?>
+<?php $page_subtitle = $helper['pseudo'] ?>
 
-<?php $main_content = $weddingplanner['presentation'] ?>
+<?php $main_content = $helper['content'] ?>
 
-<?php require('templateFrontend.php'); ?>
+<?php require('templateBackend.php'); ?>

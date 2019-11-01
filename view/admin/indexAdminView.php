@@ -25,7 +25,7 @@
               ?>
               <li>
                 <figure>
-                  <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>">
+                  <a href="index.php?action=placeAdmin&amp;id=<?= $topPlace['id'] ?>">
                     <img src="public/img/place<?= $topPlace['id'] ?>.jpg">
                   </a>
                   <figcaption>
@@ -51,7 +51,7 @@
               ?>
               <li>
                 <figure>
-                   <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>">
+                   <a href="index.php?action=weddingplannerAdmin&amp;id=<?= $topWeddingplanner['id'] ?>">
                     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg">
                   </a>
                   <figcaption>
@@ -77,7 +77,7 @@
               ?>
               <li>
                 <figure>
-                   <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>">
+                   <a href="index.php?action=helpersTypeAdmin&amp;id=<?= $helperType['id'] ?>">
                     <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg">
                   </a>
                   <figcaption>
