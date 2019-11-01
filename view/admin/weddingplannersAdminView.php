@@ -6,6 +6,10 @@
 
 <?php $page_subtitle = ""; ?>
 
+<?php $main_content_title = ""; ?>
+
+<?php $main_content_subtitle = ""; ?>
+
 <?php ob_start(); ?>
 <ul>
   <?php

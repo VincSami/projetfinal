@@ -39,7 +39,7 @@ function adminRouter()
         }
         elseif ($_GET['action'] == 'deletePlacePage') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                deletePlacePage();
+                deletePlacePageAdmin();
             }  
             else {
                 throw new Exception("aucun identifiant de lieu de réception envoyé");

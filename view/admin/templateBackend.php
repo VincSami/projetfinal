@@ -29,7 +29,8 @@
               <h2><?= $page_subtitle ?></h2>
             </div>
         </header>
-        
+        <?= $main_content_title ?>
+        <?= $main_content_subtitle ?>
         <?= $main_content ?>
 
         <footer>

@@ -28,6 +28,9 @@
                   <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>">
                     <img src="public/img/place<?= $topPlace['id'] ?>.jpg">
                   </a>
+                  <figcaption>
+                    <?= $topPlace['title'] ?><br>
+                  </figcaption>
                 </figure>
               </li>
               <?php
@@ -49,6 +52,9 @@
                    <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>">
                     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg">
                   </a>
+                  <figcaption>
+                    <?= $topWeddingplanner['pseudo'] ?><br>
+                  </figcaption>
                 </figure>
               </li>
               <?php
@@ -70,6 +76,9 @@
                    <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>">
                     <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg">
                   </a>
+                  <figcaption>
+                    <?= $helperType['title'] ?><br>
+                  </figcaption>
                 </figure>
               </li>
               <?php

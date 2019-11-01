@@ -15,6 +15,10 @@
 
 <?php $page_subtitle = $weddingplanner['pseudo'] ?>
 
+<?php $main_content_title = ""; ?>
+
+<?php $main_content_subtitle = ""; ?>
+
 <?php $main_content = $weddingplanner['presentation'] ?>
 
 <?php require('templateBackend.php'); ?>

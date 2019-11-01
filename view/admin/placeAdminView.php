@@ -11,6 +11,10 @@
 </form>
 <?php $form_content = ob_get_clean(); ?>
 
+<?php $main_content_title = ""; ?>
+
+<?php $main_content_subtitle = ""; ?>
+
 <?php $page_title = "Lieu de réception" ?>
 
 <?php $page_subtitle = $place['title'] ?>

@@ -41,8 +41,11 @@ function memberRouter()
             session_destroy();
             header('Location:index.php');
         }
+        elseif ($_GET['action'] == 'profil') {
+            require ('view/user/managerMemberView.php');
+        }
         elseif ($_GET['action'] == 'mentions'){
-        require ('view/mentions_legales.php');
+            require ('view/mentions_legales.php');
         }
     }
     else{

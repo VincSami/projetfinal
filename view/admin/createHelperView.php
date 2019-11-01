@@ -14,6 +14,17 @@
    		<input class="boutonVert" type="file" name="image" /><br /><br />
 		<label for="pseudo"><strong>Nom du prestataire</strong></label><br />
 		<input type="text" name="pseudo" required>
+		<label for="helper-type"><strong>Type de prestation proposée</strong></label><br />
+		<select name="helper-type">
+			<option value="">--Merci de choisir une option--</option>
+			<option value="1">Photographe</option>
+			<option value="2">Fleuriste</option>
+			<option value="3">Loueur de voitures et motos</option>
+			<option value="4">Vendeur et loueur de robes de mariée</option>
+			<option value="5">Vendeur et loueur de costumes de marié</option>
+			<option value="6">Traiteur</option>
+			<option value="7">Pattiserie</option>
+		</select>
 	    <label for="presentation"><strong>Description du lieu de réception</strong></label><br />
 	    <textarea name="presentation" required></textarea><br />
 		<input type="text" name="website">

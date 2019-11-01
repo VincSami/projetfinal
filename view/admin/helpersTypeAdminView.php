@@ -24,6 +24,10 @@
   ?>
 <?php $page_subtitle = ob_get_clean(); ?>
 
+<?php $main_content_title = ""; ?>
+
+<?php $main_content_subtitle = ""; ?>
+
 <?php ob_start(); ?>
 <section id="prestataires">
   <h2 class="titre_section">Prestataires</h2>

@@ -6,6 +6,10 @@
 
 <?php $page_subtitle = ""; ?>
 
+<?php $main_content_title = ""; ?>
+
+<?php $main_content_subtitle = ""; ?>
+
 <?php ob_start(); ?>
 <section id="place">
           <h2 class="titre_section">Lieux de réception</h2>

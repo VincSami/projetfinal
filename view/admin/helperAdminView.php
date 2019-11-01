@@ -15,6 +15,10 @@
 
 <?php $page_subtitle = $helper['pseudo'] ?>
 
+<?php $main_content_title = ""; ?>
+
+<?php $main_content_subtitle = ""; ?>
+
 <?php $main_content = $helper['content'] ?>
 
 <?php require('templateBackend.php'); ?>

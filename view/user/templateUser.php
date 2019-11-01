@@ -19,6 +19,7 @@
                 </ul>
                 <div id="infoSession">
                   <p id="helloMember"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
+                  <button class="boutonVert" id="memberSpace"><a href ="index.php?action=profil">Profil</a></button>
                   <button class="boutonRouge" id="exitMember"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
                 </div>
             </nav>

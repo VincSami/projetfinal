@@ -4,15 +4,11 @@
 
 <?php $page_title = 'Bienvenue sur Wedding & Love !'; ?>
 
-<?php $page_subtitle = 'Préparez votre marriage en toute sérénité !'; ?>
-<?php ob_start(); ?>
-<form action="#" method="post">
-  <label for="location">Où ?</label>
-  <input type="text" name="location" id="location" />
-  <label for="date">Quand ?</label>
-  <input type="date" name="date" id="date" />
-</form>
-<?php $form_content = ob_get_clean(); ?>
+<?php $page_subtitle = 'Votre marriage à La Réunion en toute sérénité !'; ?>
+
+<?php $main_content_title = ""; ?>
+
+<?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
 <section id="place">
