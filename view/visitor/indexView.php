@@ -1,5 +1,30 @@
 <?php ob_start(); ?>
-<iframe width="100%" height="600" src="https://www.youtube.com/embed/EWsv_E1k_bk?&autoplay=1?&mute=1" frameborder="0" allowfullscreen></iframe>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="public/img/accueil1" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="public/img/accueil2" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="public/img/accueil3" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 <?php $image_page = ob_get_clean(); ?>
 
 <?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
@@ -16,77 +41,53 @@
 
 <?php ob_start(); ?>
 <section id="place">
-          <h2 class="titre_section">Lieux de réception</h2>
-          <article>
-            <ul>
-              <?php
-              foreach($topPlaces as $topPlace)
-              {
-              ?>
-              <li>
-                <figure>
-                  <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>">
-                    <img src="public/img/place<?= $topPlace['id'] ?>.jpg">
-                  </a>
-                  <figcaption>
-                    <?= $topPlace['title'] ?><br>
-                  </figcaption>
-                </figure>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </article>
-        </section>
-        <section id="weddingPlanner">
-          <h2 class="titre_section">Wedding Planner</h2>
-          <article>
-          <ul>
-              <?php
-              foreach($topWeddingplanners as$topWeddingplanner)
-              {
-              ?>
-              <li>
-                <figure>
-                   <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>">
-                    <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg">
-                  </a>
-                  <figcaption>
-                    <?= $topWeddingplanner['pseudo'] ?><br>
-                  </figcaption>
-                </figure>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </article>
-        </section>
-        <section id="helpers"></section>
-          <h2 class="titre_section">les helpers</h2>
-          <article>
-            <ul>
-              <?php
-              foreach($helperTypes as $helperType)
-              {
-              ?>
-              <li>
-                <figure>
-                   <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>">
-                    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg">
-                  </a>
-                  <figcaption>
-                    <?= $helperType['title'] ?><br>
-                  </figcaption>
-                </figure>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </article>
-        </section>
+<?php
+  foreach($topPlaces as $topPlace)
+  {
+  ?>
+  <div class="card" style="width: 18rem;">
+    <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <div class="card-body">
+      <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
+      <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
+    </div>
+  </div>
+  <?php
+  }
+  ?> 
+</section>        
+<section id="weddingPlanner">
+<?php
+  foreach($topWeddingplanners as $topWeddingplanner)
+  {
+  ?>
+  <div class="card" style="width: 18rem;">
+    <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <div class="card-body">
+      <h5 class="card-title"><?= $topWeddingplanner['pseudo'] ?><br></h5>
+      <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
+    </div>
+  </div>
+  <?php
+  }
+  ?>  
+</section>       
+<section id="helpers">
+<?php
+  foreach($helperTypes as $helperType)
+  {
+  ?>
+  <div class="card" style="width: 18rem;">
+    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <div class="card-body">
+      <h5 class="card-title"><?= $helperType['title'] ?><br></h5>
+      <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
+    </div>
+  </div>
+  <?php
+  }
+  ?>  
+</section> 
 <?php $main_content = ob_get_clean(); ?>
 
 <?php require('templateFrontend.php'); ?>

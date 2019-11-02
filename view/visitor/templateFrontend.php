@@ -4,34 +4,65 @@
         <meta charset="utf-8" />
         <title>Mariage & Coquillages</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
         <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href=https://bootswatch.com/4/lux/bootstrap.min.css>
+
         <link href="public/css/style.css" rel="stylesheet" /> 
     </head>
         
     <body>
         <header>
-            <nav>
-                <ul>
-                    <li><a href="index.php">Accueil</a></li>
-                    <li><a href="index.php?action=places">Lieux de réception</a></li>
-                    <li><a href="index.php?action=weddingplanners">Wedding Planner</a></li>
-                    <li><a href="index.php?action=helpers">Prestataires</a></li>
-                </ul>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=places">Lieux de réception</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=weddingplanners">Wedding Planners</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=helpers">Prestataires</a>
+                        </li>
+                    </ul>
+                </div>
                 <div id="member">
-                    <button class="boutonVert" id="memberButton">S'identifier</button>
-                    <form id="memberAccess" action="index.php?action=connect" method="post">
-                        <input type="text" id="pseudoMember" name="pseudoMember" placeholder="Identifiant">
-                        <input type="password" id="passMember" name="passMember" placeholder="Mot de passe">
-                        <button id="submitAccess" type="submit">Se connecter</button>
-                    </form>
-                    <button class="boutonRouge" id="cancelMemberAccess">Annuler</button>
-                    <button class="boutonVert" id="subscribeMember">Pas encore membre ? Inscrivez-vous !</button>
-                    <form id="memberSubscription" action="index.php?action=subscribe" method="post">
-                        <input type="text" id="pseudoSubscriber" name="pseudoSubscriber" placeholder="Votre pseudo">
-                        <input type="password" id="passSubscriber" name="passSubscriber" placeholder="Votre mot de passe">
-                        <input type="email" id="email" name="email" placeholder="Votre email">
-                        <button id="submitSubscription" type="submit">S'inscrire</button>
-                    </form>
+                        <button class="boutonVert" id="memberButton">S'identifier</button>
+                        <form id="memberAccess" action="index.php?action=connect" method="post">
+                            <div class="form-group">
+                                <label for="pseudoMember">Pseudo</label>
+                                <input type="text" class="form-control" name="pseudoMember" id="pseudoMember" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                            </div>
+                            <div class="form-group">
+                                <label for="passMember">Mot de passe</label>
+                                <input type="password" class="form-control" name="passMember" id="passMember" placeholder="Votre mot de passe">
+                            </div>
+                            <button type="submit" class="btn btn-primary">S'identifier</button>
+                        </form>
+                        <button class="boutonRouge" id="cancelMemberAccess">Annuler</button>
+                        <button class="boutonVert" id="subscribeMember">Pas encore membre ? Inscrivez-vous !</button>
+                        <form id="memberSubscription" action="index.php?action=subscribe" method="post">
+                            <div class="form-group">
+                                <label for="pseudoSubscriber">Pseudo</label>
+                                <input type="text" class="form-control" name="pseudoSubscriber" id="pseudoSubscriber" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                            </div>    
+                            <div class="form-group">
+                                <label for="email">Eamil</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email">
+                                <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre email.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="passSubscriber">Mot de passe</label>
+                                <input type="password" class="form-control" name="passSubscriber" id="passSubscriber" placeholder="Votre mot de passe">
+                            </div>
+                            <button type="submit" class="btn btn-primary">S'inscrire</button>
+                        </form>
+                        <button class="boutonRouge" id="cancelMemberSubscription">Annuler</button>
                 </div>
             </nav>
             <?= $image_page ?>
@@ -61,6 +92,10 @@
               <p><a href="index.php?action=mentions">Mentions légales</a></p>
             </div>
         </footer>
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="public/js/map.js"></script>
         <script src="public/js/frontend.js"></script>
     </body>
 </html>

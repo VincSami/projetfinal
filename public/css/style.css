@@ -176,72 +176,34 @@ nav ul{
 
 /* ----------------------------------------- MAIN CONTENT ------------------------------ */
 
-#introduction{
-	margin-top: 100px;
-	text-align: center;
-  	padding : 5%;
-
-}
-
-#introduction h2, h3{
-  	color: black;
-}
-
-#newPost{
-	width: 30%;
-    margin: 0 auto;
-}
-
-#newPost button{
-	width: 100%;
-}
-
-#main_content{
+#place{
 	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-article {
-	margin: 30px;
-	text-align: justify;
+#weddingPlanner{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-article ul{
+#helpers{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 }
 
-article ul li{
-	list-style-type: none;
-	margin: 20px;
+#map {
+    height: 800px;
+    width: 80%;
+    margin: auto;
+    z-index: 1;
+    box-shadow: 1px 2px 5px;
 }
 
-/*RESPONSIVE DESIGN*/
 
-@media screen and (max-width : 425px) {
-	#introduction{
-		font-size: 1.2em;
-		font-weight: bold;
-	}
-}
-
-@media screen and (max-width : 700px) {
-	.postPresentation{
-		margin-top: 50px;
-		display: block;
-	}
-	article{
-		margin : 0 auto;
-	}
-
-	article figure{
-		text-align: center;
-	}
-  	#main_content{
-		display: block;
-	}
-}
 
 /* -------------------------------------------- AFFICHAGE POSTS ACCUEIL ----------------------------------- */
 

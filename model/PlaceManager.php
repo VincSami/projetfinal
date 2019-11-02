@@ -18,7 +18,7 @@ class PlaceManager extends Manager
 	public function getPlaces()
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title, city, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM places ORDER BY creation_date DESC');
+	    $req = $db->prepare('SELECT id, title, city, positionx, positiony, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM places ORDER BY creation_date DESC');
         $req->setFetchMode(PDO::FETCH_ASSOC);
 	    $req->execute();
         $places = $req->fetchAll();
@@ -39,5 +39,15 @@ class PlaceManager extends Manager
 	    else {
 	    return $place;
 		}
+	}
+
+	public function getMemberPlaces($author)
+	{
+		$db = $this->dbConnect();  
+	    $req = $db->prepare('SELECT id, title, presentation FROM places WHERE author = ?');
+	    $req->execute(array($author));
+	    $memberPlaces = $req->fetch();
+		//On vérifie que le lieu de réception demandé existe bien
+	    return $memberPlaces;
 	}
 }

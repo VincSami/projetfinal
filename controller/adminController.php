@@ -188,24 +188,23 @@ function updateHelperAdmin($helperId, $pseudo, $presentation, $website, $tel, $m
 //Page de création d'un billet
 function placeCreationPageAdmin()
 {
-  require('view/admin/createPlaceView.php');
+  require('view/admin/createPlaceAdminView.php');
 }
 
 function weddingplannerCreationPageAdmin()
 {
-  require('view/admin/createWeddingplannerView.php');
+  require('view/admin/createWeddingplannerAdminView.php');
 }
 
 function helperCreationPageAdmin()
 {
-  require('view/admin/createHelperView.php');
+  require('view/admin/createHelperAdminView.php');
 }
 
-//Création d'un nouveau billet
-function newPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+function newPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 {
     $adminManager = new AdminManager();
-    $placeCreated = $adminManager->createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation);
+    $placeCreated = $adminManager->createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
     $placeImage = $adminManager->placeImage($placeCreated);
     if ($placeCreated === false) {
         throw new Exception('Impossible d\'ajouter le lieu de réception !');
@@ -215,10 +214,10 @@ function newPlaceAdmin($title, $city, $positionx, $positiony, $region, $website,
     }
 }
 
-function newWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail)
+function newWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 {
     $adminManager = new AdminManager();
-    $weddingplannerCreated = $adminManager->createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail);
+    $weddingplannerCreated = $adminManager->createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId);
     $weddingplannerImage = $adminManager->weddingplannerImage($weddingplannerCreated);
     if ($weddingplannerCreated === false) {
         throw new Exception('Impossible d\'ajouter le wedding-planner !');
@@ -228,10 +227,10 @@ function newWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $t
     }
 }
 
-function newHelperAdmin($pseudo, $presentation, $website, $tel, $mail, $id_type)
+function newHelperAdmin($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
 {
     $adminManager = new AdminManager();
-    $helperCreated = $adminManager->createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type);
+    $helperCreated = $adminManager->createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId);
     $helperImage = $adminManager->helperImage($helperCreated);
     if ($helperCreated === false) {
         throw new Exception('Impossible d\'ajouter le prestataire !');

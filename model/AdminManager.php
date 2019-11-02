@@ -62,37 +62,34 @@ class AdminManager extends Manager
 		}
 	}
 
-	//Création d'un nouvel épisode
-	public function createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+	public function createPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 	{
-	    $db = $this->dbConnect();
-	    $posts = $db->prepare('INSERT INTO places(title, city, positionx, positiony, region, website, tel, presentation, creation_date) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())');
-	    $postCreated = $posts->execute(array($title, $city, $positionx, $positiony, $region, $website, $tel, $presentation));
-	    
-	    return $db->lastInsertId();
+		$db = $this->dbConnect();
+		$posts = $db->prepare('INSERT INTO places(title, city, positionx, positiony, region, website, tel, presentation, creation_date, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)');
+		$postCreated = $posts->execute(array($title, $city, $positionx, $positiony, $region, $website, $tel, $presentation, $authorId));
+		
+		return $db->lastInsertId();
 	}
 
-	//Création d'un nouvel épisode
-	public function createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail)
+	public function createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 	{
-	    $db = $this->dbConnect();
-	    $posts = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail) VALUES(?, ?, ?, ?, ?, ?)');
-	    $postCreated = $posts->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail));
-	    
-	    return $db->lastInsertId();
+		$db = $this->dbConnect();
+		$posts = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
+		$postCreated = $posts->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId));
+		
+		return $db->lastInsertId();
 	}
 	
-	//Création d'un nouvel épisode
-	public function createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type)
+	public function createHelperMember($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
 	{
-	    $db = $this->dbConnect();
-	    $posts = $db->prepare('INSERT INTO helpers(pseudo, specialty, presentation, website, tel, mail, id_type) VALUES(?, ?, ?, ?, ?, ?, ?)');
-	    $postCreated = $posts->execute(array($pseudo, $presentation, $website, $tel, $mail, $id_type));
-	    
-	    return $db->lastInsertId();
+		$db = $this->dbConnect();
+		$posts = $db->prepare('INSERT INTO helpers(pseudo, specialty, presentation, website, tel, mail, id_type, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+		$postCreated = $posts->execute(array($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId));
+		
+		return $db->lastInsertId();
 	}
 		
-	public function placeImage($placeId)
+	public function placeImageAdmin($placeId)
 	{
 	    //Si un fichier a été transmis
 	    if (isset($_FILES['image'])){
@@ -113,7 +110,7 @@ class AdminManager extends Manager
 		}
 	}
 	
-	public function weddingplannerImage($weddingplannerId)
+	public function weddingplannerImageAdmin($weddingplannerId)
 	{
 	    //Si un fichier a été transmis
 	    if (isset($_FILES['image'])){
@@ -134,7 +131,7 @@ class AdminManager extends Manager
 		}
 	}
 	
-	public function helperImage($helperId)
+	public function helperImageAdmin($helperId)
 	{
 	    //Si un fichier a été transmis
 	    if (isset($_FILES['image'])){

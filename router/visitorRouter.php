@@ -49,6 +49,9 @@ function visitorRouter()
         elseif ($_GET['action'] == 'helper') {
             helper($_GET['id']);
         }
+        elseif ($_GET['action'] == 'placesCoordinates') {
+            getPlacesCoordinates();
+        }
     }
     else {
         home();

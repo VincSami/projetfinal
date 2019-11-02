@@ -56,4 +56,14 @@ class HelperManager extends Manager
 
 	    return $helpersType;
 	}
+
+	public function getMemberHelpers($author)
+	{
+		$db = $this->dbConnect();  
+	    $req = $db->prepare('SELECT id, pseudo, presentation FROM helpers WHERE author = ?');
+	    $req->execute(array($author));
+	    $memberHelpers = $req->fetch();
+		//On vérifie que le lieu de réception demandé existe bien
+	    return $memberHelpers;
+	}
 }

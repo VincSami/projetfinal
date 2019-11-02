@@ -18,6 +18,19 @@ function homeMember()
     require('view/user/indexUserView.php');
 }
 
+function userProfil($author)
+{
+    $placeManager = new PlaceManager();
+    $weddingplannerManager = new WeddingplannerManager();
+    $helperManager = new HelperManager();
+    
+    $memberPlaces = $placeManager->getMemberPlaces($author);
+    $memberWeddingplanners = $weddingplannerManager->getMemberWeddingplanners($author);
+    $memberHelpers = $helperManager->getmemberHelpers($author);
+
+    require('view/user/managerMemberView.php');
+}
+
 function placesMember()
 {
     $placeManager = new PlaceManager();
@@ -65,4 +78,43 @@ function helperMember($helperId)
     $helperManager = new HelperManager();
     $helper = $helperManager->getHelper($_GET['id']);
     require('view/user/helperMemberView.php');
+}
+
+function newPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
+{
+    $adminManager = new AdminManager();
+    $placeCreated = $adminManager->createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
+    $placeImage = $adminManager->placeImage($placeCreated);
+    if ($placeCreated === false) {
+        throw new Exception('Impossible d\'ajouter le lieu de réception !');
+    } 
+    else {
+        header('Location: index.php');
+    }
+}
+
+function newWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
+{
+    $adminManager = new AdminManager();
+    $weddingplannerCreated = $adminManager->createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId);
+    $weddingplannerImage = $adminManager->weddingplannerImage($weddingplannerCreated);
+    if ($weddingplannerCreated === false) {
+        throw new Exception('Impossible d\'ajouter le wedding-planner !');
+    } 
+    else {
+        header('Location: index.php');
+    }
+}
+
+function newHelperMember($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
+{
+    $adminManager = new AdminManager();
+    $helperCreated = $adminManager->createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId);
+    $helperImage = $adminManager->helperImage($helperCreated);
+    if ($helperCreated === false) {
+        throw new Exception('Impossible d\'ajouter le prestataire !');
+    } 
+    else {
+        header('Location: index.php');
+    }
 }

@@ -42,7 +42,39 @@ function memberRouter()
             header('Location:index.php');
         }
         elseif ($_GET['action'] == 'profil') {
-            require ('view/user/managerMemberView.php');
+            userProfil($_GET['author']);
+        }
+        elseif ($_GET['action'] == 'creationMemberPage') {
+            if ($_POST['userType'] == 2){
+                require('view/user/createPlaceMemberView.php');
+            }
+            elseif ($_POST['userType'] == 9){
+                require('view/user/createWeddingplannerMemberView.php');
+            }
+            else {
+                require('view/user/createHelperMemberView.php');
+            }
+        }
+        elseif ($_GET['action'] == 'createPlaceMember') {
+            if (!empty($_POST['title']) && !empty($_POST['city']) && !empty($_POST['positionx']) && !empty($_POST['positiony']) && !empty($_POST['region']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['presentation'])){
+            newPlaceMember($_POST['title'], $_POST['city'], $_POST['positionx'], $_POST['positiony'], $_POST['region'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['presentation'], $_GET['authorId']);
+            } else {
+                throw new Exception('tous les champs ne sont pas remplis !');
+            }
+        }
+        elseif ($_GET['action'] == 'createWeddinplannerMember') {
+            if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
+            newWeddingplannerMember($_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
+            } else {
+                throw new Exception('tous les champs ne sont pas remplis !');
+            }
+        }
+        elseif ($_GET['action'] == 'createHelperMember') {
+            if (!empty($_POST['pseudo']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
+                updateHelperMember($_POST['pseudo'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
+            } else {
+                throw new Exception('tous les champs ne sont pas remplis !');
+            }
         }
         elseif ($_GET['action'] == 'mentions'){
             require ('view/mentions_legales.php');

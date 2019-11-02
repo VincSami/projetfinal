@@ -7,22 +7,22 @@
 <?php $page_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-<ul>
-  <?php
-  foreach($weddingplanners as $weddingplanner)
-  {
-  ?>
-  <li>
-    <figure>
-       <a href="index.php?action=weddingplanner&amp;id=<?= $weddingplanner['id'] ?>">
-        <img src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg">
-      </a>
-    </figure>
-  </li>
-  <?php
-  }
-  ?>
-</ul>
+<section id="helpers">
+<?php
+foreach($weddingplanners as $weddingplanner)
+{
+?>
+<div class="card" style="width: 18rem;">
+    <img src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <div class="card-body">
+      <h5 class="card-title"><?= $weddingplanner['pseudo'] ?><br></h5>
+      <a href="index.php?action=weddingplanner&amp;id=<?= $weddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
+    </div>
+  </div>
+<?php
+}
+?>
+</section>
 <?php $main_content = ob_get_clean(); ?>
 
 

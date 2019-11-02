@@ -10,12 +10,11 @@
 
 <?php ob_start(); ?>
     <form action="index.php?action=createHelper" method="post" enctype="multipart/form-data">
-	    <label for="image"><strong>Définir l'image d'illustration</strong></label><br />
+	<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input class="boutonVert" type="file" name="image" /><br /><br />
-		<label for="pseudo"><strong>Nom du prestataire</strong></label><br />
-		<input type="text" name="pseudo" required>
+		<input type="text" name="pseudo" placeholder="Nom de votre entreprise" required>
 		<label for="helper-type"><strong>Type de prestation proposée</strong></label><br />
-		<select name="helper-type">
+		<select name="helper-type" required>
 			<option value="">--Merci de choisir une option--</option>
 			<option value="1">Photographe</option>
 			<option value="2">Fleuriste</option>
@@ -25,11 +24,10 @@
 			<option value="6">Traiteur</option>
 			<option value="7">Pattiserie</option>
 		</select>
-	    <label for="presentation"><strong>Description du lieu de réception</strong></label><br />
-	    <textarea name="presentation" required></textarea><br />
-		<input type="text" name="website">
-		<input type="text" name="tel" required>		
-		<input type="email" name="email" required>		
+	    <textarea name="presentation" placeholder="Description de vos services" required></textarea><br />
+		<input type="text" name="website" placeholder="Url de votre site Web">
+		<input type="text" name="tel" placeholder="Votre n° de téléphone" required>		
+		<input type="email" name="email" placeholder="Votre email" required>		
 	    <input class="boutonVert" type="submit" name="submit" value="Publier le prestataire">
 	    <button class="boutonRouge"><a href="index.php">Annuler</a></button>
 	</form>

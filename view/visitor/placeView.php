@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-    <img class="fullwidth" src="public/img/place<?= $place['id'] ?>.jpg">
+<img class="fullwidth" src="public/img/place<?= $place['id'] ?>.jpg">
 <?php $image_page = ob_get_clean(); ?>
 
 <?php ob_start(); ?>

@@ -84,3 +84,11 @@ function helper($helperId)
     $helper = $helperManager->getHelper($_GET['id']);
     require('view/visitor/helperView.php');
 }
+
+function getPlacesCoordinates()
+{
+    $placeManager = new PlaceManager();
+    $placesCoordinates = $placeManager->getCoordinates();
+
+    
+}
