@@ -7,7 +7,7 @@
 <?php $page_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-<section id="helpers">
+<section>
 <?php
 foreach($weddingplanners as $weddingplanner)
 {

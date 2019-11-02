@@ -9,7 +9,7 @@
 <?php $page_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-<section id="place">
+<section>
 <?php
 foreach($places as $place)
 {

@@ -121,8 +121,8 @@ function memberRouter()
         }
         elseif ($_GET['action'] == 'updateHelperMember') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['pseudo']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
-                updateHelperMember($_GET['id'], $_POST['pseudo'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
+                if (!empty($_POST['pseudo']) && !empty($_POST['presentation']) && !empty($_POST['helperType']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
+                updateHelperMember($_GET['id'], $_POST['pseudo'], $_POST['helperType'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
                 } else {
                     throw new Exception('tous les champs ne sont pas remplis !');
                 }
@@ -134,7 +134,7 @@ function memberRouter()
 
 
 
-        elseif ($_GET['action'] == 'deletePlacePageMembrt') {
+        elseif ($_GET['action'] == 'deletePlacePageMember') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deletePlacePageMember();
             }  

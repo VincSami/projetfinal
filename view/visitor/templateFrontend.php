@@ -31,38 +31,38 @@
                         </li>
                     </ul>
                 </div>
-                <div id="member">
-                        <button class="boutonVert" id="memberButton">S'identifier</button>
-                        <form id="memberAccess" action="index.php?action=connect" method="post">
-                            <div class="form-group">
-                                <label for="pseudoMember">Pseudo</label>
-                                <input type="text" class="form-control" name="pseudoMember" id="pseudoMember" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
-                            </div>
-                            <div class="form-group">
-                                <label for="passMember">Mot de passe</label>
-                                <input type="password" class="form-control" name="passMember" id="passMember" placeholder="Votre mot de passe">
-                            </div>
-                            <button type="submit" class="btn btn-primary">S'identifier</button>
-                        </form>
-                        <button class="boutonRouge" id="cancelMemberAccess">Annuler</button>
-                        <button class="boutonVert" id="subscribeMember">Pas encore membre ? Inscrivez-vous !</button>
-                        <form id="memberSubscription" action="index.php?action=subscribe" method="post">
-                            <div class="form-group">
-                                <label for="pseudoSubscriber">Pseudo</label>
-                                <input type="text" class="form-control" name="pseudoSubscriber" id="pseudoSubscriber" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
-                            </div>    
-                            <div class="form-group">
-                                <label for="email">Eamil</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email">
-                                <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre email.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="passSubscriber">Mot de passe</label>
-                                <input type="password" class="form-control" name="passSubscriber" id="passSubscriber" placeholder="Votre mot de passe">
-                            </div>
-                            <button type="submit" class="btn btn-primary">S'inscrire</button>
-                        </form>
-                        <button class="boutonRouge" id="cancelMemberSubscription">Annuler</button>
+                <div>
+                    <button class="boutonVert" id="memberButton">S'identifier</button>
+                    <form id="memberAccess" action="index.php?action=connect" method="post">
+                        <div class="form-group">
+                            <label for="pseudoMember">Pseudo</label>
+                            <input type="text" class="form-control" name="pseudoMember" id="pseudoMember" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                        </div>
+                        <div class="form-group">
+                            <label for="passMember">Mot de passe</label>
+                            <input type="password" class="form-control" name="passMember" id="passMember" placeholder="Votre mot de passe">
+                        </div>
+                        <button type="submit" class="btn btn-primary">S'identifier</button>
+                    </form>
+                    <button class="boutonRouge" id="cancelMemberAccess">Annuler</button>
+                    <button class="boutonVert" id="subscribeMember">Pas encore membre ? Inscrivez-vous !</button>
+                    <form id="memberSubscription" action="index.php?action=subscribe" method="post">
+                        <div class="form-group">
+                            <label for="pseudoSubscriber">Pseudo</label>
+                            <input type="text" class="form-control" name="pseudoSubscriber" id="pseudoSubscriber" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                        </div>    
+                        <div class="form-group">
+                            <label for="email">Eamil</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email">
+                            <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre email.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="passSubscriber">Mot de passe</label>
+                            <input type="password" class="form-control" name="passSubscriber" id="passSubscriber" placeholder="Votre mot de passe">
+                        </div>
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    </form>
+                    <button class="boutonRouge" id="cancelMemberSubscription">Annuler</button>
                 </div>
             </nav>
             <?= $image_page ?>

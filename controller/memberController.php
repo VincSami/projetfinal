@@ -15,7 +15,7 @@ function homeMember()
     $topWeddingplanners = $weddingplannerManager->getTopWeddingplanners();
     $helperTypes = $helperManager->getHelperTypes();
 
-    require('view/user/indexUserView.php');
+    require('view/member/indexMemberView.php');
 }
 
 function userProfil($authorId)
@@ -28,7 +28,7 @@ function userProfil($authorId)
     $memberWeddingplanners = $weddingplannerManager->getMemberWeddingplanners($authorId);
     $memberHelpers = $helperManager->getMemberHelpers($authorId);
 
-    require('view/user/managerMemberView.php');
+    require('view/member/managerMemberView.php');
     var_dump($memberHelpers);
 }
 
@@ -36,64 +36,57 @@ function placesMember()
 {
     $placeManager = new PlaceManager();
     $places = $placeManager->getPlaces();
-    require('view/user/placesMemberView.php');
+    require('view/member/placesMemberView.php');
 }
 
 function placeMember($placeId)
 {
     $placeManager = new PlaceManager();
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/user/placeMemberView.php');
+    require('view/member/placeMemberView.php');
 }
 
-function weddingPlannersMember()
+function weddingplannersMember()
 {
     $weddingplannerManager = new WeddingplannerManager();
     $weddingplanners = $weddingplannerManager->getWeddingplanners();
-    require('view/user/weddingplannersMemberView.php');
+    require('view/member/weddingplannersMemberView.php');
 }
 
-function weddingPlannerMember($weddingplannerId)
+function weddingplannerMember($weddingplannerId)
 {
     $weddingplannerManager = new WeddingplannerManager();
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
-    require('view/user/weddingplannerMemberView.php');
+    require('view/member/weddingplannerMemberView.php');
 }
 
 function helpersTypeMember($typeId)
 {
     $helperManager = new HelperManager();
     $helpersType = $helperManager->getHelpersType($_GET['id']);
-    require('view/user/helpersTypeMemberView.php');
+    require('view/member/helpersTypeMemberView.php');
 }
 
 function helpersMember()
 {
     $helperManager = new HelperManager();
     $helpers = $helperManager->getHelpers();
-    require('view/user/helpersMemberView.php');
+    require('view/member/helpersMemberView.php');
 }
 
 function helperMember($helperId)
 {
     $helperManager = new HelperManager();
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/user/helperMemberView.php');
+    require('view/member/helperMemberView.php');
 }
-
-
-
-
-
-
-
 
 function deletePlacePageMember()
 { 
     $placeManager = new PlaceManager();
 
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/user/deletePlaceMemberView.php');
+    require('view/member/deletePlaceMemberView.php');
 }
 
 function deleteWeddingplannerPageMember()
@@ -109,7 +102,7 @@ function deleteHelperPageMember()
     $helperManager = new HelperManager();
 
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/user/deleteHelperMemberView.php');
+    require('view/member/deleteHelperMemberView.php');
 }
 
 //Suppression du billet et des commentaires
@@ -139,7 +132,7 @@ function updatePlacePageMember()
     $placeManager = new PlaceManager();
 
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/user/updatePlaceMemberView.php');
+    require('view/member/updatePlaceMemberView.php');
 }
 
 function updateWeddingplannerPageMember()
@@ -147,7 +140,7 @@ function updateWeddingplannerPageMember()
     $weddingplannerManager = new WeddingplannerManager();
 
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
-    require('view/user/updateWeddingplannerMemberView.php');
+    require('view/member/updateWeddingplannerMemberView.php');
 }
 
 function updateHelperPageMember()
@@ -155,7 +148,7 @@ function updateHelperPageMember()
     $helperManager = new HelperManager();
 
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/user/updateHelperMemberView.php');
+    require('view/member/updateHelperMemberView.php');
 }
 
 //Modification du billet
@@ -189,11 +182,11 @@ function updateWeddingplannerMember($weddingplannerId, $pseudo, $specialty, $pre
     }
 }
 
-function updateHelperMember($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type)
+function updateHelperMember($helperId, $pseudo, $id_type, $presentation, $website, $tel, $mail)
 {  
     $memberManager = new MemberManager();
     
-    $updatedHelper = $memberManager->modifyHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type);
+    $updatedHelper = $memberManager->modifyHelper($helperId, $pseudo, $id_type, $presentation, $website, $tel, $mail);
     $helperImage = $memberManager->helperImage($helperId);
     
     if ($updatedHelper === false) {

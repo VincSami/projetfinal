@@ -95,21 +95,59 @@ class MemberManager extends Manager
 			return $db->lastInsertId();
 		}
 			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		public function deletePlace($placeId)
+		{
+				$db = $this->dbConnect();  
+				$req = $db->prepare('DELETE FROM places WHERE id = ?');
+				$req->execute(array($placeId));
+				$deletePlace = $req->fetch(); 
+		}
 		
+		public function deleteWeddingplanner($weddingplannerId)
+		{
+				$db = $this->dbConnect();  
+				$req = $db->prepare('DELETE FROM weddingplanners WHERE id = ?');
+				$req->execute(array($weddingplannerId));
+				$deleteWeddingplanner = $req->fetch(); 
+		}
+
+		public function deleteHelper($helperId)
+		{
+				$db = $this->dbConnect();  
+				$req = $db->prepare('DELETE FROM helpers WHERE id = ?');
+				$req->execute(array($helperId));
+				$deletehelper = $req->fetch(); 
+		}
+
+		public function modifyPlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+		{
+			if(isset($_POST['submit'])){
+					$db = $this->dbConnect();  
+					$places = $db->prepare('UPDATE places SET title = ?, city = ?, positionx = ?, positiony = ?, region = ?, website = ?, tel = ?, presentation = ? WHERE id = ?');
+					$updatedPlace = $places->execute(array($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation));
+					return $updatedPlace;
+			}
+		}
+		
+		public function modifyWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
+		{
+			if(isset($_POST['submit'])){
+					$db = $this->dbConnect();  
+					$places = $db->prepare('UPDATE weddingplanners SET pseudo = ?, specialty = ?, presentation = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
+					$updatedWeddingplanner = $places->execute(array($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail));
+					return $updatedWeddingplanner;
+			}
+		}
+		
+		public function modifyHelper($helperId, $pseudo, $id_type, $content, $website, $tel, $mail)
+		{
+			if(isset($_POST['submit'])){
+					$db = $this->dbConnect();  
+					$places = $db->prepare('UPDATE helpers SET pseudo = ?, id_type = ?, content = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
+					$updatedPlace = $places->execute(array($helperId, $pseudo, $id_type, $content, $website, $tel, $mail));
+					return $updatedHelper;
+			}
+		}
 		public function placeImageMember($placeId)
 		{
 			//Si un fichier a été transmis

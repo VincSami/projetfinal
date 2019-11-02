@@ -35,7 +35,7 @@
       ?>
       <li>
         <figure>
-          <a href="index.php?action=helperMember&amp;id=<?= $helperType['id'] ?>">
+          <a href="index.php?action=helper&amp;id=<?= $helperType['id'] ?>">
             <img src="public/img/helper<?= $helperType['id'] ?>.jpg">
           </a>
           <p><?= $helperType['pseudo'] ?></p>

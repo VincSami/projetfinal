@@ -52,12 +52,12 @@ class AdminManager extends Manager
 	}
 	
 	//Modification d'un épisode existant
-	public function modifyHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type)
+	public function modifyHelper($helperId, $pseudo, $id_type, $content, $website, $tel, $mail)
 	{
 		if(isset($_POST['submit'])){
 		        $db = $this->dbConnect();  
-		        $places = $db->prepare('UPDATE helpers SET pseudo = ?, presentation = ?, website = ?, tel = ?, mail = ?, id_type WHERE id = ?');
-		        $updatedPlace = $places->execute(array($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type));
+		        $places = $db->prepare('UPDATE helpers SET pseudo = ?, id_type = ?, content = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
+		        $updatedPlace = $places->execute(array($helperId, $pseudo, $id_type, $content, $website, $tel, $mail));
 		        return $updatedHelper;
 		}
 	}
@@ -80,11 +80,11 @@ class AdminManager extends Manager
 		return $db->lastInsertId();
 	}
 	
-	public function createHelperAdmin($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
+	public function createHelperAdmin($pseudo, $id_type, $presentation, $website, $tel, $mail, $authorId)
 	{
 		$db = $this->dbConnect();
-		$posts = $db->prepare('INSERT INTO helpers(pseudo, specialty, presentation, website, tel, mail, id_type, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
-		$postCreated = $posts->execute(array($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId));
+		$posts = $db->prepare('INSERT INTO helpers(pseudo, id_type, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+		$postCreated = $posts->execute(array($pseudo, $id_type, $presentation, $website, $tel, $mail, $authorId));
 		
 		return $db->lastInsertId();
 	}

@@ -9,7 +9,7 @@
 <?php $main_content_title = "Vous êtes sur le point de supprimer définitivement cette Wedding-Planner"; ?>
 
 <?php ob_start(); ?>
-        <button class="boutonVert"><a href="index.php?action=deleteWeddingplannerAdmin&amp;id=<?= $weddingplanner['id'] ?>">Supprimer la Wedding-Planner</a></button>
+        <button class="boutonVert"><a href="index.php?action=deleteWeddingplannerMember&amp;id=<?= $weddingplanner['id'] ?>">Supprimer la Wedding-Planner</a></button>
         <button class="boutonRouge"><a href="index.php">Annuler</a></button>
 <?php $main_content_subtitle = ob_get_clean(); ?>
 

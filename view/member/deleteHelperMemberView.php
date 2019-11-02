@@ -13,6 +13,6 @@
         <button class="boutonRouge"><a href="index.php">Annuler</a></button>
 <?php $main_content_subtitle = ob_get_clean(); ?>
 
-<?php $main_content = $helper['presentation']?>
+<?php $main_content = $helper['content']?>
 
 <?php require('templateMember.php'); ?>
