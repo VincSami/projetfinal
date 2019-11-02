@@ -94,7 +94,7 @@ function deleteHelperPageAdmin()
 }
 
 //Suppression du billet et des commentaires
-function erasePlace($placeId)
+function erasePlaceAdmin($placeId)
 {
     $adminManager = new AdminManager();
     $deletePlace = $adminManager->deletePlace($placeId);
@@ -210,7 +210,7 @@ function newPlaceAdmin($title, $city, $positionx, $positiony, $region, $website,
         throw new Exception('Impossible d\'ajouter le lieu de réception !');
     } 
     else {
-        header('Location: index.php');
+        header('Location: index.php?action=place&id=' . $placeCreated);
     }
 }
 
@@ -223,7 +223,7 @@ function newWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $t
         throw new Exception('Impossible d\'ajouter le wedding-planner !');
     } 
     else {
-        header('Location: index.php');
+        header('Location: index.php?action=weddingplanner&id=' . $weddingplannerCreated);
     }
 }
 
@@ -236,6 +236,6 @@ function newHelperAdmin($pseudo, $presentation, $website, $tel, $mail, $id_type,
         throw new Exception('Impossible d\'ajouter le prestataire !');
     } 
     else {
-        header('Location: index.php');
+        header('Location: index.php?action=helper&id=' . $helperCreated);
     }
 }

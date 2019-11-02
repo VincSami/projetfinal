@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-    <img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg">
+    <img class="fullwidth" src="public/img/place<?= $place['id'] ?>.jpg">
 <?php $image_page = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
@@ -13,8 +13,8 @@
 
 <?php $page_title = "Lieu de réception" ?>
 
-<?php $page_subtitle = $weddingplanner['pseudo'] ?>
+<?php $page_subtitle = $place['title'] ?>
 
-<?php $main_content = $weddingplanner['presentation'] ?>
+<?php $main_content = $place['presentation'] ?>
 
-<?php require('templateUser.php'); ?>
+<?php require('templateMember.php'); ?>

@@ -9,7 +9,7 @@
 <?php $main_content_title = "Vous êtes sur le point de supprimer définitivement ce prestataire"; ?>
 
 <?php ob_start(); ?>
-        <button class="boutonVert"><a href="index.php?action=deleteHelper&amp;id=<?= $helper['id'] ?>">Supprimer le prestataire</a></button>
+        <button class="boutonVert"><a href="index.php?action=deleteHelperAdmin&amp;id=<?= $helper['id'] ?>">Supprimer le prestataire</a></button>
         <button class="boutonRouge"><a href="index.php">Annuler</a></button>
 <?php $main_content_subtitle = ob_get_clean(); ?>
 

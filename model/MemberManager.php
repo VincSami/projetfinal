@@ -95,6 +95,21 @@ class MemberManager extends Manager
 			return $db->lastInsertId();
 		}
 			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 		public function placeImageMember($placeId)
 		{
 			//Si un fichier a été transmis

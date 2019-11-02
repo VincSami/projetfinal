@@ -51,12 +51,13 @@ class WeddingplannerManager extends Manager
 	    return $weddingplannersByType;
 	}
 
-	public function getMemberWeddingplanners($author)
+	public function getMemberWeddingplanners($authorId)
 	{
 		$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, pseudo, presentation FROM weddingplanners WHERE author = ?');
-	    $req->execute(array($author));
-	    $memberWeddingplanners = $req->fetch();
+	    $req = $db->prepare('SELECT id, pseudo, presentation, author_id FROM weddingplanners WHERE author_id = ?');
+		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->execute(array($authorId));
+	    $memberWeddingplanners = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien
 	    return $memberWeddingplanners;
 	}

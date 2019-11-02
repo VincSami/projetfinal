@@ -9,8 +9,8 @@
 <?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-    <form action="index.php?action=createHelperAdmin&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
-	<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
+    <form action="index.php?action=createHelperMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+	    <label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input class="boutonVert" type="file" name="image" /><br /><br />
 		<input type="text" name="pseudo" placeholder="Nom de votre entreprise" required>
 		<label for="helper-type"><strong>Type de prestation proposée</strong></label><br />
@@ -33,4 +33,4 @@
 	</form>
 <?php $main_content = ob_get_clean(); ?>
 
-<?php require('templateBackend.php'); ?>
+<?php require('templateMember.php'); ?>

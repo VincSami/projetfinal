@@ -62,7 +62,7 @@ class AdminManager extends Manager
 		}
 	}
 
-	public function createPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
+	public function createPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 	{
 		$db = $this->dbConnect();
 		$posts = $db->prepare('INSERT INTO places(title, city, positionx, positiony, region, website, tel, presentation, creation_date, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)');
@@ -71,7 +71,7 @@ class AdminManager extends Manager
 		return $db->lastInsertId();
 	}
 
-	public function createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
+	public function createWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 	{
 		$db = $this->dbConnect();
 		$posts = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
@@ -80,7 +80,7 @@ class AdminManager extends Manager
 		return $db->lastInsertId();
 	}
 	
-	public function createHelperMember($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
+	public function createHelperAdmin($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
 	{
 		$db = $this->dbConnect();
 		$posts = $db->prepare('INSERT INTO helpers(pseudo, specialty, presentation, website, tel, mail, id_type, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');

@@ -41,13 +41,14 @@ class PlaceManager extends Manager
 		}
 	}
 
-	public function getMemberPlaces($author)
+	public function getMemberPlaces($authorId)
 	{
 		$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title, presentation FROM places WHERE author = ?');
-	    $req->execute(array($author));
-	    $memberPlaces = $req->fetch();
+	    $req = $db->prepare('SELECT id, title, presentation, author_id FROM places WHERE author_id = ?');
+		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->execute(array($authorId));
+	    $memberPlaces = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien
-	    return $memberPlaces;
+		return $memberPlaces;
 	}
 }

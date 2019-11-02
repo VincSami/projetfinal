@@ -89,4 +89,4 @@
         </section>
 <?php $main_content = ob_get_clean(); ?>
 
-<?php require('templateUser.php'); ?>
+<?php require('templateMember.php'); ?>

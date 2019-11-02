@@ -37,7 +37,7 @@ function adminRouter()
         elseif ($_GET['action'] == 'helperAdmin') {
             helperAdmin($_GET['id']);
         }
-        elseif ($_GET['action'] == 'deletePlacePage') {
+        elseif ($_GET['action'] == 'deletePlacePageAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deletePlacePageAdmin();
             }  
@@ -45,7 +45,7 @@ function adminRouter()
                 throw new Exception("aucun identifiant de lieu de réception envoyé");
             }
         }
-        elseif ($_GET['action'] == 'deleteWeddingplannerPage') {
+        elseif ($_GET['action'] == 'deleteWeddingplannerPageAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deleteWeddingplannerPageAdmin();
             }  
@@ -53,7 +53,7 @@ function adminRouter()
                 throw new Exception("aucun identifiant de Wedding-Planner envoyé");
             }
         }
-        elseif ($_GET['action'] == 'deleteHelperPage') {
+        elseif ($_GET['action'] == 'deleteHelperPageAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deleteHelperPageAdmin();
             }  
@@ -61,22 +61,22 @@ function adminRouter()
                 throw new Exception("aucun identifiant de prestataire envoyé");
             }
         }
-        elseif ($_GET['action'] == 'deletePlace') {
+        elseif ($_GET['action'] == 'deletePlaceAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {  
                 erasePlaceAdmin($_GET['id']);
             }
         }
-        elseif ($_GET['action'] == 'deleteWeddingplanner') {
+        elseif ($_GET['action'] == 'deleteWeddingplannerAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {  
                 eraseWeddingplannerAdmin($_GET['id']);
             }
         }
-        elseif ($_GET['action'] == 'deleteHelper') {
+        elseif ($_GET['action'] == 'deleteHelperAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {  
                 eraseHelperAdmin($_GET['id']);
             }
         }
-        elseif ($_GET['action'] == 'updatePlacePage') {
+        elseif ($_GET['action'] == 'updatePlacePageAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 updatePlacePageAdmin();
             }  
@@ -84,7 +84,7 @@ function adminRouter()
                 throw new Exception("aucun identifiant de billet envoyé");
             }
         }
-        elseif ($_GET['action'] == 'updateWeddingplannerPage') {
+        elseif ($_GET['action'] == 'updateWeddingplannerPageAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 updateWeddingplannerPageAdmin();
             }  
@@ -92,7 +92,7 @@ function adminRouter()
                 throw new Exception("aucun identifiant de billet envoyé");
             }
         }
-        elseif ($_GET['action'] == 'updateHelperPage') {
+        elseif ($_GET['action'] == 'updateHelperPageAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 updateHelperPageAdmin();
             }  
@@ -100,7 +100,7 @@ function adminRouter()
                 throw new Exception("aucun identifiant de billet envoyé");
             }
         }
-        elseif ($_GET['action'] == 'updatePlace') {
+        elseif ($_GET['action'] == 'updatePlaceAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['title']) && !empty($_POST['city']) && !empty($_POST['positionx']) && !empty($_POST['positiony']) && !empty($_POST['region']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['presentation'])) {
                 updatePlaceAdmin($_GET['id'], $_POST['title'], $_POST['city'], $_POST['positionx'], $_POST['positiony'], $_POST['region'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['presentation']);
@@ -112,7 +112,7 @@ function adminRouter()
                 throw new Exception("aucun identifiant de billet envoyé");
             }
         }
-        elseif ($_GET['action'] == 'updateWeddingplanner') {
+        elseif ($_GET['action'] == 'updateWeddingplannerAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
                 updateWeddingplannerAdmin($_GET['id'], $_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
@@ -124,7 +124,7 @@ function adminRouter()
                 throw new Exception("aucun identifiant de billet envoyé");
             }
         }
-        elseif ($_GET['action'] == 'updateHelper') {
+        elseif ($_GET['action'] == 'updateHelperAdmin') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['pseudo']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
                 updateHelperAdmin($_GET['id'], $_POST['pseudo'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
@@ -136,32 +136,34 @@ function adminRouter()
                 throw new Exception("aucun identifiant de billet envoyé");
             }
         }
-        elseif ($_GET['action'] == 'newPlace') {
-            placeCreationPageAdmin();
+        elseif ($_GET['action'] == 'creationAdminPageAdmin') {
+            if ($_POST['userType'] == 2){
+                require('view/user/createPlaceAdminView.php');
+            }
+            elseif ($_POST['userType'] == 9){
+                require('view/user/createWeddingplannerAdminView.php');
+            }
+            else {
+                require('view/user/createHelperAdminView.php');
+            }
         }
-        elseif ($_GET['action'] == 'newWeddingplanner') {
-            weddingplannerCreationPageAdmin();
-        }
-        elseif ($_GET['action'] == 'newHelper') {
-            helperCreationPageAdmin();
-        }
-        elseif ($_GET['action'] == 'createPlace') {
+        elseif ($_GET['action'] == 'createPlaceAdmin') {
             if (!empty($_POST['title']) && !empty($_POST['city']) && !empty($_POST['positionx']) && !empty($_POST['positiony']) && !empty($_POST['region']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['presentation'])){
-            newPlaceAdmin($_POST['title'], $_POST['city'], $_POST['positionx'], $_POST['positiony'], $_POST['region'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['presentation']);
+            newPlaceAdmin($_POST['title'], $_POST['city'], $_POST['positionx'], $_POST['positiony'], $_POST['region'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['presentation'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
-        elseif ($_GET['action'] == 'createWeddinplanner') {
+        elseif ($_GET['action'] == 'createWeddinplannerAdmin') {
             if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
-            newWeddingplannerAdmin($_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
+            newWeddingplannerAdmin($_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
-        elseif ($_GET['action'] == 'createHelper') {
+        elseif ($_GET['action'] == 'createHelperAdmin') {
             if (!empty($_POST['pseudo']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
-                updateHelperAdmin($_POST['pseudo'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
+                updateHelperAdmin($_POST['pseudo'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }

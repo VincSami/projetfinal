@@ -11,7 +11,7 @@
 <?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-<form action="index.php?action=updatePlace" method="post" enctype="multipart/form-data">
+<form action="index.php?action=updatePlaceAdmin" method="post" enctype="multipart/form-data">
 	    <label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input class="boutonVert" type="file" name="image" /><br /><br />
 	    <label for="title"><strong>Nom du lieu de réception</strong></label><br />
