@@ -1,10 +1,9 @@
+<?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
+
+<?php $page_subtitle = 'Votre mariage à La Réunion les pieds dans l\'eau ou la tête dans les nuages'; ?>
+
 <?php ob_start(); ?>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="public/img/accueil1" class="d-block w-100" alt="...">
@@ -16,20 +15,17 @@
       <img src="public/img/accueil3" class="d-block w-100" alt="...">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
-
-<?php $page_subtitle = 'Votre mariage à La Réunion les pieds dans l\'eau ou la tête dans les nuages'; ?>
 <?php ob_start(); ?>
 <form action="#" method="post">
   <label for="location">Où ?</label>
@@ -41,6 +37,7 @@
 
 <?php ob_start(); ?>
 <section id="place">
+<h3>Les lieux de réception tendances</h3>
 <?php
   foreach($topPlaces as $topPlace)
   {
@@ -57,6 +54,7 @@
   ?> 
 </section>        
 <section id="weddingPlanner">
+<h3>Les Wedding-Planners de la semaine</h3>
 <?php
   foreach($topWeddingplanners as $topWeddingplanner)
   {
@@ -73,6 +71,7 @@
   ?>  
 </section>       
 <section id="helpers">
+<h3>Les prestations indispensables pour votre mariage</h3>
 <?php
   foreach($helperTypes as $helperType)
   {

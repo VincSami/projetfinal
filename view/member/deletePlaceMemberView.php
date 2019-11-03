@@ -8,11 +8,14 @@
 
 <?php $main_content_title = "Vous êtes sur le point de supprimer définitivement ce lieu de réception"; ?>
 
-<?php ob_start(); ?>
-        <button class="boutonVert"><a href="index.php?action=deletePlaceMember&amp;id=<?= $place['id'] ?>">Supprimer le lieu de réception</a></button>
-        <button class="boutonRouge"><a href="index.php">Annuler</a></button>
-<?php $main_content_subtitle = ob_get_clean(); ?>
+<?php $main_content_subtitle = ""; ?>
 
-<?php $main_content = $place['presentation']?>
+<?php ob_start(); ?>
+    <button><a href="index.php?action=deletePlaceMember&amp;id=<?= $place['id'] ?>">Supprimer le lieu de réception</a></button>
+    <button><a href="index.php">Annuler</a></button><br><br>
+    <?= $place['presentation']; ?>
+<?php $main_content = ob_get_clean(); ?>
+
+
 
 <?php require('templateMember.php'); ?>

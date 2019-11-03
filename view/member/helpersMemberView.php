@@ -16,7 +16,7 @@ foreach($helpers as $helper)
     <img src="public/img/helper<?= $helper['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $helper['pseudo'] ?><br></h5>
-      <a href="index.php?action=helper&amp;id=<?= $helper['id'] ?>" class="btn btn-primary">En savoir plus</a>
+      <a href="index.php?action=helperMember&amp;id=<?= $helper['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
 <?php

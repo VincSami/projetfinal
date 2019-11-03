@@ -29,7 +29,7 @@ class HelperManager extends Manager
 	public function getHelper($helperId)
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, pseudo, content, website, tel, email, id_type FROM helpers WHERE id = ?');
+	    $req = $db->prepare('SELECT id, pseudo, content, website, tel, mail, id_type FROM helpers WHERE id = ?');
 	    $req->execute(array($helperId));
         $helper = $req->fetch();
 		//On vérifie que le lieu de réception demandé existe bien

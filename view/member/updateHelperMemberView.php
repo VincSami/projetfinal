@@ -9,7 +9,7 @@
 <?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-    <form action="index.php?action=updateHelperMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=updateHelperMember&amp;id=<?= $helper['id'] ?>" method="post" enctype="multipart/form-data">
 	    <label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input class="boutonVert" type="file" name="image" /><br /><br />
 		<input type="text" name="pseudo" value="<?= $helper['pseudo'] ?>" required>
@@ -27,7 +27,7 @@
 	    <textarea name="presentation" required><?= $helper['content'] ?></textarea><br />
 		<input type="text" name="website" value="<?= $helper['website'] ?>">
 		<input type="text" name="tel" value="<?= $helper['tel'] ?>" required>		
-		<input type="email" name="email" value="<?= $helper['email'] ?>" required>		
+		<input type="email" name="mail" value="<?= $helper['mail'] ?>" required>		
 	    <input class="boutonVert" type="submit" name="submit" value="Mettre à jour le prestataire">
 	    <button class="boutonRouge"><a href="index.php">Annuler</a></button>
 	</form>

@@ -49,28 +49,26 @@ function memberRouter()
             }
         }
         elseif ($_GET['action'] == 'createPlaceMember') {
-            if (!empty($_POST['title']) && !empty($_POST['city']) && !empty($_POST['positionx']) && !empty($_POST['positiony']) && !empty($_POST['region']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['presentation'])){
+            if (!empty($_POST['title']) && !empty($_POST['city']) && !empty($_POST['positionx']) && !empty($_POST['positiony']) && !empty($_POST['region']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['presentation']) && !empty($_GET['authorId'])){
             newPlaceMember($_POST['title'], $_POST['city'], $_POST['positionx'], $_POST['positiony'], $_POST['region'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['presentation'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
         elseif ($_GET['action'] == 'createWeddinplannerMember') {
-            if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
+            if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
             newWeddingplannerMember($_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
         elseif ($_GET['action'] == 'createHelperMember') {
-            if (!empty($_POST['pseudo']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
-                updateHelperMember($_POST['pseudo'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
+            if (!empty($_POST['pseudo']) && !empty($_POST['helperType']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
+                newHelperMember($_POST['pseudo'], $_POST['helperType'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
-
-
         elseif ($_GET['action'] == 'updatePlacePageMember') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 updatePlacePageMember();

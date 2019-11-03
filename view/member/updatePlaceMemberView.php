@@ -9,7 +9,7 @@
 <?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-    <form action="index.php?action=updatePlaceMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=updatePlaceMember&amp;id=<?= $place['id'] ?>" method="post" enctype="multipart/form-data">
 	    <label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input class="boutonVert" type="file" name="image" /><br /><br />
 		<input type="text" name="title" placeholder="Nom du lieu de réception" required>
@@ -19,7 +19,7 @@
 		<input type="text" name="region" placeholder="Région" required>
 		<input type="text" name="website" placeholder="Url de votre site Web">
 		<input type="text" name="tel" placeholder="Numéro de téléphone" required>
-		<input type="email" name="email" placeholder="Email" required>
+		<input type="email" name="mail" placeholder="Email" required>
 	    <textarea name="presentation" placeholder="Présentation du lieu de réception" required></textarea><br />
 	    <input class="boutonVert" type="submit" name="submit" value="Mettre à jour le lieu de réception">
 	    <button class="boutonRouge"><a href="index.php">Annuler</a></button>

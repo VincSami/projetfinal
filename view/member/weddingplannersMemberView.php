@@ -16,7 +16,7 @@ foreach($weddingplanners as $weddingplanner)
     <img src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $weddingplanner['pseudo'] ?><br></h5>
-      <a href="index.php?action=weddingplanner&amp;id=<?= $weddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
+      <a href="index.php?action=weddingplannerMember&amp;id=<?= $weddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
 <?php

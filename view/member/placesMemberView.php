@@ -16,7 +16,7 @@ foreach($places as $place)
     <img src="public/img/place<?= $place['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $place['title'] ?><br></h5>
-      <a href="index.php?action=place&amp;id=<?= $place['id'] ?>" class="btn btn-primary">En savoir plus</a>
+      <a href="index.php?action=placeMember&amp;id=<?= $place['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
 <?php

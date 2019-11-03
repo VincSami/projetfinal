@@ -1,6 +1,6 @@
 <?php $image_page = ""; ?>
 
-<?php $page_title = "Bienvenue sur votre profil"; ?>
+<?php $page_title = "Bienvenue sur votre profil" ?>
 
 <?php $page_subtitle = ""; ?>
 
@@ -10,8 +10,8 @@
 
 <?php ob_start(); ?>
 <section id="newMemberPage">
-	<button>J'ajoute mes services</button>
-    <form action="index.php?action=creationMemberPage" method="post" enctype="multipart/form-data">
+	<button id="addServicesButton">J'ajoute mes services</button>
+    <form id="addServicesForm" action="index.php?action=creationMemberPage" method="post" enctype="multipart/form-data">
 		<label for="memberType"><strong>Sélectionner le type de prestation proposée</strong></label><br />
 		<select name="memberType">
 			<option value="">--Merci de choisir une option--</option>
@@ -27,90 +27,66 @@
 		</select>
 		<input type="submit" name="submit" value="Valider">
 	</form>
-	<button class="boutonRouge"><a href="index.php">Annuler</a></button>
+	<button id="cancelAddServicesButton">Annuler</button>
 </section>
 <div id="memberProfil">
 <h3>Vos offres de service publiées</h3>
 <section id="memberPlaces">
-	<article>
-        <ul>
-        <?php
-		if ($memberPlaces){
-        foreach($memberPlaces as $memberPlace)
-        {
-        ?>
-        <li>
-            <figure>
-                <a href="index.php?action=placeMember&amp;id=<?= $memberPlace['id'] ?>">
-                	<img src="public/img/place<?= $memberPlace['id'] ?>.jpg">
-                </a>
-                <figcaption>
-                	<?= $memberPlace['title'] ?><br>
-                    <button class="boutonRouge" id="deletePlacePageMember"><a href="index.php?action=deletePlacePageMember&amp;id=<?= $memberPlace['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updatePlacePageMember"><a href="index.php?action=updatePlacePageMember&amp;id=<?= $memberPlace['id'] ?>">Modifier</a></button>
-                </figcaption>
-            </figure>
-        </li>
-        <?php
-		}
-		}
-        ?>
-        </ul>
-    </article>
+<?php
+if ($memberPlaces){
+foreach($memberPlaces as $memberPlace)
+{
+?>
+<div class="card" style="width: 18rem;">
+    <img src="public/img/place<?= $memberPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <div class="card-body">
+        <h5 class="card-title"><?= $memberPlace['title'] ?><br></h5>
+        <a href="index.php?action=deletePlacePageMember&amp;id=<?= $memberPlace['id'] ?>" class="btn btn-primary">Supprimer</a>
+        <a href="index.php?action=updatePlacePageMember&amp;id=<?= $memberPlace['id'] ?>" class="btn btn-primary">Modifier</a>
+    </div>
+</div>
+<?php
+}
+}
+?>
 </section>
 <section id="memberweddingPlanners">
-    <article>
-        <ul>
-        <?php
-		if ($memberWeddingplanners){
-        foreach($memberWeddingplanners as $memberWeddingplanner)
-        {
-        ?>
-        <li>
-            <figure>
-                <a href="index.php?action=weddingplannerMember&amp;id=<?= $memberWeddingplanner['id'] ?>">
-                    <img src="public/img/weddingPlanner<?= $memberWeddingplanner['id'] ?>.jpg">
-                </a>
-                <figcaption>
-                	<?= $memberWeddingplanner['pseudo'] ?><br>
-                    <button class="boutonRouge" id="deleteWeddingplannerPageMember"><a href="index.php?action=deleteWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updateWeddingplannerPageMember"><a href="index.php?action=updateWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>">Modifier</a></button>
-                </figcaption>
-            </figure>
-        </li>
-        <?php
-		}
-		}
-        ?>
-        </ul>
-    </article>
+<?php
+if ($memberWeddingplanners){
+foreach($memberWeddingplanners as $memberWeddingplanner)
+{
+?>
+<div class="card" style="width: 18rem;">
+    <img src="public/img/weddingPlanner<?= $memberWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <div class="card-body">
+        <h5 class="card-title"><?= $memberWeddingplanner['pseudo'] ?><br></h5>
+        <a href="index.php?action=deleteWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>" class="btn btn-primary">Supprimer</a>
+        <a href="index.php?action=updateWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>" class="btn btn-primary">Modifier</a>
+    </div>
+</div>
+<?php
+}
+}
+?>
 </section>
 <section id="memberHelpers">
-    <article>
-        <ul>
-        <?php
-		if ($memberHelpers){
-        foreach($memberHelpers as $memberHelper)
-		{
-        ?>
-        <li>
-            <figure>
-                <a href="index.php?action=memberHelper&amp;id=<?= $memberHelper['id'] ?>">
-                	<img src="public/img/helper<?= $memberHelper['id'] ?>.jpg">
-                </a>
-                <figcaption>
-                	<?= $memberHelper['pseudo'] ?><br>
-                    <button class="boutonRouge" id="deleteHelperPageMember"><a href="index.php?action=deleteHelperPageMember&amp;id=<?= $memberHelper['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updateHelperPageMember"><a href="index.php?action=updateHelperPageMember&amp;id=<?= $memberHelper['id'] ?>">Modifier</a></button>
-                </figcaption>
-            </figure>
-        </li>
-        <?php
-		}
-		}
-        ?>
-        </ul>
-    </article>
+<?php
+if ($memberHelpers){
+foreach($memberHelpers as $memberHelper)
+{
+?>
+<div class="card" style="width: 18rem;">
+    <img src="public/img/helper<?= $memberHelper['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <div class="card-body">
+        <h5 class="card-title"><?= $memberHelper['pseudo'] ?><br></h5>
+        <a href="index.php?action=deleteHelperPageMember&amp;id=<?= $memberHelper['id'] ?>" class="btn btn-primary">Supprimer</a>
+        <a href="index.php?action=updateHelperPageMember&amp;id=<?= $memberHelper['id'] ?>" class="btn btn-primary">Modifier</a>
+    </div>
+</div>
+<?php
+}
+}
+?>
 </section>
 </div>
 <?php $main_content = ob_get_clean(); ?>

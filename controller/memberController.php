@@ -182,12 +182,12 @@ function updateWeddingplannerMember($weddingplannerId, $pseudo, $specialty, $pre
     }
 }
 
-function updateHelperMember($helperId, $pseudo, $id_type, $presentation, $website, $tel, $mail)
+function updateHelperMember($helperId, $pseudo, $content, $website, $tel, $mail, $helperType)
 {  
     $memberManager = new MemberManager();
     
-    $updatedHelper = $memberManager->modifyHelper($helperId, $pseudo, $id_type, $presentation, $website, $tel, $mail);
-    $helperImage = $memberManager->helperImage($helperId);
+    $updatedHelper = $memberManager->modifyHelper($helperId, $pseudo, $content, $website, $tel, $mail, $helperType);
+    $helperImage = $memberManager->helperImageMember($helperId);
     
     if ($updatedHelper === false) {
         throw new Exception('Impossible de modifier le prestataire !');
@@ -201,8 +201,8 @@ function updateHelperMember($helperId, $pseudo, $id_type, $presentation, $websit
 function newPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 {
     $memberManager = new memberManager();
-    $placeCreated = $memberManager->createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
-    $placeImage = $memberManager->placeImage($placeCreated);
+    $placeCreated = $memberManager->createPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
+    $placeImage = $memberManager->placeImageMember($placeCreated);
     if ($placeCreated === false) {
         throw new Exception('Impossible d\'ajouter le lieu de réception !');
     } 
@@ -214,7 +214,7 @@ function newPlaceMember($title, $city, $positionx, $positiony, $region, $website
 function newWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 {
     $memberManager = new memberManager();
-    $weddingplannerCreated = $memberManager->createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId);
+    $weddingplannerCreated = $memberManager->createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId);
     $weddingplannerImage = $memberManager->weddingplannerImage($weddingplannerCreated);
     if ($weddingplannerCreated === false) {
         throw new Exception('Impossible d\'ajouter le wedding-planner !');
@@ -224,10 +224,10 @@ function newWeddingplannerMember($pseudo, $specialty, $presentation, $website, $
     }
 }
 
-function newHelperMember($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
+function newHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId)
 {
     $memberManager = new memberManager();
-    $helperCreated = $memberManager->createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId);
+    $helperCreated = $memberManager->createHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId);
     $helperImage = $memberManager->helperImage($helperCreated);
     if ($helperCreated === false) {
         throw new Exception('Impossible d\'ajouter le prestataire !');

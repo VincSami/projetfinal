@@ -71,8 +71,8 @@ class MemberManager extends Manager
 		public function createPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 		{
 			$db = $this->dbConnect();
-			$posts = $db->prepare('INSERT INTO places(title, city, positionx, positiony, region, website, tel, presentation, creation_date, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?)');
-			$postCreated = $posts->execute(array($title, $city, $positionx, $positiony, $region, $website, $tel, $presentation, $authorId));
+			$req = $db->prepare('INSERT INTO places(title, city, positionx, positiony, region, website, tel, mail, presentation, creation_date, ranked, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NULL, ?)');
+			$placeCreated = $req->execute(array($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId));
 			
 			return $db->lastInsertId();
 		}
@@ -86,11 +86,11 @@ class MemberManager extends Manager
 			return $db->lastInsertId();
 		}
 		
-		public function createHelperMember($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
+		public function createHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId)
 		{
 			$db = $this->dbConnect();
-			$posts = $db->prepare('INSERT INTO helpers(pseudo, specialty, presentation, website, tel, mail, id_type, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
-			$postCreated = $posts->execute(array($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId));
+			$posts = $db->prepare('INSERT INTO helpers(pseudo, content, website, tel, mail, id_type, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+			$postCreated = $posts->execute(array($pseudo, $content, $website, $tel, $mail, $helperType, $authorId));
 			
 			return $db->lastInsertId();
 		}
@@ -144,7 +144,7 @@ class MemberManager extends Manager
 			if(isset($_POST['submit'])){
 					$db = $this->dbConnect();  
 					$places = $db->prepare('UPDATE helpers SET pseudo = ?, id_type = ?, content = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
-					$updatedPlace = $places->execute(array($helperId, $pseudo, $id_type, $content, $website, $tel, $mail));
+					$updatedHelper = $places->execute(array($helperId, $pseudo, $id_type, $content, $website, $tel, $mail));
 					return $updatedHelper;
 			}
 		}

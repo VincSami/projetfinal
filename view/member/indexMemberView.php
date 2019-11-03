@@ -27,9 +27,9 @@
 </div>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
+<?php $page_title = 'Bienvenue sur le site du Voile de la Mariée !'; ?>
 
-<?php $page_subtitle = 'Votre mariage à La Réunion les pieds dans l\'eau ou la tête dans les nuages'; ?>
+<?php $page_subtitle = 'Votre mariage à La Réunion en toute simplicité'; ?>
 <?php ob_start(); ?>
 <form action="#" method="post">
   <label for="location">Où ?</label>
@@ -41,6 +41,7 @@
 
 <?php ob_start(); ?>
 <section>
+<h3>Les lieux de réception tendances</h3>
 <?php
   foreach($topPlaces as $topPlace)
   {
@@ -57,6 +58,7 @@
   ?> 
 </section>        
 <section>
+<h3>Les Wedding-Planners de la semaine</h3>
 <?php
   foreach($topWeddingplanners as $topWeddingplanner)
   {
@@ -73,6 +75,7 @@
   ?>  
 </section>       
 <section>
+<h3>Les prestations indispensables pour votre mariage</h3>
 <?php
   foreach($helperTypes as $helperType)
   {

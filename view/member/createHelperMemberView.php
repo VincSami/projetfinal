@@ -44,8 +44,8 @@
 	<input type="text" name="tel" placeholder="Votre n° de téléphone" required>
 	</div>
 	<div class="form-group">		
-	<label for="email"><strong>Email</strong></label><br />
-	<input type="email" name="email" placeholder="Votre email" required>		
+	<label for="mail"><strong>Email</strong></label><br />
+	<input type="email" name="mail" placeholder="Votre email" required>		
 	</div>	
     <input class="boutonVert" type="submit" name="submit" value="Publier le prestataire">
 </form>
