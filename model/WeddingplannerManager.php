@@ -29,7 +29,7 @@ class WeddingplannerManager extends Manager
 	public function getWeddingplanner($weddingplannerId)
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, pseudo, specialty, presentation, website, tel, email FROM weddingplanners WHERE id = ?');
+	    $req = $db->prepare('SELECT id, pseudo, specialty, presentation, website, tel, mail FROM weddingplanners WHERE id = ?');
 	    $req->execute(array($weddingplannerId));
         $weddingplanner = $req->fetch();
 		//On vérifie que le lieu de réception demandé existe bien

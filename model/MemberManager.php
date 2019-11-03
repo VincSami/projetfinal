@@ -119,32 +119,32 @@ class MemberManager extends Manager
 				$deletehelper = $req->fetch(); 
 		}
 
-		public function modifyPlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+		public function modifyPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId)
 		{
 			if(isset($_POST['submit'])){
 					$db = $this->dbConnect();  
-					$places = $db->prepare('UPDATE places SET title = ?, city = ?, positionx = ?, positiony = ?, region = ?, website = ?, tel = ?, presentation = ? WHERE id = ?');
-					$updatedPlace = $places->execute(array($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation));
+					$req = $db->prepare('UPDATE places SET title = ?, city = ?, positionx = ?, positiony = ?, region = ?, website = ?, tel = ?, mail = ?, presentation = ? WHERE id = ?');
+					$updatedPlace = $req->execute(array($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId));
 					return $updatedPlace;
 			}
 		}
 		
-		public function modifyWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
+		public function modifyWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $weddingplannerId)
 		{
 			if(isset($_POST['submit'])){
 					$db = $this->dbConnect();  
-					$places = $db->prepare('UPDATE weddingplanners SET pseudo = ?, specialty = ?, presentation = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
-					$updatedWeddingplanner = $places->execute(array($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail));
+					$req = $db->prepare('UPDATE weddingplanners SET pseudo = ?, specialty = ?, presentation = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
+					$updatedWeddingplanner = $req->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail, $weddingplannerId));
 					return $updatedWeddingplanner;
 			}
 		}
 		
-		public function modifyHelper($helperId, $pseudo, $id_type, $content, $website, $tel, $mail)
+		public function modifyHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $helperId)
 		{
 			if(isset($_POST['submit'])){
 					$db = $this->dbConnect();  
-					$places = $db->prepare('UPDATE helpers SET pseudo = ?, id_type = ?, content = ?, website = ?, tel = ?, mail = ? WHERE id = ?');
-					$updatedHelper = $places->execute(array($helperId, $pseudo, $id_type, $content, $website, $tel, $mail));
+					$req = $db->prepare('UPDATE helpers SET pseudo = ?, content = ?, website = ?, tel = ?, mail = ?, id_type = ? WHERE id = ?');
+					$updatedHelper = $req->execute(array($pseudo, $content, $website, $tel, $mail, $helperType, $helperId));
 					return $updatedHelper;
 			}
 		}

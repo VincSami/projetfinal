@@ -29,7 +29,7 @@ class PlaceManager extends Manager
     public function getPlace($placeId)
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title, city, positionx, positiony, region, website, tel, presentation FROM places WHERE id = ?');
+	    $req = $db->prepare('SELECT id, title, city, positionx, positiony, region, website, tel, mail, presentation FROM places WHERE id = ?');
 	    $req->execute(array($placeId));
 	    $place = $req->fetch();
 		//On vérifie que le lieu de réception demandé existe bien

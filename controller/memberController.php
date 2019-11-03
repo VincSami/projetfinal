@@ -152,48 +152,47 @@ function updateHelperPageMember()
 }
 
 //Modification du billet
-function updatePlaceMember($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+function updatePlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId)
 {  
     $memberManager = new MemberManager();
     
-    $updatedPlace = $memberManager->modifyPlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation);
-    $placeImage = $memberManager->placeImage($placeId);
+    $updatedPlace = $memberManager->modifyPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId);
+    $placeImage = $memberManager->placeImageMember($placeId);
     
-    if ($updatedPlace === false) {
+    if ($updatedPlace == false) {
         throw new Exception('Impossible de modifier le lieu de réception !');
     } 
     else {
-        header('Location: index.php?action=place&id=' . $placeId);
+        header('Location: index.php?action=placeMember&id=' . $placeId);
     }
 }
 
-function updateWeddingplannerMember($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
+function updateWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $weddingplannerId)
 {  
     $memberManager = new MemberManager();
     
-    $updatedWeddingplanner = $memberManager->modifyWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail);
-    $weddingplannerImage = $memberManager->weddingplannerImage($weddingplannerId);
+    $updatedWeddingplanner = $memberManager->modifyWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $weddingplannerId);
+    $weddingplannerImage = $memberManager->weddingplannerImageMember($weddingplannerId);
     
-    if ($updatedWeddingplanner === false) {
+    if ($updatedWeddingplanner == false) {
         throw new Exception('Impossible de modifier le wedding-planner !');
     } 
     else {
-        header('Location: index.php?action=weddingplanner&id=' . $weddingplannerId);
+        header('Location: index.php?action=weddingplannerMember&id=' . $weddingplannerId);
     }
 }
 
-function updateHelperMember($helperId, $pseudo, $content, $website, $tel, $mail, $helperType)
+function updateHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $helperId)
 {  
     $memberManager = new MemberManager();
     
-    $updatedHelper = $memberManager->modifyHelper($helperId, $pseudo, $content, $website, $tel, $mail, $helperType);
+    $updatedHelper = $memberManager->modifyHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $helperId);
     $helperImage = $memberManager->helperImageMember($helperId);
-    
-    if ($updatedHelper === false) {
+    if ($updatedHelper == false) {
         throw new Exception('Impossible de modifier le prestataire !');
     } 
     else {
-        header('Location: index.php?action=helper&id=' . $helperId);
+        header('Location: index.php?action=helperMember&id=' . $helperId);
     }
 }
 

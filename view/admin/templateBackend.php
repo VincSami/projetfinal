@@ -19,13 +19,13 @@
               <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="index.php?action=places">Lieux de réception</a>
+              <a class="nav-link" href="index.php?action=placesAdmin">Lieux de réception</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="index.php?action=weddingplanners">Wedding Planners</a>
+              <a class="nav-link" href="index.php?action=weddingplannersAdmin">Wedding Planners</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="index.php?action=helpers">Prestataires</a>
+              <a class="nav-link" href="index.php?action=helpersAdmin">Prestataires</a>
           </li>
         </ul>
       </div>

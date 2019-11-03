@@ -9,15 +9,15 @@
 <?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-    <form action="index.php?action=updateWeddingplannerMember&amp;id=<?= $weddingplanner['id'] ?>" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=updateWeddingplannerMember&amp;weddingplannerId=<?= $weddingplanner['id'] ?>" method="post" enctype="multipart/form-data">
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input class="boutonVert" type="file" name="image" /><br /><br />
-		<input type="text" name="pseudo" placeholder="Nom de votre entreprise" required>
-		<input type="text" name="specialty" placeholder="Spécialité" required>
-	    <textarea name="presentation" placeholder="Description de vos services" required></textarea><br />
-		<input type="text" name="website" placeholder="Url de votre site Web">
-		<input type="text" name="tel" placeholder="Numéro de télephone" required>		
-		<input type="email" name="mail" placeholder="Email" required>		
+		<input type="text" name="pseudo" value="<?= $weddingplanner['pseudo'] ?>" required>
+		<input type="text" name="specialty" value="<?= $weddingplanner['specialty'] ?>" required>
+	    <textarea name="presentation" value="<?= $weddingplanner['presentation'] ?>" required></textarea><br />
+		<input type="text" name="website" value="<?= $weddingplanner['website'] ?>">
+		<input type="text" name="tel" value="<?= $weddingplanner['tel'] ?>" required>		
+		<input type="email" name="mail" value="<?= $weddingplanner['mail'] ?>" required>		
 	    <input class="boutonVert" type="submit" name="submit" value="Mettre à jour la Wedding-Planner">
 	    <button class="boutonRouge"><a href="index.php">Annuler</a></button>
 	</form>

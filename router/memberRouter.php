@@ -32,8 +32,6 @@ function memberRouter()
         elseif ($_GET['action'] == 'helperMember') {
             helperMember($_GET['id']);
         }
-         
-        
         elseif ($_GET['action'] == 'profil') {
             userProfil($_GET['authorId']);
         }
@@ -94,9 +92,9 @@ function memberRouter()
             }
         }
         elseif ($_GET['action'] == 'updatePlaceMember') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['title']) && !empty($_POST['city']) && !empty($_POST['positionx']) && !empty($_POST['positiony']) && !empty($_POST['region']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['presentation'])) {
-                updatePlaceMember($_GET['id'], $_POST['title'], $_POST['city'], $_POST['positionx'], $_POST['positiony'], $_POST['region'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['presentation']);
+            if (isset($_GET['placeId']) && $_GET['placeId'] > 0) {
+                if (!empty($_POST['title']) && !empty($_POST['city']) && !empty($_POST['positionx']) && !empty($_POST['positiony']) && !empty($_POST['region']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['presentation'])) {
+                updatePlaceMember($_POST['title'], $_POST['city'], $_POST['positionx'], $_POST['positiony'], $_POST['region'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['presentation'], $_GET['placeId']);
                 } else {
                     throw new Exception('tous les champs ne sont pas remplis !');
                 }
@@ -106,9 +104,9 @@ function memberRouter()
             }
         }
         elseif ($_GET['action'] == 'updateWeddingplannerMember') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
-                updateWeddingplannerMember($_GET['id'], $_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
+            if (isset($_GET['weddingplannerId']) && $_GET['weddingplannerId'] > 0) {
+                if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
+                updateWeddingplannerMember($_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['weddingplannerId']);
                 } else {
                     throw new Exception('tous les champs ne sont pas remplis !');
                 }
@@ -118,9 +116,9 @@ function memberRouter()
             }
         }
         elseif ($_GET['action'] == 'updateHelperMember') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['pseudo']) && !empty($_POST['presentation']) && !empty($_POST['helperType']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail'])) {
-                updateHelperMember($_GET['id'], $_POST['pseudo'], $_POST['helperType'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail']);
+            if (isset($_GET['helperId']) && $_GET['helperId'] > 0) {
+                if (!empty($_POST['pseudo']) && !empty($_POST['content']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['helperType'])) {
+                updateHelperMember($_POST['pseudo'], $_POST['content'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['helperType'], $_GET['helperId']);
                 } else {
                     throw new Exception('tous les champs ne sont pas remplis !');
                 }
@@ -129,9 +127,6 @@ function memberRouter()
                 throw new Exception("aucun identifiant de billet envoyé");
             }
         }
-
-
-
         elseif ($_GET['action'] == 'deletePlacePageMember') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deletePlacePageMember();
@@ -171,8 +166,6 @@ function memberRouter()
                 eraseHelperMember($_GET['id']);
             }
         }
-
-
         elseif ($_GET['action'] == 'mentions'){
             require ('view/mentions_legales.php');
         }

@@ -1,26 +1,23 @@
-<?php ob_start(); ?>
-    <img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg" alt="image prestataire">
-<?php $image_page = ob_get_clean(); ?>
+<?php $image_page = ""; ?>
 
-<?php $page_title = "" ?>
+<?php $page_title = "Page d'administration du site de Jean Forteroche"; ?>
 
-<?php $page_subtitle = "Modifier la Wedding-Planner : " . $weddingplanner['pseudo'] ?>
+<?php $page_subtitle = "Créer un nouvel épisode"; ?>
 
-<?php $main_content_title = "Vous êtes sur le point de modifier cette Wedding-Planner "; ?>
+<?php $main_content_title = "Vous êtes sur le point de créer un nouvel épisode "; ?>
 
 <?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
-<form action="index.php?action=updateWeddingplannerAdmin" method="post" enctype="multipart/form-data">
-	    <label for="image"><strong>Définir l'image d'illustration</strong></label><br />
+    <form action="index.php?action=updateWeddingplannerAdmin&amp;weddingplannerId=<?= $weddingplanner['id'] ?>" method="post" enctype="multipart/form-data">
+		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input class="boutonVert" type="file" name="image" /><br /><br />
-		<label for="pseudo"><strong>Nom de la Wedding-Planner</strong></label><br />
-		<input type="text" name="pseudo" required>
-	    <label for="presentation"><strong>Présentation de la Wedding-Planner</strong></label><br />
-	    <textarea name="presentation" required></textarea><br />
-		<input type="text" name="website">
-		<input type="text" name="tel" required>		
-		<input type="email" name="email" required>		
+		<input type="text" name="pseudo" value="<?= $weddingplanner['pseudo'] ?>" required>
+		<input type="text" name="specialty" value="<?= $weddingplanner['specialty'] ?>" required>
+	    <textarea name="presentation" value="<?= $weddingplanner['presentation'] ?>" required></textarea><br />
+		<input type="text" name="website" value="<?= $weddingplanner['website'] ?>">
+		<input type="text" name="tel" value="<?= $weddingplanner['tel'] ?>" required>		
+		<input type="email" name="mail" value="<?= $weddingplanner['mail'] ?>" required>		
 	    <input class="boutonVert" type="submit" name="submit" value="Mettre à jour la Wedding-Planner">
 	    <button class="boutonRouge"><a href="index.php">Annuler</a></button>
 	</form>
