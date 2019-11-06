@@ -36,10 +36,10 @@ function memberRouter()
             userProfil($_GET['authorId']);
         }
         elseif ($_GET['action'] == 'creationMemberPage') {
-            if ($_POST['memberType'] == 2){
+            if ($_POST['memberType'] == 1){
                 require('view/member/createPlaceMemberView.php');
             }
-            elseif ($_POST['memberType'] == 9){
+            elseif ($_POST['memberType'] == 2){
                 require('view/member/createWeddingplannerMemberView.php');
             }
             else {
@@ -53,16 +53,16 @@ function memberRouter()
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
-        elseif ($_GET['action'] == 'createWeddinplannerMember') {
-            if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
+        elseif ($_GET['action'] == 'createWeddingplannerMember') {
+            if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
             newWeddingplannerMember($_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
         elseif ($_GET['action'] == 'createHelperMember') {
-            if (!empty($_POST['pseudo']) && !empty($_POST['helperType']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
-                newHelperMember($_POST['pseudo'], $_POST['helperType'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
+            if (!empty($_POST['pseudo']) && !empty($_POST['content']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['helperType']) && !empty($_GET['authorId'])) {
+                newHelperMember($_POST['pseudo'], $_POST['content'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['helperType'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }

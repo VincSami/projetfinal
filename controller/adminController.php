@@ -74,7 +74,7 @@ function deletePlacePageAdmin()
     $placeManager = new PlaceManager();
 
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/admin/deletePlaceView.php');
+    require('view/admin/deletePlaceAdminView.php');
 }
 
 function deleteWeddingplannerPageAdmin()
@@ -82,7 +82,7 @@ function deleteWeddingplannerPageAdmin()
     $weddingplannerManager = new WeddingplannerManager();
 
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
-    require('view/admin/deleteWeddingplannerView.php');
+    require('view/admin/deleteWeddingplannerAdminView.php');
 }
 
 function deleteHelperPageAdmin()
@@ -90,7 +90,7 @@ function deleteHelperPageAdmin()
     $helperManager = new HelperManager();
 
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/admin/deleteHelperView.php');
+    require('view/admin/deleteHelperAdminView.php');
 }
 
 //Suppression du billet et des commentaires
@@ -120,7 +120,7 @@ function updatePlacePageAdmin()
     $placeManager = new PlaceManager();
 
     $place = $placeManager->getPlace($_GET['id']);
-    require('view/admin/updatePlaceView.php');
+    require('view/admin/updatePlaceAdminView.php');
 }
 
 function updateWeddingplannerPageAdmin()
@@ -128,7 +128,7 @@ function updateWeddingplannerPageAdmin()
     $weddingplannerManager = new WeddingplannerManager();
 
     $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
-    require('view/admin/updateWeddingplannerView.php');
+    require('view/admin/updateWeddingplannerAdminView.php');
 }
 
 function updateHelperPageAdmin()
@@ -136,106 +136,90 @@ function updateHelperPageAdmin()
     $helperManager = new HelperManager();
 
     $helper = $helperManager->getHelper($_GET['id']);
-    require('view/admin/updateHelperView.php');
+    require('view/admin/updateHelperAdminView.php');
 }
 
 //Modification du billet
-function updatePlaceAdmin($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation)
+function updatePlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId)
 {  
     $adminManager = new AdminManager();
     
-    $updatedPlace = $adminManager->modifyPlace($placeId, $title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation);
-    $placeImage = $adminManager->placeImage($placeId);
+    $updatedPlace = $adminManager->modifyPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId);
+    $placeImage = $adminManager->placeImageAdmin($placeId);
     
-    if ($updatedPlace === false) {
+    if ($updatedPlace == false) {
         throw new Exception('Impossible de modifier le lieu de réception !');
     } 
     else {
-        header('Location: index.php?action=place&id=' . $placeId);
+        header('Location: index.php?action=placeAdmin&id=' . $placeId);
     }
 }
 
-function updateWeddingplannerAdmin($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail)
+function updateWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail, $weddingplannerId)
 {  
     $adminManager = new AdminManager();
     
-    $updatedWeddingplanner = $adminManager->modifyWeddingplanner($weddingplannerId, $pseudo, $specialty, $presentation, $website, $tel, $mail);
-    $weddingplannerImage = $adminManager->weddingplannerImage($weddingplannerId);
+    $updatedWeddingplanner = $adminManager->modifyWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail, $weddingplannerId);
+    $weddingplannerImage = $adminManager->weddingplannerImageAdmin($weddingplannerId);
     
-    if ($updatedWeddingplanner === false) {
+    if ($updatedWeddingplanner == false) {
         throw new Exception('Impossible de modifier le wedding-planner !');
     } 
     else {
-        header('Location: index.php?action=weddingplanner&id=' . $weddingplannerId);
+        header('Location: index.php?action=weddingplannerAdmin&id=' . $weddingplannerId);
     }
 }
 
-function updateHelperAdmin($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type)
+function updateHelperAdmin($pseudo, $content, $website, $tel, $mail, $helperType, $helperId)
 {  
     $adminManager = new AdminManager();
     
-    $updatedHelper = $adminManager->modifyHelper($helperId, $pseudo, $presentation, $website, $tel, $mail, $id_type);
-    $helperImage = $adminManager->helperImage($helperId);
-    
-    if ($updatedHelper === false) {
+    $updatedHelper = $adminManager->modifyHelperAdmin($pseudo, $content, $website, $tel, $mail, $helperType, $helperId);
+    $helperImage = $adminManager->helperImageAdmin($helperId);
+    if ($updatedHelper == false) {
         throw new Exception('Impossible de modifier le prestataire !');
     } 
     else {
-        header('Location: index.php?action=helper&id=' . $helperId);
+        header('Location: index.php?action=helperAdmin&id=' . $helperId);
     }
 }
 
-//Page de création d'un billet
-function placeCreationPageAdmin()
-{
-  require('view/admin/createPlaceAdminView.php');
-}
-
-function weddingplannerCreationPageAdmin()
-{
-  require('view/admin/createWeddingplannerAdminView.php');
-}
-
-function helperCreationPageAdmin()
-{
-  require('view/admin/createHelperAdminView.php');
-}
 
 function newPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 {
     $adminManager = new AdminManager();
-    $placeCreated = $adminManager->createPlace($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
-    $placeImage = $adminManager->placeImage($placeCreated);
+    $placeCreated = $adminManager->createPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
+    $placeImage = $adminManager->placeImageAdmin($placeCreated);
     if ($placeCreated === false) {
         throw new Exception('Impossible d\'ajouter le lieu de réception !');
     } 
     else {
-        header('Location: index.php?action=place&id=' . $placeCreated);
+        header('Location: index.php?action=placeAdmin&id=' . $placeCreated);
     }
 }
 
 function newWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 {
     $adminManager = new AdminManager();
-    $weddingplannerCreated = $adminManager->createWeddingplanner($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId);
-    $weddingplannerImage = $adminManager->weddingplannerImage($weddingplannerCreated);
+    $weddingplannerCreated = $adminManager->createWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId);
+    $weddingplannerImage = $adminManager->weddingplannerImageAdmin($weddingplannerCreated);
     if ($weddingplannerCreated === false) {
         throw new Exception('Impossible d\'ajouter le wedding-planner !');
     } 
     else {
-        header('Location: index.php?action=weddingplanner&id=' . $weddingplannerCreated);
+         header('Location: index.php?action=weddingplannerAdmin&id=' . $weddingplannerCreated);
     }
 }
 
-function newHelperAdmin($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId)
+function newHelperAdmin($pseudo, $content, $website, $tel, $mail, $helperType, $authorId)
 {
     $adminManager = new AdminManager();
-    $helperCreated = $adminManager->createHelper($pseudo, $presentation, $website, $tel, $mail, $id_type, $authorId);
-    $helperImage = $adminManager->helperImage($helperCreated);
+    $helperCreated = $adminManager->createHelperAdmin($pseudo, $content, $website, $tel, $mail, $helperType, $authorId);
+    $helperImage = $adminManager->helperImageAdmin($helperCreated);
     if ($helperCreated === false) {
         throw new Exception('Impossible d\'ajouter le prestataire !');
     } 
     else {
-        header('Location: index.php?action=helper&id=' . $helperCreated);
+        header('Location: index.php?action=helperAdmin&id=' . $helperCreated);
     }
 }

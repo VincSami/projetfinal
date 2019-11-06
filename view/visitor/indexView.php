@@ -42,11 +42,10 @@
   foreach($topPlaces as $topPlace)
   {
   ?>
-  <div class="card" style="width: 18rem;">
-    <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
-    <div class="card-body">
-      <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
-      <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
+  <div class="card bg-dark text-white">
+    <img class="card-img" src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <div class="card-img-overlay">
+      <h3 class="card-title"><?= $topPlace['title'] ?></h3>
     </div>
   </div>
   <?php

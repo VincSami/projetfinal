@@ -7,7 +7,7 @@ class PlaceManager extends Manager
 	public function getTopPlaces()
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title, city, ranked, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM places ORDER BY ranked DESC LIMIT 0,10');
+	    $req = $db->prepare('SELECT id, title, city, ranked, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM places ORDER BY creation_date DESC');
         $req->setFetchMode(PDO::FETCH_ASSOC);
 	    $req->execute();
         $topPlaces = $req->fetchAll();

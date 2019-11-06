@@ -80,8 +80,8 @@ class MemberManager extends Manager
 		public function createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 		{
 			$db = $this->dbConnect();
-			$posts = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
-			$postCreated = $posts->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId));
+			$req = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
+			$weddingplannerCreated = $req->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId));
 			
 			return $db->lastInsertId();
 		}
@@ -89,8 +89,8 @@ class MemberManager extends Manager
 		public function createHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId)
 		{
 			$db = $this->dbConnect();
-			$posts = $db->prepare('INSERT INTO helpers(pseudo, content, website, tel, mail, id_type, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
-			$postCreated = $posts->execute(array($pseudo, $content, $website, $tel, $mail, $helperType, $authorId));
+			$req = $db->prepare('INSERT INTO helpers(pseudo, content, website, tel, mail, id_type, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
+			$helperCreated = $req->execute(array($pseudo, $content, $website, $tel, $mail, $helperType, $authorId));
 			
 			return $db->lastInsertId();
 		}

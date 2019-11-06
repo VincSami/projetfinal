@@ -3,6 +3,7 @@
 require_once('model/PlaceManager.php');
 require_once('model/WeddingplannerManager.php');
 require_once('model/HelperManager.php');
+require_once('model/MemberManager.php');
 
 //Accueil Membre
 function homeMember()
@@ -29,7 +30,6 @@ function userProfil($authorId)
     $memberHelpers = $helperManager->getMemberHelpers($authorId);
 
     require('view/member/managerMemberView.php');
-    var_dump($memberHelpers);
 }
 
 function placesMember()
@@ -199,39 +199,39 @@ function updateHelperMember($pseudo, $content, $website, $tel, $mail, $helperTyp
 
 function newPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 {
-    $memberManager = new memberManager();
+    $memberManager = new MemberManager();
     $placeCreated = $memberManager->createPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
     $placeImage = $memberManager->placeImageMember($placeCreated);
     if ($placeCreated === false) {
         throw new Exception('Impossible d\'ajouter le lieu de réception !');
     } 
     else {
-        header('Location: index.php');
+        header('Location: index.php?action=placeMember&id=' . $placeCreated);
     }
 }
 
 function newWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 {
-    $memberManager = new memberManager();
+    $memberManager = new MemberManager();
     $weddingplannerCreated = $memberManager->createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId);
-    $weddingplannerImage = $memberManager->weddingplannerImage($weddingplannerCreated);
+    $weddingplannerImage = $memberManager->weddingplannerImageMember($weddingplannerCreated);
     if ($weddingplannerCreated === false) {
         throw new Exception('Impossible d\'ajouter le wedding-planner !');
     } 
     else {
-        header('Location: index.php');
+         header('Location: index.php?action=weddingplannerMember&id=' . $weddingplannerCreated);
     }
 }
 
 function newHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId)
 {
-    $memberManager = new memberManager();
+    $memberManager = new MemberManager();
     $helperCreated = $memberManager->createHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId);
-    $helperImage = $memberManager->helperImage($helperCreated);
+    $helperImage = $memberManager->helperImageMember($helperCreated);
     if ($helperCreated === false) {
         throw new Exception('Impossible d\'ajouter le prestataire !');
     } 
     else {
-        header('Location: index.php');
+        header('Location: index.php?action=helperMember&id=' . $helperCreated);
     }
 }

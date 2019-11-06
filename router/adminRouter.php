@@ -33,14 +33,14 @@ function adminRouter()
             helperAdmin($_GET['id']);
         }
         elseif ($_GET['action'] == 'creationAdminPage') {
-            if ($_POST['memberType'] == 2){
-                require('view/member/createPlaceAdminView.php');
+            if ($_POST['serviceType'] == 1){
+                require('view/admin/createPlaceAdminView.php');
             }
-            elseif ($_POST['memberType'] == 9){
-                require('view/member/createWeddingplannerAdminView.php');
+            elseif ($_POST['serviceType'] == 2){
+                require('view/admin/createWeddingplannerAdminView.php');
             }
             else {
-                require('view/member/createHelperAdminView.php');
+                require('view/admin/createHelperAdminView.php');
             }
         }
         elseif ($_GET['action'] == 'createPlaceAdmin') {
@@ -50,16 +50,16 @@ function adminRouter()
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
-        elseif ($_GET['action'] == 'createWeddinplannerAdmin') {
-            if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['website']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
+        elseif ($_GET['action'] == 'createWeddingplannerAdmin') {
+            if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
             newWeddingplannerAdmin($_POST['pseudo'], $_POST['specialty'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }
         }
         elseif ($_GET['action'] == 'createHelperAdmin') {
-            if (!empty($_POST['pseudo']) && !empty($_POST['helperType']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
-                newHelperAdmin($_POST['pseudo'], $_POST['helperType'], $_POST['presentation'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_GET['authorId']);
+            if (!empty($_POST['pseudo']) && !empty($_POST['content']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_POST['helperType']) && !empty($_GET['authorId'])) {
+                newHelperAdmin($_POST['pseudo'], $_POST['content'], $_POST['website'], $_POST['tel'], $_POST['mail'], $_POST['helperType'], $_GET['authorId']);
             } else {
                 throw new Exception('tous les champs ne sont pas remplis !');
             }

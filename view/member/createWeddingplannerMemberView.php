@@ -12,7 +12,7 @@
 <form action="index.php?action=createWeddingplannerMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
-		<input class="boutonVert" type="file" name="image" /><br /><br />
+		<input type="file" name="image" /><br /><br />
 	</div>
 	<div class="form-group">
 		<label for="pseudo"><strong>Nom de l'entreprise</strong></label><br />
@@ -22,12 +22,12 @@
 	<label for="specialty"><strong>Type de prestation proposée</strong></label><br />
 	<select name="specialty" required>
 		<option value="">--Merci de choisir une option--</option>
-		<option value="1">Mariage bohème</option>
-		<option value="2">Mariage intimiste</option>
-		<option value="3">Mariage haut de gamme</option>
-		<option value="4">Mariage de plage</option>
-		<option value="5">Mariage de montagne</option>
-		<option value="6">Mariage insolite</option>
+		<option value="Mariage bohème">Mariage bohème</option>
+		<option value="Mariage intimiste">Mariage intimiste</option>
+		<option value="Mariage haut de gamme">Mariage haut de gamme</option>
+		<option value="Mariage de plage">Mariage de plage</option>
+		<option value="Mariage de montagne">Mariage de montagne</option>
+		<option value="Mariage insolite">Mariage insolite</option>
 	</select>
 	</div>
 	<div class="form-group">
@@ -46,7 +46,7 @@
 		<label for="mail"><strong>Email</strong></label><br />
 		<input type="email" name="mail" placeholder="Votre email" required>		
 	</div>	
-    	<input class="boutonVert" type="submit" name="submit" value="Publier le prestataire">
+    	<input type="submit" name="submit" value="Publier le prestataire">
 </form>
 <?php $main_content = ob_get_clean(); ?>
 

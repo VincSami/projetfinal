@@ -8,13 +8,13 @@ const cancelMemberSubscriptionButton = document.getElementById("cancelMemberSubs
 
 memberButton.addEventListener("click", function() {
 	memberButton.style.display = "none";
-	memberAccessForm.style.display = "block";
-	cancelMemberAccess.style.display = "block";
-	subscribeMemberButton.style.display = "block";
+	memberAccessForm.style.display = "flex";
+	cancelMemberAccess.style.display = "flex";
+	subscribeMemberButton.style.display = "flex";
 });
 
 cancelMemberAccess.addEventListener("click", function() {
-	memberButton.style.display = "block";
+	memberButton.style.display = "flex";
 	memberAccessForm.style.display = "none";
 	cancelMemberAccess.style.display = "none";
 	subscribeMemberButton.style.display = "none";
@@ -24,13 +24,13 @@ subscribeMemberButton.addEventListener("click", function() {
 	subscribeMemberButton.style.display = "none";
 	memberAccessForm.style.display = "none";
 	cancelMemberAccess.style.display = "none";
-	memberSubscriptionForm.style.display = "block";
-	cancelMemberSubscriptionButton.style.display = "block";
+	memberSubscriptionForm.style.display = "flex";
+	cancelMemberSubscriptionButton.style.display = "flex";
 });
 
 cancelMemberSubscriptionButton.addEventListener("click", function() {
 	memberSubscriptionForm.style.display = "none";
 	cancelMemberSubscriptionButton.style.display = "none";
-	memberButton.style.display = "block";
+	memberButton.style.display = "flex";
 });
 

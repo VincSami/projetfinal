@@ -27,7 +27,7 @@
 </div>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur Wedding & Love !'; ?>
+<?php $page_title = 'Bienvenue sur la page d\'administration de Mariage et Coquillages !'; ?>
 
 <?php $page_subtitle = 'Votre marriage à La Réunion en toute sérénité !'; ?>
 
@@ -39,22 +39,16 @@
 <section id="newAdminPage">
     <button>Ajouter une nouvelle prestation</button>
     <form action="index.php?action=creationAdminPage" method="post" enctype="multipart/form-data">
-		<label for="newServicetype"><strong>Sélectionner le type de prestation à ajouter</strong></label><br />
+		<label for="servicetype"><strong>Sélectionner le type de prestation à ajouter</strong></label><br />
 		<select name="serviceType">
 			<option value="">--Merci de choisir une option--</option>
-			<option value="1">Fleuriste</option>
-			<option value="2">Lieu de réception</option>
-			<option value="3">Loueur de voitures et motos</option>
-			<option value="4">Patiserie</option>
-			<option value="5">Photographe</option>
-			<option value="6">Traiteur</option>
-			<option value="7">Vendeur et loueur de costumes de marié</option>
-			<option value="8">Vendeur et loueur de robes de mariée</option>
-			<option value="9">Wedding-Planner</option>
+			<option value="1">Lieu de réception</option>
+			<option value="2">Wedding-Planner</option>
+			<option value="3">Autres prestataires</option>
 		</select>
 		<input type="submit" name="submit" value="Valider">
 	</form>
-	<button class="boutonRouge"><a href="index.php">Annuler</a></button>
+	<button><a href="index.php">Annuler</a></button>
 </section>
 <section id="place">
           <h2 class="titre_section">Lieux de réception</h2>

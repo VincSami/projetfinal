@@ -32,7 +32,7 @@
                     </ul>
                 </div>
                 <div>
-                    <button id="memberButton">S'identifier</button>
+                    <button id="memberButton" class="btn btn-primary">S'identifier</button>
                     <form id="memberAccess" action="index.php?action=connect" method="post">
                         <div class="form-group">
                             <label for="pseudoMember">Pseudo</label>
@@ -44,8 +44,10 @@
                         </div>
                         <button type="submit" class="btn btn-primary">S'identifier</button>
                     </form>
-                    <button id="cancelMemberAccess">Annuler</button>
-                    <button id="subscribeMember">Pas encore membre ? Inscrivez-vous !</button>
+                    <div id="cancelSubscribeButtons">
+                  	<button id="cancelMemberAccess" class="btn btn-primary">Annuler</button>
+                    <button id="subscribeMember" class="btn btn-primary">Pas encore membre ? Inscrivez-vous !</button>
+                    <div>
                     <form id="memberSubscription" action="index.php?action=subscribe" method="post">
                         <div class="form-group">
                             <label for="pseudoSubscriber">Pseudo</label>
@@ -62,7 +64,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">S'inscrire</button>
                     </form>
-                    <button id="cancelMemberSubscription">Annuler</button>
+                    <button id="cancelMemberSubscription" class="btn btn-primary">Annuler</button>
                 </div>
             </nav>
             <?= $image_page ?>

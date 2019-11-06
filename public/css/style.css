@@ -24,6 +24,17 @@ nav ul{
 	display: flex;
 }
 
+#memberAccess{
+  display: flex;
+}
+
+
+#cancelSubscribeButtons{
+  display : flex;
+}
+
+
+
 #infoSession{
 	display: flex;
 }

@@ -15,15 +15,9 @@
 		<label for="memberType"><strong>Sélectionner le type de prestation proposée</strong></label><br />
 		<select name="memberType">
 			<option value="">--Merci de choisir une option--</option>
-			<option value="1">Fleuriste</option>
-			<option value="2">Lieu de réception</option>
-			<option value="3">Loueur de voitures et motos</option>
-			<option value="4">Patiserie</option>
-			<option value="5">Photographe</option>
-			<option value="6">Traiteur</option>
-			<option value="7">Vendeur et loueur de costumes de marié</option>
-			<option value="8">Vendeur et loueur de robes de mariée</option>
-			<option value="9">Wedding-Planner</option>
+			<option value="1">Lieu de réception</option>
+            <option value="2">Wedding-Planner</option>
+			<option value="3">Autres prestataires</option>
 		</select>
 		<input type="submit" name="submit" value="Valider">
 	</form>
