@@ -51,4 +51,14 @@ class PlaceManager extends Manager
 		//On vérifie que le lieu de réception demandé existe bien
 		return $memberPlaces;
 	}
+
+	public function getCoordinates(){
+		$db = $this->dbConnect();  
+	    $req = $db->prepare('SELECT id, title, positionx, positiony FROM places');
+		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->execute();
+	    $placesCoords = $req->fetchAll();
+		//On vérifie que le lieu de réception demandé existe bien
+		return $placesCoords;
+	}
 }

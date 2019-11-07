@@ -85,10 +85,11 @@ function helper($helperId)
     require('view/visitor/helperView.php');
 }
 
-function getPlacesCoordinates()
+
+function getPlacesCoords()
 {
     $placeManager = new PlaceManager();
-    $placesCoordinates = $placeManager->getCoordinates();
-
+    $placesCoords = $placeManager->getCoordinates();
     
+    echo(json_encode($placesCoords));
 }
