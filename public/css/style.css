@@ -190,6 +190,15 @@ nav ul{
     box-shadow: 1px 2px 5px;
 }
 
+/* ----------------------------------------- Accueil ------------------------------ */
+#topPlaces, #topWeddingplanners, #helperTypesIndex{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+
 /* -------------------------------------------- AFFICHAGE POSTS ACCUEIL ----------------------------------- */
 
 section figure{

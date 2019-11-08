@@ -38,22 +38,26 @@
 <?php ob_start(); ?>
 <section id="place">
 <h3>Les lieux de réception tendances</h3>
+<div id="topPlaces">
 <?php
   foreach($topPlaces as $topPlace)
   {
   ?>
-  <div class="card bg-dark text-white">
-    <img class="card-img" src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
-    <div class="card-img-overlay">
-      <h3 class="card-title"><?= $topPlace['title'] ?></h3>
+  <div class="card" style="width: 18rem;">
+    <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <div class="card-body">
+      <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
+      <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
   <?php
   }
   ?> 
+</div>
 </section>        
 <section id="weddingPlanner">
 <h3>Les Wedding-Planners de la semaine</h3>
+<div id="topWeddingplanners">
 <?php
   foreach($topWeddingplanners as $topWeddingplanner)
   {
@@ -67,10 +71,12 @@
   </div>
   <?php
   }
-  ?>  
+  ?> 
+</div> 
 </section>       
 <section id="helpers">
 <h3>Les prestations indispensables pour votre mariage</h3>
+<div id="helperTypesIndex">
 <?php
   foreach($helperTypes as $helperType)
   {
@@ -84,7 +90,8 @@
   </div>
   <?php
   }
-  ?>  
+  ?>
+</div>    
 </section> 
 <?php $main_content = ob_get_clean(); ?>
 
