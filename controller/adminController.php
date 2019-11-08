@@ -223,3 +223,10 @@ function newHelperAdmin($pseudo, $content, $website, $tel, $mail, $helperType, $
         header('Location: index.php?action=helperAdmin&id=' . $helperCreated);
     }
 }
+function getPlacesCoordsAdmin()
+{
+    $placeManager = new PlaceManager();
+    $placesCoords = $placeManager->getCoordinates();
+    
+    echo(json_encode($placesCoords));
+}

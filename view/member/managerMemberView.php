@@ -10,7 +10,7 @@
 
 <?php ob_start(); ?>
 <section id="newMemberPage">
-	<button id="addServicesButton">J'ajoute mes services</button>
+	<button id="addServicesButton" class="btn btn-primary">J'ajoute mes services</button>
     <form id="addServicesForm" action="index.php?action=creationMemberPage" method="post" enctype="multipart/form-data">
 		<label for="memberType"><strong>Sélectionner le type de prestation proposée</strong></label><br />
 		<select name="memberType">

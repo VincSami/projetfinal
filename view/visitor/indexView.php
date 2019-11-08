@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
 
 <?php $page_subtitle = 'Votre mariage à La Réunion les pieds dans l\'eau ou la tête dans les nuages'; ?>
@@ -27,23 +29,14 @@
 <?php $image_page = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-<form action="#" method="post">
-  <label for="location">Où ?</label>
-  <input type="text" name="location" id="location" />
-  <label for="date">Quand ?</label>
-  <input type="date" name="date" id="date" />
-</form>
-<?php $form_content = ob_get_clean(); ?>
-
-<?php ob_start(); ?>
 <section id="place">
-<h3>Les lieux de réception tendances</h3>
-<div id="topPlaces">
+<h3 class="center-title">Les lieux de réception tendances</h3>
+<div class="topPlaces">
 <?php
   foreach($topPlaces as $topPlace)
   {
   ?>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 22rem;">
     <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
@@ -56,13 +49,13 @@
 </div>
 </section>        
 <section id="weddingPlanner">
-<h3>Les Wedding-Planners de la semaine</h3>
-<div id="topWeddingplanners">
+<h3 class="center-title">Les Wedding-Planners de la semaine</h3>
+<div class="topWeddingplanners">
 <?php
   foreach($topWeddingplanners as $topWeddingplanner)
   {
   ?>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 22rem;">
     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $topWeddingplanner['pseudo'] ?><br></h5>
@@ -75,13 +68,13 @@
 </div> 
 </section>       
 <section id="helpers">
-<h3>Les prestations indispensables pour votre mariage</h3>
-<div id="helperTypesIndex">
+<h3 class="center-title">Les prestations indispensables pour votre mariage</h3>
+<div class="helperTypesIndex">
 <?php
   foreach($helperTypes as $helperType)
   {
   ?>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 22rem;">
     <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $helperType['title'] ?><br></h5>
@@ -94,5 +87,9 @@
 </div>    
 </section> 
 <?php $main_content = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
+<script src="public/js/member.js"></script>
+<?php $script = ob_get_clean(); ?>
 
 <?php require('templateFrontend.php'); ?>

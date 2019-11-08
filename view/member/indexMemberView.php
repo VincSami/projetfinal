@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php ob_start(); ?>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -27,21 +29,14 @@
 </div>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur le site du Voile de la Mariée !'; ?>
+<?php $page_title = 'Bienvenue sur Mariage & Coquillages'; ?>
 
 <?php $page_subtitle = 'Votre mariage à La Réunion en toute simplicité'; ?>
-<?php ob_start(); ?>
-<form action="#" method="post">
-  <label for="location">Où ?</label>
-  <input type="text" name="location" id="location" />
-  <label for="date">Quand ?</label>
-  <input type="date" name="date" id="date" />
-</form>
-<?php $form_content = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
 <section>
-<h3>Les lieux de réception tendances</h3>
+<h3 class="center-title">Les lieux de réception tendances</h3>
+<div class="topPlaces">
 <?php
   foreach($topPlaces as $topPlace)
   {
@@ -56,9 +51,11 @@
   <?php
   }
   ?> 
+</div>
 </section>        
 <section>
-<h3>Les Wedding-Planners de la semaine</h3>
+<h3 class="center-title">Les Wedding-Planners de la semaine</h3>
+<div class="topWeddingplanners">
 <?php
   foreach($topWeddingplanners as $topWeddingplanner)
   {
@@ -73,9 +70,11 @@
   <?php
   }
   ?>  
+</div>
 </section>       
 <section>
-<h3>Les prestations indispensables pour votre mariage</h3>
+<h3 class="center-title">Les prestations indispensables pour votre mariage</h3>
+<div class="helperTypesIndex">
 <?php
   foreach($helperTypes as $helperType)
   {
@@ -90,7 +89,12 @@
   <?php
   }
   ?>  
+<div>
 </section> 
 <?php $main_content = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
+<script src="public/js/member.js"></script>
+<?php $script = ob_get_clean(); ?>
 
 <?php require('templateMember.php'); ?>

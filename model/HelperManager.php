@@ -18,7 +18,7 @@ class HelperManager extends Manager
 	public function getHelpers()
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, pseudo, content FROM helpers');
+	    $req = $db->prepare('SELECT id, pseudo, content, id_type FROM helpers');
         $req->setFetchMode(PDO::FETCH_ASSOC);
 	    $req->execute();
         $helpers = $req->fetchAll();

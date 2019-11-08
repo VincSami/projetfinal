@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php $page_title = "Création d'un nouveau lieu de réception"; ?>
@@ -54,5 +56,7 @@
 </form>
 
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ""; ?>
 
 <?php require('templateMember.php'); ?>

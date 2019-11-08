@@ -7,7 +7,7 @@ class WeddingplannerManager extends Manager
 	public function getTopWeddingplanners()
     {	
     	$db = $this->dbConnect();  
-		$req = $db->prepare('SELECT id, pseudo, specialty FROM weddingplanners');
+		$req = $db->prepare('SELECT id, pseudo, specialty, popular FROM weddingplanners ORDER BY popular DESC LIMIT 0,5');
 		$req->setFetchMode(PDO::FETCH_ASSOC);
 		$req->execute();
         $topWeddingplanners = $req->fetchAll();

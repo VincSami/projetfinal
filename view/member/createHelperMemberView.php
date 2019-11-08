@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php $page_title = "Page d'ajout d'un nouveau prestataire"; ?>
@@ -50,5 +52,8 @@
 </form>
 <button><a href="index.php">Annuler</a></button>
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ""; ?>
+
 
 <?php require('templateMember.php'); ?>

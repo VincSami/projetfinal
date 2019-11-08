@@ -170,6 +170,9 @@ function adminRouter()
         elseif ($_GET['action'] == 'mentions'){
         require ('view/mentions_legales.php');
         }
+        elseif ($_GET['action'] == 'getPlacesCoords') {
+            getPlacesCoordsAdmin();
+        }
     }
     else{
         homeAdmin();

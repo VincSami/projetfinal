@@ -235,3 +235,10 @@ function newHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, 
         header('Location: index.php?action=helperMember&id=' . $helperCreated);
     }
 }
+function getPlacesCoordsMember()
+{
+    $placeManager = new PlaceManager();
+    $placesCoords = $placeManager->getCoordinates();
+    
+    echo(json_encode($placesCoords));
+}

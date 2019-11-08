@@ -182,6 +182,10 @@ nav ul{
 
 /* ----------------------------------------- MAIN CONTENT ------------------------------ */
 
+#carouselExampleControls{
+	margin-bottom:50px;
+}
+
 #map {
     height: 800px;
     width: 80%;
@@ -191,14 +195,32 @@ nav ul{
 }
 
 /* ----------------------------------------- Accueil ------------------------------ */
-#topPlaces, #topWeddingplanners, #helperTypesIndex{
+.center-title{
+	text-align: center;
+}
+
+.topPlaces, .topWeddingplanners, .helperTypesIndex{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
+.weddingplanners-view, .helpers-view, .places-view{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-wrap: wrap;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
 
+.places-filter{
+	display: flex;
+    justify-content: center;
+}
 /* -------------------------------------------- AFFICHAGE POSTS ACCUEIL ----------------------------------- */
 
 section figure{
@@ -428,7 +450,7 @@ aside p{
 /* -------------------------------------------- FOOTER ----------------------------------- */
 
 footer{
-	background-color: #ad1f26;
+	background-color: #e59cb0;
 	padding-top: 30px;
 	padding-bottom: 10px;
 	color: white;
