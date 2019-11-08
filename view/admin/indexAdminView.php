@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php ob_start(); ?>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -31,13 +33,9 @@
 
 <?php $page_subtitle = 'Votre marriage à La Réunion en toute sérénité !'; ?>
 
-<?php $main_content_title = ""; ?>
-
-<?php $main_content_subtitle = ""; ?>
-
 <?php ob_start(); ?>
 <section id="newAdminPage">
-    <button>Ajouter une nouvelle prestation</button>
+    <p>Ajouter une nouvelle prestation</p>
     <form action="index.php?action=creationAdminPage" method="post" enctype="multipart/form-data">
 		<label for="servicetype"><strong>Sélectionner le type de prestation à ajouter</strong></label><br />
 		<select name="serviceType">
@@ -46,86 +44,75 @@
 			<option value="2">Wedding-Planner</option>
 			<option value="3">Autres prestataires</option>
 		</select>
-		<input type="submit" name="submit" value="Valider">
+		<input class="btn btn-primary" type="submit" name="submit" value="Valider">
 	</form>
-	<button><a href="index.php">Annuler</a></button>
+	<button class="btn btn-primary"><a href="index.php">Annuler</a></button>
 </section>
-<section id="place">
-          <h2 class="titre_section">Lieux de réception</h2>
-          <article>
-            <ul>
-              <?php
-              foreach($topPlaces as $topPlace)
-              {
-              ?>
-              <li>
-                <figure>
-                  <a href="index.php?action=placeAdmin&amp;id=<?= $topPlace['id'] ?>">
-                    <img src="public/img/place<?= $topPlace['id'] ?>.jpg">
-                  </a>
-                  <figcaption>
-                    <?= $topPlace['title'] ?><br>
-                    <button class="boutonRouge" id="deletePlacePageAdmin"><a href="index.php?action=deletePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updatePlacePageAdmin"><a href="index.php?action=updatePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Modifier</a></button>
-                  </figcaption>
-                </figure>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </article>
-        </section>
-        <section id="weddingPlanner">
-          <h2 class="titre_section">Wedding Planner</h2>
-          <article>
-          <ul>
-              <?php
-              foreach($topWeddingplanners as $topWeddingplanner)
-              {
-              ?>
-              <li>
-                <figure>
-                   <a href="index.php?action=weddingplannerAdmin&amp;id=<?= $topWeddingplanner['id'] ?>">
-                    <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg">
-                  </a>
-                  <figcaption>
-                    <?= $topWeddingplanner['pseudo'] ?><br>
-                    <button class="boutonRouge" id="deleteWeddingplannerPageAdmin"><a href="index.php?action=deleteWeddingplannerPageAdmin&amp;id=<?= $topWeddingplanner['id'] ?>">Supprimer</a></button>
-                    <button class="boutonOrange" id="updateWeddingplannerPageAdmin"><a href="index.php?action=updateWeddingplannerPageAdmin&amp;id=<?= $topWeddingplanner['id'] ?>">Modifier</a></button>
-                  </figcaption>
-                </figure>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </article>
-        </section>
-        <section id="helpers"></section>
-          <h2 class="titre_section">les helpers</h2>
-          <article>
-            <ul>
-              <?php
-              foreach($helperTypes as $helperType)
-              {
-              ?>
-              <li>
-                <figure>
-                   <a href="index.php?action=helpersTypeAdmin&amp;id=<?= $helperType['id'] ?>">
-                    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg">
-                  </a>
-                  <figcaption>
-                    <?= $helperType['title'] ?><br>
-                  </figcaption>
-                </figure>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </article>
-        </section>
+<section>
+<h3 class="center-title">Les lieux de réception tendances</h3>
+<div class="topPlaces">
+<?php
+  foreach($topPlaces as $topPlace)
+  {
+  ?>
+  <div class="card" style="width: 22rem;">
+    <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <div class="card-body">
+      <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
+      <a href="index.php?action=placeMember&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
+    </div>
+    <button class="btn btn-primary" id="deletePlacePageAdmin"><a href="index.php?action=deletePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Supprimer</a></button>
+    <button class="btn btn-primary" id="updatePlacePageAdmin"><a href="index.php?action=updatePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Modifier</a></button>
+  </div>
+  <?php
+  }
+  ?> 
+</div>
+</section>        
+<section>
+<h3 class="center-title">Les Wedding-Planners de la semaine</h3>
+<div class="topWeddingplanners">
+<?php
+  foreach($topWeddingplanners as $topWeddingplanner)
+  {
+  ?>
+  <div class="card" style="width: 22rem;">
+    <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <div class="card-body">
+      <h5 class="card-title"><?= $topWeddingplanner['pseudo'] ?><br></h5>
+      <a href="index.php?action=weddingplannerMember&amp;id=<?= $topWeddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
+    </div>
+    <button class="btn btn-primary" id="deletePlacePageAdmin"><a href="index.php?action=deletePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Supprimer</a></button>
+    <button class="btn btn-primary" id="updatePlacePageAdmin"><a href="index.php?action=updatePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Modifier</a></button>
+  </div>
+  <?php
+  }
+  ?>  
+</div>
+</section>       
+<section>
+<h3 class="center-title">Les prestations indispensables pour votre mariage</h3>
+<div class="helperTypesIndex">
+<?php
+  foreach($helperTypes as $helperType)
+  {
+  ?>
+  <div class="card" style="width: 22rem;">
+    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <div class="card-body">
+      <h5 class="card-title"><?= $helperType['title'] ?><br></h5>
+      <a href="index.php?action=helpersTypeMember&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
+    </div>
+    <button class="btn btn-primary" id="deletePlacePageAdmin"><a href="index.php?action=deletePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Supprimer</a></button>
+    <button class="btn btn-primary" id="updatePlacePageAdmin"><a href="index.php?action=updatePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Modifier</a></button>
+  </div>
+  <?php
+  }
+  ?>  
+<div>
+</section> 
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ""; ?>
 
 <?php require('templateBackend.php'); ?>

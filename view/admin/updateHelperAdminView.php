@@ -1,12 +1,10 @@
+<?php $linkrel = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php $page_title = "Page d'ajout d'un nouveau prestataire"; ?>
 
 <?php $page_subtitle = "Ajouter un nouveau prestataire"; ?>
-
-<?php $main_content_title = "Vous êtes sur le point d'ajouter un nouveau prestataire "; ?>
-
-<?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
     <form action="index.php?action=updateHelperAdmin&amp;helperId=<?= $helper['id'] ?>" method="post" enctype="multipart/form-data">
@@ -28,9 +26,11 @@
 			<option value="6">Traiteur</option>
 			<option value="7">Pattiserie</option>
 		</select>		
-	    <input class="boutonVert" type="submit" name="submit" value="Mettre à jour le prestataire">
+	    <input class="btn btn-primary" type="submit" name="submit" value="Mettre à jour le prestataire">
 	</form>
-	<button class="boutonRouge"><a href="index.php">Annuler</a></button>
+	<button class="btn btn-primary"><a href="index.php">Annuler</a></button>
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ob_get_clean(); ?>
 
 <?php require('templateBackend.php'); ?>

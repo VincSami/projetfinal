@@ -6,10 +6,6 @@
 
 <?php $page_subtitle = ""; ?>
 
-<?php $main_content_title = "Vous êtes sur le point de créer un nouveau lieu de réception "; ?>
-
-<?php $main_content_subtitle = ""; ?>
-
 <?php ob_start(); ?>
 <form action="index.php?action=createPlaceMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	

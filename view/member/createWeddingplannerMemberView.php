@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php $page_title = "Page d'administration du site de Jean Forteroche"; ?>
@@ -46,8 +48,10 @@
 		<label for="mail"><strong>Email</strong></label><br />
 		<input type="email" name="mail" placeholder="Votre email" required>		
 	</div>	
-    	<input type="submit" name="submit" value="Publier le prestataire">
+    	<input class="btn btn-primary" type="submit" name="submit" value="Publier le prestataire">
 </form>
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ""; ?>
 
 <?php require('templateMember.php'); ?>

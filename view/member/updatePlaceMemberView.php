@@ -1,12 +1,10 @@
+<?php $linkrel = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php $page_title = "Mise à jour du lieu de réception"; ?>
 
 <?php $page_subtitle = ""; ?>
-
-<?php $main_content_title = "Vous êtes sur le point de modifier le lieu de réception "; ?>
-
-<?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
     <form action="index.php?action=updatePlaceMember&amp;placeId=<?= $place['id'] ?>" method="post" enctype="multipart/form-data">
@@ -21,9 +19,11 @@
 		<input type="text" name="tel" value="<?= $place['tel'] ?>" required>
 		<input type="email" name="mail" value="<?= $place['mail'] ?>" required>
 	    <textarea name="presentation" value="<?= $place['presentation'] ?>" required></textarea><br />
-	    <input type="submit" name="submit" value="Mettre à jour le lieu de réception">
+	    <input class="btn btn-primary" type="submit" name="submit" value="Mettre à jour le lieu de réception">
 	</form>
-	<button><a href="index.php">Annuler</a></button>
+	<button class="btn btn-primary"><a href="index.php">Annuler</a></button>
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ob_get_clean(); ?>
 
 <?php require('templateMember.php'); ?>

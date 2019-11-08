@@ -41,7 +41,7 @@
   foreach($topPlaces as $topPlace)
   {
   ?>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 22rem;">
     <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
       <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
@@ -60,7 +60,7 @@
   foreach($topWeddingplanners as $topWeddingplanner)
   {
   ?>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 22rem;">
     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $topWeddingplanner['pseudo'] ?><br></h5>
@@ -79,7 +79,7 @@
   foreach($helperTypes as $helperType)
   {
   ?>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 22rem;">
     <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= $helperType['title'] ?><br></h5>

@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php $page_title = "Bienvenue sur votre profil" ?>
@@ -84,5 +86,9 @@ foreach($memberHelpers as $memberHelper)
 </section>
 </div>
 <?php $main_content = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
+<script src="public/js/member.js"></script>
+<?php $script = ob_get_clean(); ?>
 
 <?php require('templateMember.php'); ?>

@@ -1,3 +1,5 @@
+<?php $linkrel = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php $page_title = "Page d'administration du site de Jean Forteroche"; ?>
@@ -12,7 +14,7 @@
 <form action="index.php?action=createWeddingplannerAdmin&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
-		<input class="boutonVert" type="file" name="image" /><br /><br />
+		<input type="file" name="image" /><br /><br />
 	</div>
 	<div class="form-group">
 		<label for="pseudo"><strong>Nom de l'entreprise</strong></label><br />
@@ -46,8 +48,10 @@
 		<label for="mail"><strong>Email</strong></label><br />
 		<input type="email" name="mail" placeholder="Votre email" required>		
 	</div>	
-    	<input class="boutonVert" type="submit" name="submit" value="Publier le prestataire">
+    	<input class="btn btn-primary" type="submit" name="submit" value="Publier le prestataire">
 </form>
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ""; ?>
 
 <?php require('templateBackend.php'); ?>

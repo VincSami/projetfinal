@@ -1,15 +1,8 @@
+<?php $linkrel = ""; ?>
+
 <?php ob_start(); ?>
     <img class="fullwidth" src="#">
 <?php $image_page = ob_get_clean(); ?>
-
-<?php ob_start(); ?>
-<form action="#" method="post">
-  <label for="location">Où ?</label>
-  <input type="text" name="location" id="location" />
-  <label for="date">Quand ?</label>
-  <input type="date" name="date" id="date" />
-</form>
-<?php $form_content = ob_get_clean(); ?>
 
 <?php $page_title = "Les prestataires" ?>
 
@@ -23,10 +16,6 @@
   }
   ?>
 <?php $page_subtitle = ob_get_clean(); ?>
-
-<?php $main_content_title = ""; ?>
-
-<?php $main_content_subtitle = ""; ?>
 
 <?php ob_start(); ?>
 <section>
@@ -45,5 +34,7 @@ foreach($helpersType as $helperType)
 }
 ?>
 <?php $main_content = ob_get_clean(); ?>
+
+<?php $script = ""; ?>
 
 <?php require('templateBackend.php'); ?>
