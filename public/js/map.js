@@ -11,7 +11,13 @@ var mapLeaflet = {
                 //Configuration du positionnement des marqueurs selon les coordonnées des stations récupérées grâce à l'API JCDecaux
             let marker = L.marker([placeCoords.positionx, placeCoords.positiony]).addTo(mapLeaflet.mymap);
             marker.bindPopup(placeCoords.title);
-            
+            marker.on('click', onClick);
+            function onClick(e) {
+                document.getElementById("mapSide").style.display = 'block';
+                document.getElementById("placeName").textContent = placeCoords.title;
+                document.getElementById("placeImage").innerHTML = "<a href=\"index.php?action=place&amp;id="+placeCoords.id+"\"><img src=\"public/img/place"+placeCoords.id+"\".jpg\"></a>";
+                document.getElementById("placePresentation").textContent = placeCoords.presentation;
+            }
             });
         });
     },
@@ -26,3 +32,6 @@ var mapLeaflet = {
 mapLeaflet.initialisation();
 mapLeaflet.mapConfig();
 
+document.getElementById("closeMapSide").addEventListener("click", function (e) {
+    document.getElementById("mapSide").style.display = "none";
+});

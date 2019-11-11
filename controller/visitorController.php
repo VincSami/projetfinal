@@ -1,5 +1,10 @@
 <?php
 
+use VS\MariageCoquillages\model\PlaceManager;
+use VS\MariageCoquillages\model\WeddingplannerManager;
+use VS\MariageCoquillages\model\HelperManager;
+use VS\MariageCoquillages\model\MemberManager;
+use VS\MariageCoquillages\model\AdminManager;
 //Récupération des fonctions nécesaires dans le model
 require_once('model/PlaceManager.php');
 require_once('model/WeddingplannerManager.php');

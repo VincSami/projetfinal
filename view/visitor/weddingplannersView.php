@@ -9,6 +9,7 @@
 <?php ob_start(); ?>
 <div class="weddingplanners-filter">
   <button id="selectAllWeddingplanners" class="selected">Toutes les Wedding-Planners</button>
+  <div class="radio-list">
   <p>Par spécialité :</p>
   <input type="radio" id="boheme" name="specialty" value="Bohème">
   <label for="specialty">Mariage bohème</label>
@@ -22,16 +23,17 @@
   <label for="specialty">Mariage intimiste</label>
   <input type="radio" id="montagne" name="specialty" value="A la montagne">
   <label for="specialty">Mariage de montagne</label>
+  </div>
 </div>
 <section class="weddingplanners-view">
 <?php
 foreach($weddingplanners as $weddingplanner)
 {
 ?>
-<div class="card weddingplanners" data-specialty="<?= $weddingplanner['specialty'] ?>" style="width: 18rem;">
+<div class="card weddingplanners" data-specialty="<?= htmlspecialchars($weddingplanner['specialty']) ?>" style="width: 18rem;">
     <img src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $weddingplanner['pseudo'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($weddingplanner['pseudo']) ?><br></h5>
       <a href="index.php?action=weddingplanner&amp;id=<?= $weddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>

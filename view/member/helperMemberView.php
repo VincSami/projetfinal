@@ -6,9 +6,9 @@
 
 <?php $page_title = "les prestataires" ?>
 
-<?php $page_subtitle = $helper['pseudo'] ?>
+<?php $page_subtitle = htmlspecialchars($helper['pseudo']) ?>
 
-<?php $main_content = $helper['content'] ?>
+<?php $main_content = htmlspecialchars($helper['content']) ?>
 
 <?php $script = ""; ?>
 

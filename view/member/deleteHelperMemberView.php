@@ -6,12 +6,12 @@
 
 <?php $page_title = "Page de suppression du prestataire" ?>
 
-<?php $page_subtitle = "Supprimer le prestataire : " . $helper['pseudo'] ?>
+<?php $page_subtitle = "Supprimer le prestataire : " . htmlspecialchars($helper['pseudo']) ?>
 
 <?php ob_start(); ?>
     <button class="btn btn-primary"><a href="index.php?action=deleteHelperMember&amp;id=<?= $helper['id'] ?>">Supprimer le prestataire</a></button>
     <button class="btn btn-primary"><a href="index.php">Annuler</a></button><br><br>
-    <?= $helper['content']; ?>
+    <?= htmlspecialchars($helper['content']); ?>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>

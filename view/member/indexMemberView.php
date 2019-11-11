@@ -44,7 +44,7 @@
   <div class="card" style="width: 22rem;">
     <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
-      <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($topPlace['title']) ?><br></h5>
       <a href="index.php?action=placeMember&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
@@ -63,7 +63,7 @@
   <div class="card" style="width: 22rem;">
     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $topWeddingplanner['pseudo'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($topWeddingplanner['pseudo']) ?><br></h5>
       <a href="index.php?action=weddingplannerMember&amp;id=<?= $topWeddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
@@ -82,7 +82,7 @@
   <div class="card" style="width: 22rem;">
     <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $helperType['title'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($helperType['title']) ?><br></h5>
       <a href="index.php?action=helpersTypeMember&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>

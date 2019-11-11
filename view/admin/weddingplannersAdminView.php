@@ -28,10 +28,10 @@
 foreach($weddingplanners as $weddingplanner)
 {
 ?>
-<div class="card weddingplanners" data-specialty="<?= $weddingplanner['specialty'] ?>" style="width: 18rem;">
+<div class="card weddingplanners" data-specialty="<?= htmlspecialchars($weddingplanner['specialty']) ?>" style="width: 18rem;">
     <img src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $weddingplanner['pseudo'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($weddingplanner['pseudo']) ?><br></h5>
       <a href="index.php?action=weddingplannerMember&amp;id=<?= $weddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>

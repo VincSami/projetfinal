@@ -1,4 +1,7 @@
 <?php
+
+namespace VS\MariageCoquillages\Model;
+
 //On charge Manager.php (pour récupérer la connexion à la bdd)
 require_once('model/Manager.php');
 

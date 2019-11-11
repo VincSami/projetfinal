@@ -4,7 +4,15 @@
 
 <?php ob_start(); ?>
   <section id="map_container">
-        <div id="map"></div>
+    <div id="map"></div>
+      <div id="mapSide">
+        <i id="closeMapSide" class="fas fa-times"></i>
+        <div id="mapInfos">
+          <p id="placeName"></p><br>
+          <p id="placeImage"></p><br>
+          <p id="placePresentation"></p><br>
+        </div>
+    </div>
   </section>
 <?php $image_page = ob_get_clean(); ?>
 
@@ -31,10 +39,10 @@
 foreach($places as $place)
 {
 ?>
-<div class="card places" data-region="<?= $place['region'] ?>" data-ranked="<?= $place['ranked'] ?>" style="width: 18rem;">
+<div class="card places" data-region="<?= htmlspecialchars($place['region']) ?>" data-ranked="<?= $place['ranked'] ?>" style="width: 18rem;">
     <img src="public/img/place<?= $place['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $place['title'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($place['title']) ?><br></h5>
       <a href="index.php?action=placeMember&amp;id=<?= $place['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>

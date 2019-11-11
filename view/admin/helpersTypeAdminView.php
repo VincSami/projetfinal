@@ -11,7 +11,7 @@
   foreach($helpersType as $helperType)
   {
   ?>
-    <p><?= $helperType['title'] ?></p>
+    <p><?= htmlspecialchars($helperType['title']) ?></p>
   <?php
   }
   ?>
@@ -26,7 +26,7 @@ foreach($helpersType as $helperType)
 <div class="card" style="width: 18rem;">
     <img src="public/img/helper<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $helperType['pseudo'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($helperType['pseudo']) ?><br></h5>
       <a href="index.php?action=helperAdmin&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>

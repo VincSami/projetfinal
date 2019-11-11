@@ -6,9 +6,9 @@
 
 <?php $page_title = "Lieu de réception" ?>
 
-<?php $page_subtitle = $weddingplanner['pseudo'] ?>
+<?php $page_subtitle = htmlspecialchars($weddingplanner['pseudo']) ?>
 
-<?php $main_content = $weddingplanner['presentation'] ?>
+<?php $main_content = htmlspecialchars($weddingplanner['presentation']) ?>
 
 <?php $script = ob_get_clean(); ?>
 

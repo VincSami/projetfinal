@@ -66,6 +66,10 @@
                     <button id="cancelMemberSubscription" class="btn btn-primary">Annuler</button>
                 </div>
             </nav>
+            <div class="titres-page">
+            <h3><?= $page_title ?></h3>
+            <h4><?= $page_subtitle ?></h4>
+            </div>
             <?= $image_page ?>
         </header>
 

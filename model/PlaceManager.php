@@ -1,5 +1,7 @@
 <?php
 
+namespace VS\MariageCoquillages\Model;
+
 require_once('model/Manager.php');
 
 class PlaceManager extends Manager
@@ -8,7 +10,7 @@ class PlaceManager extends Manager
     {	
     	$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, title, city, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, ranked FROM places ORDER BY ranked DESC LIMIT 0,5');
-        $req->setFetchMode(PDO::FETCH_ASSOC);
+        $req->setFetchMode(\PDO::FETCH_ASSOC);
 	    $req->execute();
         $topPlaces = $req->fetchAll();
 
@@ -19,7 +21,7 @@ class PlaceManager extends Manager
     {	
     	$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, title, city, positionx, positiony, region, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, ranked FROM places ORDER BY creation_date DESC');
-        $req->setFetchMode(PDO::FETCH_ASSOC);
+        $req->setFetchMode(\PDO::FETCH_ASSOC);
 	    $req->execute();
         $places = $req->fetchAll();
 
@@ -45,7 +47,7 @@ class PlaceManager extends Manager
 	{
 		$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, title, presentation, author_id FROM places WHERE author_id = ?');
-		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->setFetchMode(\PDO::FETCH_ASSOC);
 		$req->execute(array($authorId));
 	    $memberPlaces = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien
@@ -54,8 +56,8 @@ class PlaceManager extends Manager
 
 	public function getCoordinates(){
 		$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, title, positionx, positiony FROM places');
-		$req->setFetchMode(PDO::FETCH_ASSOC);
+	    $req = $db->prepare('SELECT id, title, positionx, positiony, presentation FROM places');
+		$req->setFetchMode(\PDO::FETCH_ASSOC);
 		$req->execute();
 	    $placesCoords = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien

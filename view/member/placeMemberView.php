@@ -6,9 +6,9 @@
 
 <?php $page_title = "Lieu de réception" ?>
 
-<?php $page_subtitle = $place['title'] ?>
+<?php $page_subtitle = htmlspecialchars($place['title']) ?>
 
-<?php $main_content = $place['presentation'] ?>
+<?php $main_content = htmlspecialchars($place['presentation']) ?>
 
 <?php $script = ""; ?>
 

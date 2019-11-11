@@ -36,7 +36,7 @@ foreach($memberPlaces as $memberPlace)
 <div class="card" style="width: 18rem;">
     <img src="public/img/place<?= $memberPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
-        <h5 class="card-title"><?= $memberPlace['title'] ?><br></h5>
+        <h5 class="card-title"><?= htmlspecialchars($memberPlace['title']) ?><br></h5>
         <a href="index.php?action=deletePlacePageMember&amp;id=<?= $memberPlace['id'] ?>" class="btn btn-primary">Supprimer</a>
         <a href="index.php?action=updatePlacePageMember&amp;id=<?= $memberPlace['id'] ?>" class="btn btn-primary">Modifier</a>
     </div>
@@ -55,7 +55,7 @@ foreach($memberWeddingplanners as $memberWeddingplanner)
 <div class="card" style="width: 18rem;">
     <img src="public/img/weddingPlanner<?= $memberWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
-        <h5 class="card-title"><?= $memberWeddingplanner['pseudo'] ?><br></h5>
+        <h5 class="card-title"><?= htmlspecialchars($memberWeddingplanner['pseudo']) ?><br></h5>
         <a href="index.php?action=deleteWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>" class="btn btn-primary">Supprimer</a>
         <a href="index.php?action=updateWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>" class="btn btn-primary">Modifier</a>
     </div>
@@ -74,7 +74,7 @@ foreach($memberHelpers as $memberHelper)
 <div class="card" style="width: 18rem;">
     <img src="public/img/helper<?= $memberHelper['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
-        <h5 class="card-title"><?= $memberHelper['pseudo'] ?><br></h5>
+        <h5 class="card-title"><?= htmlspecialchars($memberHelper['pseudo']) ?><br></h5>
         <a href="index.php?action=deleteHelperPageMember&amp;id=<?= $memberHelper['id'] ?>" class="btn btn-primary">Supprimer</a>
         <a href="index.php?action=updateHelperPageMember&amp;id=<?= $memberHelper['id'] ?>" class="btn btn-primary">Modifier</a>
     </div>
@@ -88,7 +88,7 @@ foreach($memberHelpers as $memberHelper)
 <?php $main_content = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-<script src="public/js/member.js"></script>
+<script src="public/js/addServicesMember.js"></script>
 <?php $script = ob_get_clean(); ?>
 
 <?php require('templateMember.php'); ?>

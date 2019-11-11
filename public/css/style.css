@@ -68,6 +68,25 @@ nav ul{
 	color: white;
 }
 
+#place h3 {
+    margin-top: 100px;
+}
+
+.titres-page{
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    opacity: 0.7;
+    width: 30%;
+    padding: 3%;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.titres-page h3, h4{ 
+    color: #e59cb0;
+}
+
 /*RESPONSIVE DESIGN*/
 
 @media screen and (min-width : 800px) and (max-width : 1200px) {
@@ -91,75 +110,6 @@ nav ul{
 
 /*------------------------ MISE EN FORME BOUTONS --------------------------------- */
 
-.boutonVert{
-	padding : 10px;
-	background-color: white;
-	color: #28A745;
-	border: 1px solid #28A745;
-	border-radius: 20px;
-	transition: 0.4s;
-}
-
-.boutonVert:hover{
-	background-color: #28A745;
-	color : white;
-}
-
-.boutonVert a {
-	text-decoration: none;
-	color : #28A745;
-}
-
-.boutonVert:hover a {
-	color : white;
-}
-
-.boutonRouge{
-	padding : 10px;
-	background-color: white;
-	color: red;
-	border: 1px solid red;
-	border-radius: 20px;
-	transition: 0.4s;
-}
-
-.boutonRouge:hover{
-	background-color: red;
-	color : white;
-}
-
-.boutonRouge a {
-	text-decoration: none;
-	color : red;
-}
-
-.boutonRouge:hover a {
-	color : white;
-}
-
-.boutonOrange{
-	padding : 10px;
-	background-color: white;
-	color: #F87C00;
-	border: 1px solid #F87C00;
-	border-radius: 20px;
-	transition: 0.4s;
-}
-
-.boutonOrange:hover{
-	background-color: #F87C00;
-	color : white;
-}
-
-.boutonOrange a {
-	text-decoration: none;
-	color : #F87C00;
-}
-
-.boutonOrange:hover a {
-	color : white;
-}
-
 #subscribeMember{
 	display: none;
 }
@@ -180,11 +130,7 @@ nav ul{
     display: none;
 }
 
-/* ----------------------------------------- MAIN CONTENT ------------------------------ */
-
-#carouselExampleControls{
-	margin-bottom:50px;
-}
+/* ----------------------------------------- CARTE LIEUX DE RECEPTION------------------------------ */
 
 #map {
     height: 800px;
@@ -194,7 +140,105 @@ nav ul{
     box-shadow: 1px 2px 5px;
 }
 
+#map_container {
+    display: flex;
+}
+
+#mapSide {
+    width: 50%;
+    height: 800px;
+    display: none;
+    border: 2px solid #e59cb0;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    animation: mapSide 0.4s ease-in;
+    box-shadow: 1px 2px 5px #e59cb0;
+}
+
+@keyframes mapSide {
+    from {
+        left: -500px;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+#placeImage, #placeName{
+    text-align: center;
+}
+
+#placeImage img{
+    width: 300px;
+}
+
+#placePresentation{
+    text-align: justify;
+    margin: 2%;
+}
+
+.fas.fa-times {
+    position: relative;
+    left: 94%;
+    margin-top: 2px;
+    background-color: #e59cb0;
+    padding: 5px;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.presentationOnePage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.presentationOnePageLeft{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.presentationOnePageLeft img{
+    width: 400px;
+}
+
+.presentationOnePageRight{
+    width: 60%;
+}
+
+.presentationOnePageRight p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    background-color:#e59cb0;
+    margin: 10%;
+    padding: 5%;
+    color: white;
+}
+
+.helpersType-view{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.card-body{
+    text-align: center;
+}
+
 /* ----------------------------------------- Accueil ------------------------------ */
+#carouselExampleControls{
+	margin-bottom:50px;
+}
+
 .center-title{
 	text-align: center;
 }
@@ -220,231 +264,6 @@ nav ul{
 .places-filter{
 	display: flex;
     justify-content: center;
-}
-/* -------------------------------------------- AFFICHAGE POSTS ACCUEIL ----------------------------------- */
-
-section figure{
-	margin : 5%;
-	margin-bottom: 15%;
-	position: relative;
-	text-decoration: none;
-}
-
-section figure img{
-	width: 200px;
-	height: 200px;
-	box-shadow: 5px 5px 10px black;
-}
-
-figcaption{
-	position: absolute;
-	bottom: 0%;
-	background-color: black;
-	opacity: 0;
-	color: white;
-	width: 100%;
-	padding: 5%;
-	height: 70px;
-	transition: 0.5s ease-in;
-}
-
-figcaption a {
-	text-decoration: none;
-	color: white;
-}
-
-figcaption p {
-	margin-top : 0;
-	margin-bottom: 0;
-	font-size: 0.8em;
-}
-
-figcaption a:hover{
-	text-decoration: none;
-	color: white;
-}
-
-figure:hover figcaption{
-	opacity: 0.6;
-	transition: 0.5s ease-in;
-}
-
-/*RESPONSIVE DESIGN*/
-
-@media screen and (max-width : 700px) {
-	section figure{
-		margin: 0 auto;
-		margin-bottom: 25%;
-	}
-
-	section figure img{
-		width: 100%;
-		height: 100%;
-	}	
-	
-	figcaption {
-	height: 90px;
-	}
-}
-
-/* -------------------------------------------- ASIDE ----------------------------------- */
-
-aside{
-	margin-top: 150px;
-	width: 30%;
-	text-align: center;
-	background-color: rgba(173, 31, 38,0.5);
-	padding: 50px;
-	height: 30%;
-}
-
-aside img{
-	width : 200px;
-	height: 150px;
-	border-radius: 300px;
-	box-shadow: 1px 2px 10px;
-}
-
-aside h2{
-	margin-top: 20px;
-	margin-bottom: 50px;
-}
-
-aside p{
-	text-align: justify; 
-}
-
-/*RESPONSIVE DESIGN*/
-
-@media screen and (min-width : 700px) and (max-width : 1200px) {
-	aside{
-		width: 50%;
-	}
-}
-
-@media screen and (max-width : 700px) {
-	aside{
-		width : 100%;
-	}
-}	
-
-/* -------------------------------------------- AFFICHAGE POSTS ACCUEIL - ADMIN ----------------------------------- */
-
-#deletePostPage, #updatePostPage{
-	position: absolute;
-	bottom : -60px;
-	width: 100px;
-}
-
-#updatePostPage{
-	left: 60%;
-}
-
-#deletePostPage{
-	right: 60%;
-}
-
-/* -------------------------------------------- SECTION COMMENTAIRES ----------------------------------- */
-
-#comments{
-	margin-top: 10%;
-	margin-left: 5%;
-    margin-bottom: 50px;
-    width: 60%;
-}
-
-#postComment input[type="submit"]{
-	margin-bottom: 20px;
-}
-
-#comment{
-	background-color: #EEEEEE;
-	width: 70%;
-  	height : 150px;
-	position: relative;
-	margin-bottom: 10px;
-	padding: 10px;
-}
-
-#comment:hover {
-	background-color: #dbd9d9;
-}
-
-#comment button{
-    position: absolute;
-    right: 2%;
-    opacity: 0;
-    top: 10%;
-    opacity: 0;
-    background-color: #DBD9D9;
-}
-
-#comment:hover button {
-	opacity: 1;
-}
-
-#comment button:hover  {
-	background-color: red;
-}
-
-#comment p:nth-child(2) {
-	margin-top : 20px;
-}
-
-#comment p:nth-child(3) {
-	position: absolute;
-	right: 2%;
-  	bottom : 0;
-}
-
-/* -------------------------------------------- SECTION COMMENTAIRES - ADMIN ----------------------------------- */
-
-#commentAdmin{
-	background-color: #EEEEEE;
-	width: 70%;
-  	height : 200px;
-	position: relative;
-	margin-bottom: 10px;
-	padding: 10px;
-}
-
-#commentAdmin:hover {
-	background-color: #dbd9d9;
-}
-
-#commentAdmin:hover button {
-	opacity: 1;
-}
-
-#commentAdmin button{
-	position: absolute;
-    right: 2%;
-    opacity: 0;
-    top: 10%;
-	opacity: 0;
-}
-
-/*RESPONSIVE DESIGN*/
-
-@media screen and (max-width : 1200px) {
- 	 #comments{
-  		width : 90%;
-  	}
-}
-
-@media screen and (max-width : 700px) {
- 	 #commentAdmin{
-  		width : 100%;
-      	height: 300px;
-  	}
-}
-
-
-@media screen and (max-width : 700px) {
- 	 #comment{
-  		width : 100%;
-      	height: 250px;
-  	}
 }
 
 /* -------------------------------------------- FOOTER ----------------------------------- */

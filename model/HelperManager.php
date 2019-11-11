@@ -1,5 +1,7 @@
 <?php
 
+namespace VS\MariageCoquillages\Model;
+
 require_once('model/Manager.php');
 
 class HelperManager extends Manager
@@ -8,7 +10,7 @@ class HelperManager extends Manager
     {	
     	$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, title FROM helpertypes');
-        $req->setFetchMode(PDO::FETCH_ASSOC);
+        $req->setFetchMode(\PDO::FETCH_ASSOC);
 	    $req->execute();
         $helperTypes = $req->fetchAll();
 
@@ -19,7 +21,7 @@ class HelperManager extends Manager
     {	
     	$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, pseudo, content, id_type FROM helpers');
-        $req->setFetchMode(PDO::FETCH_ASSOC);
+        $req->setFetchMode(\PDO::FETCH_ASSOC);
 	    $req->execute();
         $helpers = $req->fetchAll();
 
@@ -44,13 +46,8 @@ class HelperManager extends Manager
     public function getHelpersType($typeId)
     {	
     	$db = $this->dbConnect();  
-		$req = $db->prepare(
-		'SELECT *
-		FROM helpers
-		INNER JOIN helpertypes ON helpers.id_type = helpertypes.id
-		WHERE helpertypes.id = ?'
-		);
-		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req = $db->prepare('SELECT id, pseudo, content, website, tel, mail, id_type FROM helpers WHERE id_type = ?');
+		$req->setFetchMode(\PDO::FETCH_ASSOC);
 		$req->execute(array($typeId));
 		$helpersType = $req->fetchAll();
 
@@ -61,7 +58,7 @@ class HelperManager extends Manager
 	{
 		$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, pseudo, author_id FROM helpers WHERE author_id = ?');
-		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->setFetchMode(\PDO::FETCH_ASSOC);
 		$req->execute(array($authorId));
 	    $memberHelpers = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien

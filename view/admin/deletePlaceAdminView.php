@@ -6,7 +6,7 @@
 
 <?php $page_title = "Page de suppression du lieu de réception" ?>
 
-<?php $page_subtitle = "Supprimer le lieu de réception : " . $place['title'] ?>
+<?php $page_subtitle = "Supprimer le lieu de réception : " . htmlspecialchars($place['title']) ?>
 
 <?php $main_content_title = "Vous êtes sur le point de supprimer définitivement ce lieu de réception"; ?>
 
@@ -15,7 +15,7 @@
         <button class="btn btn-primary"><a href="index.php">Annuler</a></button>
 <?php $main_content_subtitle = ob_get_clean(); ?>
 
-<?php $main_content = $place['presentation']?>
+<?php $main_content = htmlspecialchars($place['presentation']) ?>
 
 <?php $script = ""; ?>
 

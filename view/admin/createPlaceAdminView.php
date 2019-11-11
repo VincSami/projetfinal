@@ -26,11 +26,11 @@
 	</div>
 	<div class="form-group">
 	<label for="positionx"><strong>positionx</strong></label><br />
-	<input type="text" name="positionx" placeholder="positionx">
+	<input type="number" name="positionx" placeholder="positionx">
 	</div>
 	<div class="form-group">
 	<label for="positiony"><strong>positiony</strong></label><br />
-	<input type="text" name="positiony" placeholder="positiony">
+	<input type="number" name="positiony" placeholder="positiony">
 	</div>
 	<div class="form-group">
 	<label for="region"><strong>Région</strong></label><br />

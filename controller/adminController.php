@@ -1,5 +1,9 @@
 <?php
 //Chargement des classes avec require_once (pour éviter des appels en doublons)
+use VS\MariageCoquillages\model\PlaceManager;
+use VS\MariageCoquillages\model\WeddingplannerManager;
+use VS\MariageCoquillages\model\HelperManager;
+use VS\MariageCoquillages\model\AdminManager;
 require_once('model/PlaceManager.php');
 require_once('model/WeddingplannerManager.php');
 require_once('model/HelperManager.php');

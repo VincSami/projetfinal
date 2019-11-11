@@ -10,15 +10,15 @@
     <form action="index.php?action=updatePlaceMember&amp;placeId=<?= $place['id'] ?>" method="post" enctype="multipart/form-data">
 	    <label for="image"><strong>Définir l'image d'illustration</strong></label><br />
    		<input type="file" name="image" /><br /><br />
-		<input type="text" name="title" value="<?= $place['title'] ?>" required>
-		<input type="text" name="city"  value="<?= $place['city'] ?>" required>
-		<input type="text" name="positionx" value="<?= $place['positionx'] ?>" required>
-		<input type="text" name="positiony" value="<?= $place['positiony'] ?>" required>
-		<input type="text" name="region" value="<?= $place['region'] ?>" required>
-		<input type="text" name="website" value="<?= $place['website'] ?>">
-		<input type="text" name="tel" value="<?= $place['tel'] ?>" required>
-		<input type="email" name="mail" value="<?= $place['mail'] ?>" required>
-	    <textarea name="presentation" value="<?= $place['presentation'] ?>" required></textarea><br />
+		<input type="text" name="title" value="<?= htmlspecialchars($place['title']) ?>" required>
+		<input type="text" name="city"  value="<?= htmlspecialchars($place['city']) ?>" required>
+		<input type="text" name="positionx" value="<?= htmlspecialchars($place['positionx']) ?>" required>
+		<input type="text" name="positiony" value="<?= htmlspecialchars($place['positiony']) ?>" required>
+		<input type="text" name="region" value="<?= htmlspecialchars($place['region']) ?>" required>
+		<input type="text" name="website" value="<?= htmlspecialchars($place['website']) ?>">
+		<input type="text" name="tel" value="<?= htmlspecialchars($place['tel']) ?>" required>
+		<input type="email" name="mail" value="<?= htmlspecialchars($place['mail']) ?>" required>
+	    <textarea name="presentation" value="<?= htmlspecialchars($place['presentation']) ?>" required></textarea><br />
 	    <input class="btn btn-primary" type="submit" name="submit" value="Mettre à jour le lieu de réception">
 	</form>
 	<button class="btn btn-primary"><a href="index.php">Annuler</a></button>

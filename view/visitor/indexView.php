@@ -2,10 +2,15 @@
 
 <?php $page_title = 'Bienvenue sur Mariage & Coquillages !'; ?>
 
-<?php $page_subtitle = 'Votre mariage à La Réunion les pieds dans l\'eau ou la tête dans les nuages'; ?>
+<?php $page_subtitle = 'Votre mariage à La Réunion en toute sérennité'; ?>
 
 <?php ob_start(); ?>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="3000">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="public/img/accueil1" class="d-block w-100" alt="...">
@@ -17,11 +22,11 @@
       <img src="public/img/accueil3" class="d-block w-100" alt="...">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -37,9 +42,9 @@
   {
   ?>
   <div class="card" style="width: 22rem;">
-    <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <img src="public/img/place<?= ($topPlace['id']) ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $topPlace['title'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($topPlace['title']) ?><br></h5>
       <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
@@ -58,7 +63,7 @@
   <div class="card" style="width: 22rem;">
     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $topWeddingplanner['pseudo'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($topWeddingplanner['pseudo']) ?><br></h5>
       <a href="index.php?action=weddingplanner&amp;id=<?= $topWeddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>
@@ -77,7 +82,7 @@
   <div class="card" style="width: 22rem;">
     <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
-      <h5 class="card-title"><?= $helperType['title'] ?><br></h5>
+      <h5 class="card-title"><?= htmlspecialchars($helperType['title']) ?><br></h5>
       <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
   </div>

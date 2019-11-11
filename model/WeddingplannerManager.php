@@ -1,5 +1,7 @@
 <?php
 
+namespace VS\MariageCoquillages\Model;
+
 require_once('model/Manager.php');
 
 class WeddingplannerManager extends Manager
@@ -8,7 +10,7 @@ class WeddingplannerManager extends Manager
     {	
     	$db = $this->dbConnect();  
 		$req = $db->prepare('SELECT id, pseudo, specialty, popular FROM weddingplanners ORDER BY popular DESC LIMIT 0,5');
-		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->setFetchMode(\PDO::FETCH_ASSOC);
 		$req->execute();
         $topWeddingplanners = $req->fetchAll();
 
@@ -19,7 +21,7 @@ class WeddingplannerManager extends Manager
     {	
     	$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, pseudo, specialty FROM weddingplanners');
-        $req->setFetchMode(PDO::FETCH_ASSOC);
+        $req->setFetchMode(\PDO::FETCH_ASSOC);
 	    $req->execute();
         $weddingplanners = $req->fetchAll();
 
@@ -55,7 +57,7 @@ class WeddingplannerManager extends Manager
 	{
 		$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, pseudo, presentation, author_id FROM weddingplanners WHERE author_id = ?');
-		$req->setFetchMode(PDO::FETCH_ASSOC);
+		$req->setFetchMode(\PDO::FETCH_ASSOC);
 		$req->execute(array($authorId));
 	    $memberWeddingplanners = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien
