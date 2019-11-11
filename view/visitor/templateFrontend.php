@@ -26,7 +26,7 @@
                             <a class="nav-link" href="index.php?action=weddingplanners">Wedding Planners</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=helpers">Prestataires</a>
+                            <a class="nav-link" href="index.php?action=helpers&amp;pageId=">Prestataires</a>
                         </li>
                     </ul>
                 </div>

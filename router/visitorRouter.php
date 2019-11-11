@@ -26,6 +26,7 @@ function visitorRouter()
         }
         elseif ($_GET['action'] == 'place') {
             if(isset($_GET['id']) && $_GET['id'] > 0){
+            $_GET['id'] = intval($_GET['id']);
             place($_GET['id']);
             } else {
             throw new Exception('Le lieu de réception n\'existe pas !');
@@ -36,16 +37,22 @@ function visitorRouter()
         }        
         elseif ($_GET['action'] == 'weddingplanner') {
             if(isset($_GET['id']) && $_GET['id'] > 0){
+            $_GET['id'] = intval($_GET['id']);
             weddingPlanner($_GET['id']);
             } else {
                 throw new Exception('Le Wedding-Planner n\'existe pas !');
             }
         }
         elseif ($_GET['action'] == 'helpers') {
-            helpers();
+            if(isset($_GET['pageId']) && $_GET['pageId'] > 0) {
+                helpers($_GET['pageId']);
+            } else {
+                helper(1);
+            }
         }
         elseif ($_GET['action'] == 'helpersType') {
             if(isset($_GET['id']) && $_GET['id'] > 0){
+            $_GET['id'] = intval($_GET['id']);
             helpersType($_GET['id']);
             } else {
                 throw new Exception('Le type de prestataire demandé n\'existe pas !');
@@ -53,6 +60,7 @@ function visitorRouter()
         }              
         elseif ($_GET['action'] == 'helper') {
             if(isset($_GET['id']) && $_GET['id'] > 0){
+            $_GET['id'] = intval($_GET['id']);
             helper($_GET['id']);
             } else {
             throw new Exception('Le prestataire n\'existe pas !');

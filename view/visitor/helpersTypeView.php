@@ -1,5 +1,8 @@
 <?php $linkrel = ""; ?>
 
+<?php $page_title = "les prestataires"; ?>
+<?php $page_subtitle = ""; ?>
+
 <?php $image_page = ""; ?>
 
 <?php ob_start(); ?>

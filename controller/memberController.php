@@ -46,7 +46,7 @@ function placesMember()
 function placeMember($placeId)
 {
     $placeManager = new PlaceManager();
-    $place = $placeManager->getPlace($_GET['id']);
+    $place = $placeManager->getPlace($placeId);
     require('view/member/placeMemberView.php');
 }
 
@@ -60,14 +60,14 @@ function weddingplannersMember()
 function weddingplannerMember($weddingplannerId)
 {
     $weddingplannerManager = new WeddingplannerManager();
-    $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
+    $weddingplanner = $weddingplannerManager->getWeddingplanner($weddingplannerId);
     require('view/member/weddingplannerMemberView.php');
 }
 
 function helpersTypeMember($typeId)
 {
     $helperManager = new HelperManager();
-    $helpersType = $helperManager->getHelpersType($_GET['id']);
+    $helpersType = $helperManager->getHelpersType($typeId);
     require('view/member/helpersTypeMemberView.php');
 }
 
@@ -81,7 +81,7 @@ function helpersMember()
 function helperMember($helperId)
 {
     $helperManager = new HelperManager();
-    $helper = $helperManager->getHelper($_GET['id']);
+    $helper = $helperManager->getHelper($helperId);
     require('view/member/helperMemberView.php');
 }
 

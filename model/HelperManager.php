@@ -17,14 +17,23 @@ class HelperManager extends Manager
 	    return $helperTypes;
 	}	
 	
-	public function getHelpers()
+	public function getHelpers($pageId)
     {	
     	$db = $this->dbConnect();  
-	    $req = $db->prepare('SELECT id, pseudo, content, id_type FROM helpers');
-        $req->setFetchMode(\PDO::FETCH_ASSOC);
-	    $req->execute();
-        $helpers = $req->fetchAll();
+		$numberOfHelpersByPage = 8;
+		$req1 = $db->prepare('SELECT id FROM helpers');
+		$req1->setFetchMode(\PDO::FETCH_ASSOC);
+		$req1->execute();
+		$req1->fetchAll();
+		$numberOfHelpers = $req1->rowCount(); 
+		$numberofPages = ceil($numberOfHelpers/$numberOfHelpersByPage);
+		$actualPage = ($pageId);
+		$firstLimit = ($actualPage-1)*$numberOfHelpersByPage;
 
+		$req2 = $db->prepare('SELECT id, pseudo, content, id_type FROM helpers LIMIT' . $firstLimit . ',' . $numberOfHelpersByPage);
+        $req2->setFetchMode(\PDO::FETCH_ASSOC);
+	    $req2->execute();
+		$helpers = $req2->fetchAll();
 	    return $helpers;
 	}
 
@@ -63,5 +72,9 @@ class HelperManager extends Manager
 	    $memberHelpers = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien
 		return $memberHelpers;
+	}
+
+	public function pages(){
+
 	}
 }

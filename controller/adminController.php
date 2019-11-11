@@ -33,7 +33,7 @@ function placesAdmin()
 function placeAdmin($placeId)
 {
     $placeManager = new PlaceManager();
-    $place = $placeManager->getPlace($_GET['id']);
+    $place = $placeManager->getPlace($placeId);
     require('view/admin/placeAdminView.php');
 }
 
@@ -47,7 +47,7 @@ function weddingPlannersAdmin()
 function weddingPlannerAdmin($weddingplannerId)
 {
     $weddingplannerManager = new WeddingplannerManager();
-    $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
+    $weddingplanner = $weddingplannerManager->getWeddingplanner($weddingplannerId);
     require('view/admin/weddingplannerAdminView.php');
 }
 
@@ -61,14 +61,14 @@ function helpersAdmin()
 function helpersTypeAdmin($typeId)
 {
     $helperManager = new HelperManager();
-    $helpersType = $helperManager->getHelpersType($_GET['id']);
+    $helpersType = $helperManager->getHelpersType($typeId);
     require('view/admin/helpersTypeAdminView.php');
 }
 
 function helperAdmin($helperId)
 {
     $helperManager = new HelperManager();
-    $helper = $helperManager->getHelper($_GET['id']);
+    $helper = $helperManager->getHelper($helperId);
     require('view/admin/helperAdminView.php');
 }
 

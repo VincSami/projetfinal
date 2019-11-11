@@ -30,14 +30,14 @@ function subscribe($pseudo, $pass, $email)
 {
     $memberManager = new MemberManager();
 
-    $newMember = $memberManager->subscribeMember($_POST['pseudoSubscriber'], $_POST['passSubscriber'], $_POST['email']);
+    $newMember = $memberManager->subscribeMember($pseudo, $pass, $email);
     header('Location:index.php');
 }
 
     function connectMember($pseudo, $passMember)
 {
     $memberManager = new MemberManager();
-    $connectMember = $memberManager->AccessMember($_POST['pseudoMember'], $_POST['passMember']);
+    $connectMember = $memberManager->AccessMember($pseudo, $passMember);
     header('Location:index.php');
 }
 
@@ -51,7 +51,7 @@ function places()
 function place($placeId)
 {
     $placeManager = new PlaceManager();
-    $place = $placeManager->getPlace($_GET['id']);
+    $place = $placeManager->getPlace($placeId);
     require('view/visitor/placeView.php');
 }
 
@@ -65,31 +65,30 @@ function weddingPlanners()
 function weddingPlanner($weddingplannerId)
 {
     $weddingplannerManager = new WeddingplannerManager();
-    $weddingplanner = $weddingplannerManager->getWeddingplanner($_GET['id']);
+    $weddingplanner = $weddingplannerManager->getWeddingplanner($weddingplannerId);
     require('view/visitor/weddingplannerView.php');
 }
 
-function helpers()
+function helpers($pageId)
 {
     $helperManager = new HelperManager();
-    $helpers = $helperManager->getHelpers();
+    $helpers = $helperManager->getHelpers($pageId);
     require('view/visitor/helpersView.php');
 }
 
 function helpersType($typeId)
 {
     $helperManager = new HelperManager();
-    $helpersType = $helperManager->getHelpersType($_GET['id']);
+    $helpersType = $helperManager->getHelpersType($typeId);
     require('view/visitor/helpersTypeView.php');
 }
 
 function helper($helperId)
 {
     $helperManager = new HelperManager();
-    $helper = $helperManager->getHelper($_GET['id']);
+    $helper = $helperManager->getHelper($helperId);
     require('view/visitor/helperView.php');
 }
-
 
 function getPlacesCoords()
 {

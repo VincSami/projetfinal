@@ -39,6 +39,10 @@ foreach($helpers as $helper)
   </div>
 <?php
 }
+for($i=1; $i<$numberOfPages; $i++)
+{
+  echo '<a href="index.php?action=helpers&amp;pageId='. $i . '">' . $i . '</a>';
+}
 ?>
 </section>
 <?php $main_content = ob_get_clean(); ?>
