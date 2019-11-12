@@ -9,6 +9,35 @@
 	display: none;
 }
 
+.weddingplanners-filter{    
+    margin-top: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#selectAllPlaces, #selectTopPlaces{
+    background-color: white;
+    color: #ADA7C2;
+}
+
+.radio-list p{
+    text-align: center;
+}
+
+.radio-list{
+    margin-left: 50px;
+}
+
+.category-filter{
+    margin: 2%;
+}
+
+.category-filter p{
+    text-align: center;
+}
+
 /*------------------------ HEADER --------------------------------- */
 
 header{
@@ -79,12 +108,16 @@ nav ul{
     opacity: 0.7;
     width: 30%;
     padding: 3%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-left: 3%;
 }
 
 .titres-page h3, h4{ 
     color: #e59cb0;
+}
+
+.titres-page h4{
+    margin-top: 50px;
 }
 
 /*RESPONSIVE DESIGN*/
@@ -108,7 +141,7 @@ nav ul{
 	}
 }
 
-/*------------------------ MISE EN FORME BOUTONS --------------------------------- */
+/*------------------------ BOUTONS --------------------------------- */
 
 #subscribeMember{
 	display: none;
@@ -142,6 +175,7 @@ nav ul{
 
 #map_container {
     display: flex;
+    margin-top: 300px;
 }
 
 #mapSide {
@@ -226,12 +260,21 @@ nav ul{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 250px;
     margin-bottom: 200px;
 }
 
 .card-body{
     text-align: center;
+}
+
+.card{
+    margin: 10px;
+    transition: 0.6s;
+}
+
+.card:hover{
+    box-shadow: 2px 2px 5px black;
 }
 
 /* ----------------------------------------- Accueil ------------------------------ */

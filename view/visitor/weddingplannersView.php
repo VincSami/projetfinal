@@ -8,7 +8,7 @@
 
 <?php ob_start(); ?>
 <div class="weddingplanners-filter">
-  <button id="selectAllWeddingplanners" class="selected">Toutes les Wedding-Planners</button>
+  <button id="selectAllWeddingplanners" class="btn btn-primary selected">Toutes les Wedding-Planners</button>
   <div class="radio-list">
   <p>Par spécialité :</p>
   <input type="radio" id="boheme" name="specialty" value="Bohème">

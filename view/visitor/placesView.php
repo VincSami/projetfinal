@@ -23,6 +23,7 @@
 <?php ob_start(); ?>
 <div class="places-filter">
   <button id="selectAllPlaces" class="btn btn-primary selected">Tous les lieux de réception</button>
+  <div class="category-filter">
   <p>Par région :</p>
   <input type="radio" id="selectPlacesNorth" name="region" value="Nord">
   <label for="region">Nord</label>
@@ -32,6 +33,7 @@
   <label for="region">Est</label>
   <input type="radio" id="selectPlacesEast" name="region" value="Est">
   <label for="region">Sud</label>
+  </div>
   <button class="btn btn-primary" id="selectTopPlaces">Les plus populaires</button>
 </div>
 <section class="places-view">
