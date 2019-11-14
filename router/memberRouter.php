@@ -32,7 +32,11 @@ function memberRouter()
             }
         }
         elseif ($_GET['action'] == 'helpersMember') {
-            helpersMember();
+            if(isset($_GET['pageId']) && $_GET['pageId'] > 0) {
+                helpersMember($_GET['pageId']);
+            } else {
+                helpersMember(1);
+            }
         }
         elseif ($_GET['action'] == 'helpersTypeMember') {
             if(isset($_GET['id']) && $_GET['id'] > 0){

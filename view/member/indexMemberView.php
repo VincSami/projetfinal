@@ -1,5 +1,9 @@
 <?php $linkrel = ""; ?>
 
+<?php $page_title = 'Bienvenue sur Mariage & Coquillages'; ?>
+
+<?php $page_subtitle = 'Votre mariage à La Réunion en toute simplicité'; ?>
+
 <?php ob_start(); ?>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -29,13 +33,9 @@
 </div>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = 'Bienvenue sur Mariage & Coquillages'; ?>
-
-<?php $page_subtitle = 'Votre mariage à La Réunion en toute simplicité'; ?>
-
 <?php ob_start(); ?>
 <section>
-<h3 class="center-title">Les lieux de réception tendances</h3>
+<h3 id="first-center-title">Les lieux de réception tendances</h3>
 <div class="topPlaces">
 <?php
   foreach($topPlaces as $topPlace)

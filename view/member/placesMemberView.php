@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
 <?php $linkrel = ob_get_clean(); ?>
 
+<?php $page_title = "Les lieux de réception"; ?>
+
+<?php $page_subtitle = ""; ?>
+
 <?php ob_start(); ?>
   <section id="map_container">
   <div id="map"></div>
@@ -16,23 +20,21 @@
   </section>
 <?php $image_page = ob_get_clean(); ?>
 
-<?php $page_title = "Les lieux de réception"; ?>
-
-<?php $page_subtitle = ""; ?>
-
 <?php ob_start(); ?>
 <div class="places-filter">
-  <button id="selectAllPlaces" class="selected">Tous les lieux de réception</button>
+  <button id="selectAllPlaces" class="btn btn-primary selected">Tous les lieux de réception</button>
+  <div class="category-filter">
   <p>Par région :</p>
   <input type="radio" id="selectPlacesNorth" name="region" value="Nord">
-  <label for="dewey">Nord</label>
+  <label for="region">Nord</label>
   <input type="radio" id="selectPlacesWest" name="region" value="Ouest">
-  <label for="dewey">Ouest</label>
-  <input type="radio" id="selectPlacesSouth" name="region" value="Sud">
-  <label for="dewey">Est</label>
+  <label for="region">Ouest</label>
   <input type="radio" id="selectPlacesEast" name="region" value="Est">
-  <label for="dewey">Sud</label>
-  <button id="selectTopPlaces">Les plus populaires</button>
+  <label for="region">Est</label>
+  <input type="radio" id="selectPlacesSouth" name="region" value="Sud">
+  <label for="region">Sud</label>
+  </div>
+  <button class="btn btn-primary" id="selectTopPlaces">Les plus populaires</button>
 </div>
 <section class="places-view">
 <?php

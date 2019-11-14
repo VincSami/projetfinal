@@ -1,24 +1,13 @@
 <?php $linkrel = ""; ?>
 
-<?php ob_start(); ?>
-    <img class="fullwidth" src="#">
-<?php $image_page = ob_get_clean(); ?>
-
 <?php $page_title = "Les prestataires" ?>
 
-<?php ob_start(); ?>
-  <?php
-  foreach($helpersType as $helperType)
-  {
-  ?>
-    <p><?= htmlspecialchars($helperType['title']) ?></p>
-  <?php
-  }
-  ?>
-<?php $page_subtitle = ob_get_clean(); ?>
+<?php $page_subtitle = ""; ?>
+
+<?php $image_page = ""; ?>
 
 <?php ob_start(); ?>
-<section>
+<section class="helpersType-view">
 <?php
 foreach($helpersType as $helperType)
 {
@@ -29,11 +18,14 @@ foreach($helpersType as $helperType)
       <h5 class="card-title"><?= htmlspecialchars($helperType['pseudo']) ?><br></h5>
       <a href="index.php?action=helperAdmin&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
+    
   </div>
 <?php
 }
 ?>
+</section>
 <?php $main_content = ob_get_clean(); ?>
+
 
 <?php $script = ""; ?>
 

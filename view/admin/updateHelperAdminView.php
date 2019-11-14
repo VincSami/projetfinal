@@ -2,9 +2,9 @@
 
 <?php $image_page = ""; ?>
 
-<?php $page_title = "Page d'ajout d'un nouveau prestataire"; ?>
+<?php $page_title = "Mise à jour du prestataire"; ?>
 
-<?php $page_subtitle = "Ajouter un nouveau prestataire"; ?>
+<?php $page_subtitle = ""; ?>
 
 <?php ob_start(); ?>
     <form action="index.php?action=updateHelperAdmin&amp;helperId=<?= $helper['id'] ?>" method="post" enctype="multipart/form-data">

@@ -1,8 +1,6 @@
 <?php $linkrel = ""; ?>
 
-<?php ob_start(); ?>
-  <img class="fullwidth" src="#">
-<?php $image_page = ob_get_clean(); ?>
+<?php $image_page = ""; ?>
 
 <?php $page_title = "Les prestataires"; ?>
 
@@ -10,7 +8,8 @@
 
 <?php ob_start(); ?>
 <div class="helpers-filter">
-  <button id="selectAllHelpers" class="selected">Toutes les prestataires</button>
+  <button id="selectAllHelpers" class="btn btn-primary selected">Toutes les prestataires</button>
+  <div class="radio-list">
   <p>Par catégorie :</p>
   <input type="radio" id="fleurs" name="helperType" value="1">
   <label for="helperType">Fleurs</label>
@@ -26,13 +25,14 @@
   <label for="helperType">Traiteur</label>
   <input type="radio" id="dessert" name="helperType" value="7">
   <label for="helperType">Pâtisserie</label>
+  </div>
 </div>
 <section class="helpers-view">
 <?php
 foreach($helpers as $helper)
 {
 ?>
-<div class="card helpers"  data-helper="<?= htmlspecialchars($helper['id_type']) ?>" style="width: 18rem;">
+<div class="card helpers"  data-helper="<?= $helper['id_type'] ?>" style="width: 18rem;">
     <img src="public/img/helper<?= $helper['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($helper['pseudo']) ?><br></h5>
@@ -43,6 +43,14 @@ foreach($helpers as $helper)
 }
 ?>
 </section>
+<div class="pagination">
+<?php
+for($i=1; $i<=$numberOfPages; $i++)
+{
+  echo '<a href="index.php?action=helpersMember&amp;pageId='. $i . '">' . $i . '</a>';
+}
+?>
+</div>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php ob_start(); ?>

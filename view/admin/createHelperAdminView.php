@@ -6,10 +6,6 @@
 
 <?php $page_subtitle = "Ajouter un nouveau prestataire"; ?>
 
-<?php $main_content_title = "Vous êtes sur le point d'ajouter un nouveau prestataire "; ?>
-
-<?php $main_content_subtitle = ""; ?>
-
 <?php ob_start(); ?>
 <form action="index.php?action=createHelperAdmin&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
@@ -50,7 +46,7 @@
 	</div>	
     <input type="submit" name="submit" value="Publier le prestataire">
 </form>
-<button><a href="index.php">Annuler</a></button>
+<button class="btn btn-primary" ><a href="index.php">Annuler</a></button>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>

@@ -2,9 +2,9 @@
 
 <?php $image_page = ""; ?>
 
-<?php $page_title = "Page d'administration du site de Jean Forteroche"; ?>
+<?php $page_title = "Mise à jour du Wedding-Planner"; ?>
 
-<?php $page_subtitle = "Créer un nouvel épisode"; ?>
+<?php $page_subtitle = ""; ?>
 
 <?php ob_start(); ?>
     <form action="index.php?action=updateWeddingplannerAdmin&amp;weddingplannerId=<?= $weddingplanner['id'] ?>" method="post" enctype="multipart/form-data">

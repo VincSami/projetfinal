@@ -19,22 +19,29 @@ class HelperManager extends Manager
 	
 	public function getHelpers($pageId)
     {	
-    	$db = $this->dbConnect();  
 		$numberOfHelpersByPage = 8;
-		$req1 = $db->prepare('SELECT id FROM helpers');
-		$req1->setFetchMode(\PDO::FETCH_ASSOC);
-		$req1->execute();
-		$req1->fetchAll();
-		$numberOfHelpers = $req1->rowCount(); 
-		$numberofPages = ceil($numberOfHelpers/$numberOfHelpersByPage);
 		$actualPage = ($pageId);
 		$firstLimit = ($actualPage-1)*$numberOfHelpersByPage;
-
-		$req2 = $db->prepare('SELECT id, pseudo, content, id_type FROM helpers LIMIT' . $firstLimit . ',' . $numberOfHelpersByPage);
+		$db = $this->dbConnect();
+		$req2 = $db->prepare('SELECT id, pseudo, content, id_type FROM helpers LIMIT ' . $firstLimit . ' , ' . $numberOfHelpersByPage);
         $req2->setFetchMode(\PDO::FETCH_ASSOC);
 	    $req2->execute();
 		$helpers = $req2->fetchAll();
 	    return $helpers;
+	}
+	
+	public function getPageCount()
+	{
+		$numberOfHelpersByPage = 8;
+		$db = $this->dbConnect();  
+		$req1 = $db->prepare('SELECT id FROM helpers');
+		$req1->setFetchMode(\PDO::FETCH_ASSOC);
+		$req1->execute();
+		$numberOfHelpers = intval($req1->rowCount());
+		$req1->closeCursor();
+		$numberofPages = ceil($numberOfHelpers/$numberOfHelpersByPage);
+
+		return $numberofPages;
 	}
 
 	public function getHelper($helperId)

@@ -1,0 +1,27 @@
+// IKEA App Injector script
+(function(d,script) {
+var injections = ["https:\/\/d1t9ym6jq29som.cloudfront.net\/public\/css\/geo.css","https:\/\/d1t9ym6jq29som.cloudfront.net\/public\/js\/geo.js"];
+var legacy = [];
+for (var i = 0; i<injections.length;i++) {
+
+	switch (injections[i].split(".").pop())
+	{
+        case "css":
+            var e = document.createElement('link');
+            e.type = 'text/css';
+            e.rel = 'stylesheet';
+            e.href = injections[i];
+        break;
+
+        case "js":
+			var e = document.createElement('script');
+			e.type = 'text/javascript';
+			e.src = injections[i];
+			e.async = true;
+        break;
+    }
+    
+    console.log("injecting → "+injections[i]);
+    
+	document.head.appendChild(e);
+}}(document));

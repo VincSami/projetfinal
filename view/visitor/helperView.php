@@ -2,7 +2,7 @@
 
 <?php $image_page = ""; ?>
 
-<?php $page_title = "les prestataires"; ?>
+<?php $page_title = "Les prestataires"; ?>
 
 <?php $page_subtitle = ""; ?>
 

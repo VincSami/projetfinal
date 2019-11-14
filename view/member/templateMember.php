@@ -36,11 +36,11 @@
           <button id="exitMember" class="btn btn-primary"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
         </div>
       </nav>
-      <?= $image_page ?>
-      <div id="titre_principal">
-        <h1><?= $page_title ?></h1><br>
-        <h2><?= $page_subtitle ?></h2>
+      <div class="titres-page">
+            <h3><?= $page_title ?></h3>
+            <h4><?= $page_subtitle ?></h4>
       </div>
+      <?= $image_page ?>
     </header>
     <?= $main_content ?>
     <footer>

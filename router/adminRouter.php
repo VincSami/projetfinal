@@ -32,7 +32,11 @@ function adminRouter()
             }
         }
         elseif ($_GET['action'] == 'helpersAdmin') {
-            helpersAdmin();
+            if(isset($_GET['pageId']) && $_GET['pageId'] > 0) {
+                helpersAdmin($_GET['pageId']);
+            } else {
+                helpersAdmin(1);
+            }
         }
         elseif ($_GET['action'] == 'helpersTypeAdmin') {
             if(isset($_GET['id']) && $_GET['id'] > 0){

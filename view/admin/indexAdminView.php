@@ -31,7 +31,7 @@
 
 <?php $page_title = 'Bienvenue sur la page d\'administration de Mariage et Coquillages !'; ?>
 
-<?php $page_subtitle = 'Votre marriage à La Réunion en toute sérénité !'; ?>
+<?php $page_subtitle = ''; ?>
 
 <?php ob_start(); ?>
 <section id="newAdminPage">
@@ -59,7 +59,7 @@
     <img src="public/img/place<?= $topPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($topPlace['title']) ?><br></h5>
-      <a href="index.php?action=placeMember&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
+      <a href="index.php?action=placeAdmin&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
     <button class="btn btn-primary" id="deletePlacePageAdmin"><a href="index.php?action=deletePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Supprimer</a></button>
     <button class="btn btn-primary" id="updatePlacePageAdmin"><a href="index.php?action=updatePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Modifier</a></button>
@@ -80,10 +80,10 @@
     <img src="public/img/weddingPlanner<?= $topWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($topWeddingplanner['pseudo']) ?><br></h5>
-      <a href="index.php?action=weddingplannerMember&amp;id=<?= $topWeddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
+      <a href="index.php?action=weddingplannerAdmin&amp;id=<?= $topWeddingplanner['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
-    <button class="btn btn-primary" id="deletePlacePageAdmin"><a href="index.php?action=deletePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Supprimer</a></button>
-    <button class="btn btn-primary" id="updatePlacePageAdmin"><a href="index.php?action=updatePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Modifier</a></button>
+    <button class="btn btn-primary" id="deleteWeddingplannerPageAdmin"><a href="index.php?action=deleteWeddingplannerPageAdmin&amp;id=<?= $topWeddingplanner['id'] ?>">Supprimer</a></button>
+    <button class="btn btn-primary" id="updateWeddingplannerPageAdmin"><a href="index.php?action=updateWeddingplannerPageAdmin&amp;id=<?= $topWeddingplanner['id'] ?>">Modifier</a></button>
   </div>
   <?php
   }
@@ -101,10 +101,8 @@
     <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($helperType['title']) ?><br></h5>
-      <a href="index.php?action=helpersTypeMember&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
+      <a href="index.php?action=helpersTypeAdmin&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>
     </div>
-    <button class="btn btn-primary" id="deletePlacePageAdmin"><a href="index.php?action=deletePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Supprimer</a></button>
-    <button class="btn btn-primary" id="updatePlacePageAdmin"><a href="index.php?action=updatePlacePageAdmin&amp;id=<?= $topPlace['id'] ?>">Modifier</a></button>
   </div>
   <?php
   }

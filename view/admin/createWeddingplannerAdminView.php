@@ -50,6 +50,7 @@
 	</div>	
     	<input class="btn btn-primary" type="submit" name="submit" value="Publier le prestataire">
 </form>
+<button class="btn btn-primary" ><a href="index.php">Annuler</a></button>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>

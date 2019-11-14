@@ -1,23 +1,13 @@
 <?php $linkrel = ""; ?>
 
-<?php ob_start(); ?>
-    <img class="fullwidth" src="#">
-<?php $image_page = ob_get_clean(); ?>
-
 <?php $page_title = "Les prestataires" ?>
 
-<?php ob_start(); ?>
-  <?php
-  foreach($helpersType as $helperType)
-  {
-  ?>
-    <p><?= htmlspecialchars($helperType['title']) ?></p>
-  <?php
-  }
-  ?>
-<?php $page_subtitle = ob_get_clean(); ?>
+<?php $page_subtitle = ""; ?>
+
+<?php $image_page = ""; ?>
 
 <?php ob_start(); ?>
+<section class="helpersType-view">
 <?php
 foreach($helpersType as $helperType)
 {
@@ -32,7 +22,9 @@ foreach($helpersType as $helperType)
 <?php
 }
 ?>
+</section>
 <?php $main_content = ob_get_clean(); ?>
+
 
 <?php $script = ""; ?>
 

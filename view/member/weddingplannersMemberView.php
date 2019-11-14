@@ -8,7 +8,8 @@
 
 <?php ob_start(); ?>
 <div class="weddingplanners-filter">
-  <button id="selectAllWeddingplanners" class="selected">Toutes les Wedding-Planners</button>
+  <button id="selectAllWeddingplanners" class="btn btn-primary selected">Toutes les Wedding-Planners</button>
+  <div class="radio-list">
   <p>Par spécialité :</p>
   <input type="radio" id="boheme" name="specialty" value="Bohème">
   <label for="specialty">Mariage bohème</label>
@@ -22,6 +23,7 @@
   <label for="specialty">Mariage intimiste</label>
   <input type="radio" id="montagne" name="specialty" value="A la montagne">
   <label for="specialty">Mariage de montagne</label>
+  </div>
 </div>
 <section class="weddingplanners-view">
 <?php

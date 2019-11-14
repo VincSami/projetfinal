@@ -71,10 +71,11 @@ function helpersTypeMember($typeId)
     require('view/member/helpersTypeMemberView.php');
 }
 
-function helpersMember()
+function helpersMember($pageId)
 {
     $helperManager = new HelperManager();
-    $helpers = $helperManager->getHelpers();
+    $helpers = $helperManager->getHelpers($pageId);
+    $numberOfPages = $helperManager->getPageCount();
     require('view/member/helpersMemberView.php');
 }
 

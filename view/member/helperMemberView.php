@@ -1,14 +1,23 @@
 <?php $linkrel = ""; ?>
 
+<?php $image_page = ""; ?>
+
+<?php $page_title = "Les prestataires" ?>
+
+<?php $page_subtitle = ""; ?>
+
 <?php ob_start(); ?>
-    <img class="fullwidth" src="public/img/helper<?= $helper['id'] ?>.jpg">
-<?php $image_page = ob_get_clean(); ?>
-
-<?php $page_title = "les prestataires" ?>
-
-<?php $page_subtitle = htmlspecialchars($helper['pseudo']) ?>
-
-<?php $main_content = htmlspecialchars($helper['content']) ?>
+<section class="presentationOnePage">
+<div class="presentationOnePageLeft">
+<h3><?= htmlspecialchars($helper['pseudo']) ?></h3>
+<img class="fullwidth" src="public/img/helper<?= $helper['id'] ?>.jpg">
+</div>
+<div class="presentationOnePageRight">
+<p><?= htmlspecialchars($helper['content']) ?><br><br>
+Contact : <?= htmlspecialchars($helper['mail']) ?></p>
+</div>
+</section>
+<?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>
 

@@ -35,11 +35,11 @@
         <button class="btn btn-primary" id="exitAdmin"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
       </div>
       </nav>
-      <?= $image_page ?>
-      <div id="titre_principal">
-        <h1><?= $page_title ?></h1><br>
-        <h2><?= $page_subtitle ?></h2>
+      <div class="titres-page">
+            <h3><?= $page_title ?></h3>
+            <h4><?= $page_subtitle ?></h4>
       </div>
+      <?= $image_page ?>
     </header>
     <?= $main_content ?>
     <footer>
@@ -47,7 +47,7 @@
         <h2>Jean Forteroche</h2>
         <p>19, rue de Belleville 31000<br><br>
           <a href= "callto:0800112205">0 800 112 205</a><br><br>
-          <a href= "mailto:jeanforteroche@alaska.com">jeanforteroche@alaska.com</a><br>
+          <a href= "mailto:mariagecoquillages@reunion.com">mariagecoquillages@reunion.com</a><br>
         </p>
       </div>
       <div id="social">

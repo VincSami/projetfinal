@@ -4,6 +4,7 @@ use VS\MariageCoquillages\model\PlaceManager;
 use VS\MariageCoquillages\model\WeddingplannerManager;
 use VS\MariageCoquillages\model\HelperManager;
 use VS\MariageCoquillages\model\AdminManager;
+
 require_once('model/PlaceManager.php');
 require_once('model/WeddingplannerManager.php');
 require_once('model/HelperManager.php');
@@ -51,12 +52,14 @@ function weddingPlannerAdmin($weddingplannerId)
     require('view/admin/weddingplannerAdminView.php');
 }
 
-function helpersAdmin()
+function helpersAdmin($pageId)
 {
     $helperManager = new HelperManager();
-    $helpers = $helperManager->getHelpers();
+    $helpers = $helperManager->getHelpers($pageId);
+    $numberOfPages = $helperManager->getPageCount();
     require('view/admin/helpersAdminView.php');
 }
+
 
 function helpersTypeAdmin($typeId)
 {

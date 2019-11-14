@@ -47,7 +47,7 @@ function visitorRouter()
             if(isset($_GET['pageId']) && $_GET['pageId'] > 0) {
                 helpers($_GET['pageId']);
             } else {
-                helper(1);
+                helpers(1);
             }
         }
         elseif ($_GET['action'] == 'helpersType') {
