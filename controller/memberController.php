@@ -163,7 +163,7 @@ function updatePlaceMember($title, $city, $positionx, $positiony, $region, $webs
     
     $updatedPlace = $memberManager->modifyPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId);
     $placeImage = $memberManager->placeImageMember($placeId);
-    
+    var_dump($updatedPlace);
     if ($updatedPlace == false) {
         throw new Exception('Impossible de modifier le lieu de réception !');
     } 

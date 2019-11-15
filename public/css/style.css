@@ -1,3 +1,4 @@
+/*------------------------ GENERAL --------------------------------- */
 *{
 	margin: 0;
 	padding: 0;
@@ -5,37 +6,43 @@
 	font-family: 'Gayathri', sans-serif;
 }
 
-.hide{
-	display: none;
+.center-title{
+	text-align: center;
 }
 
-.weddingplanners-filter{    
-    margin-top: 250px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-#selectTopPlaces{
+.titres-page{
+    position: absolute;
+    z-index: 10;
     background-color: white;
-    color: #ADA7C2;
+    opacity: 0.7;
+    width: 30%;
+    padding: 1%;
+    margin: 1%;
 }
 
-.radio-list p{
+.titres-page h3, h4{ 
+    color: #e59cb0;
+}
+
+.titres-page h4{
+    margin-top: 50px;
+}
+
+.card-body{
     text-align: center;
 }
 
-.radio-list{
-    margin-left: 50px;
+.card{
+    margin: 10px;
+    transition: 0.6s;
 }
 
-.category-filter{
-    margin: 2%;
+.card:hover{
+    box-shadow: 2px 2px 5px black;
 }
 
-.category-filter p{
-    text-align: center;
+input{
+    padding: 10px;
 }
 
 /*------------------------ HEADER --------------------------------- */
@@ -57,11 +64,9 @@ nav ul{
   display: flex;
 }
 
-
 #cancelSubscribeButtons{
   display : flex;
 }
-
 
 #infoSession{
 	display: flex;
@@ -81,68 +86,8 @@ nav ul{
 	font-size: 1.2em;
 }
 
-.fullwidth{
-	width: 100%;
-}
-
-#titre_principal{
-	margin: 0 auto;
-	text-align: center;
-	margin-top: -25%;
-	margin-bottom: 25%;
-}
-
-#titre_principal h1, h2{
-	color: white;
-}
-
 #place h3 {
     margin-top: 100px;
-}
-
-#first-center-title{
-    margin-top: 100px;
-    text-align: center;
-
-}
-
-.titres-page{
-    position: absolute;
-    z-index: 10;
-    background-color: white;
-    opacity: 0.7;
-    width: 30%;
-    padding: 1%;
-    margin: 1%;
-}
-
-.titres-page h3, h4{ 
-    color: #e59cb0;
-}
-
-.titres-page h4{
-    margin-top: 50px;
-}
-
-/*RESPONSIVE DESIGN*/
-
-@media screen and (min-width : 800px) and (max-width : 1200px) {
-	#titre_principal h1, h2{
-		font-size: 1.7em;
-	}
-}
-
-@media screen and (min-width : 425px) and (max-width : 800px) {
-	#titre_principal h1, h2{
-		font-size: 1em;
-	}
-}
-
-@media screen and (max-width : 425px) {
-	#titre_principal h1, #titre_principal h2{
-		font-size: 0.8em;
-		margin-top: -5%;
-	}
 }
 
 /*------------------------ BOUTONS --------------------------------- */
@@ -167,10 +112,157 @@ nav ul{
     display: none;
 }
 
-/* ----------------------------------------- CARTE LIEUX DE RECEPTION------------------------------ */
+.btn.btn-primary a{
+    color: white;
+    text-decoration: none;
+    height: 60px;
+}
+
+/* ----------------------------------------- Accueil ------------------------------ */
+
+#carouselExampleControls{
+	margin-bottom:50px;
+}
+
+#first-center-title{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.topPlaces, .topWeddingplanners, .helperTypesIndex{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.weddingplanners-view, .helpers-view, .places-view{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-wrap: wrap;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+/* ----------------------------------------- PAGE PRESENTATION LIEUX DE RECEPTION/ WEDDING-PLANNER/ PRESTATAIRES ------------------------------ */
+
+.presentationOnePage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentationOnePageLeft{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+}
+
+.presentationOnePageLeft img{
+    width: 400px;
+
+}
+
+.presentationOnePageRight{
+    width: 60%;
+}
+
+.presentationOnePageRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    background-color:#e59cb0;
+    margin: 10%;
+    padding: 5%;
+    color: white;
+}
+
+.presentationOnePageRight a{
+    color : white;
+    text-decoration: none;
+}
+
+.presentationOnePageRight a:hover{
+    color : black;
+}
+
+.helpersType-view{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 250px;
+    margin-bottom: 200px;
+}
+
+/* ----------------------------------------- FILTRES ------------------------------ */
+
+.radio-list p{
+    text-align: center;
+}
+
+.radio-list{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.category-filter{
+    margin : 2%;
+    text-align: center;
+}
+
+.category-filter p{
+    text-align: center;
+}
+
+.places-filter, .helpers-filter, .weddingplanners-filter{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.weddingplanners-filter{    
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.places-filter{
+    margin-top: 50px;
+}
+
+.helpers-filter{
+    margin-top: 250px;
+}
+
+/* ----------------------------------------- PAGINATION ------------------------------ */
+
+.pagination{
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.pagination a{
+    margin: 2%;
+}
+
+/* ----------------------------------------- PAGE LIEUX DE RECEPTION------------------------------ */
 
 #map {
-    height: 800px;
+    height: 1000px;
     width: 80%;
     margin: auto;
     z-index: 1;
@@ -184,7 +276,7 @@ nav ul{
 
 #mapSide {
     width: 50%;
-    height: 800px;
+    height: 1000px;
     display: none;
     border: 2px solid #e59cb0;
     border-radius: 10px;
@@ -215,6 +307,7 @@ nav ul{
 #placePresentation{
     text-align: justify;
     margin: 2%;
+    font-size: 1em;
 }
 
 .fas.fa-times {
@@ -229,119 +322,79 @@ nav ul{
     cursor: pointer;
 }
 
-.presentationOnePage{
+/* ----------------------------------------- FORMULAIRE CREATION NOUVEAU CONTENU ------------------------------ */
+
+#newAdminPage{
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-.presentationOnePageLeft{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    margin: 50px;
 }
 
-.presentationOnePageLeft img{
-    width: 400px;
-}
-
-.presentationOnePageRight{
-    width: 60%;
-}
-
-.presentationOnePageRight p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    background-color:#e59cb0;
-    margin: 10%;
-    padding: 5%;
-    color: white;
-}
-
-.helpersType-view{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 250px;
-    margin-bottom: 200px;
-}
-
-.card-body{
-    text-align: center;
-}
-
-.card{
-    margin: 10px;
-    transition: 0.6s;
-}
-
-.card:hover{
-    box-shadow: 2px 2px 5px black;
-}
-
-/* ----------------------------------------- Accueil ------------------------------ */
-#carouselExampleControls{
-	margin-bottom:50px;
-}
-
-.center-title{
-	text-align: center;
-}
-
-.topPlaces, .topWeddingplanners, .helperTypesIndex{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	margin-top: 50px;
-	margin-bottom: 50px;
-}
-
-.weddingplanners-view, .helpers-view, .places-view{
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	flex-wrap: wrap;
-	margin-top: 30px;
-	margin-bottom: 50px;
-}
-
-.places-filter, .helpers-filter, .weddingplanners-filter{
+#newMemberPage {
+    margin-top: 150px;
     display: flex;
     justify-content: center;
 }
 
-.places-filter{
-    margin-top: 50px;
-}
-
-.helpers-filter{
-    margin-top: 250px;
-}
-
-.pagination{
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
+#memberProfil h3{
+    margin-top: 100px;
     margin-bottom: 50px;
 }
 
-.pagination a{
-    margin: 2%;
+#memberPlaces, #memberWeddingplanners, #memberHelpers{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.btn.btn-primary a{
-    color: white;
-    text-decoration: none;
+/* ----------------------------------------- FORMULAIRE MISE A JOUR CONTENU ------------------------------ */
+
+.update-form, .create-form{
+    margin-bottom: 100px;
 }
 
+.cancel-update, .cancel-create{
+    margin-left: 5%;
+    width: 50%;
+}
 
-#newAdminPage{
+.form{
+    margin-top: 250px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 5%;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------- PAGE SUPPRESSION CONTENU------------------------------ */
+
+.delete-page{
+    margin-top: 250px;
+}
+
+.delete-buttons{
     text-align: center;
-    margin: 50px;
+    margin-top: 50px;
 }
+
+.delete-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.delete-content img{
+    width: 300px;
+    margin-bottom: 50px; 
+}
+
+.delete-content p{
+    margin-bottom: 50px;
+}
+
 /* -------------------------------------------- FOOTER ----------------------------------- */
 
 footer{
@@ -366,29 +419,68 @@ footer a {
     cursor: pointer;
 }
 
-#social {
-    width: 70%;
+#contact h2{
+    color : white;
 }
 
-#social p {
-    text-align: center
+/* -------------------------------------------- PAGE ERREUR ----------------------------------- */
+
+#error_message{
+	margin: 0 auto;
+	text-align: center;
+	margin-top: -25%;
+	color: white;
+	font-size: 3em;
 }
 
-#social ul {
-    display: flex;
-    list-style-type: none;
-    margin-bottom: 10px;
-    justify-content: center;
+/* -------------------------------------------- RESPONSIVE DESIGN ----------------------------------- */
+
+@media screen and (max-width : 1200px) {
+    #placePresentation{
+        font-size: 0.9em;
+    }
 }
 
-#social li {
-    margin-right: 40px;
-    margin-left: 15px;
-    margin-bottom: 30px;
-    margin-top: 30px;
+@media screen and (max-width : 1000px) {
+    #map{
+        width: 100%;
+        height: 600px;
+    }
+    #map_container {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+    }
+    #mapSide{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #placePresentation{
+        font-size: 0.8em;
+    }
 }
 
-/*RESPONSIVE DESIGN*/
+@media screen and (max-width : 1200px) {
+    .presentationOnePage{
+        flex-direction: column;
+        margin-top: 150px;
+    }
+    .presentationOnePageRight {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 800px) {
+    header .titres-page{
+        position: relative;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        margin-top: 30px;;
+        margin-bottom: 30px;;
+    }
+}
 
 @media screen and (min-width : 425px) and (max-width : 800px) {
     #contact {
@@ -402,10 +494,6 @@ footer a {
 
     #contact p {
         margin-left: 0px;
-    }
-
-    #social {
-        width: 100%;
     }
 
     footer {
@@ -427,21 +515,11 @@ footer a {
         margin-left: 0px;
     }
 
-    #social {
-        width: 100%;
-    }
-
     footer {
         flex-direction: column;
     }
-}
 
-/* -------------------------------------------- PAGE ERREUR ----------------------------------- */
-
-#error_message{
-	margin: 0 auto;
-	text-align: center;
-	margin-top: -25%;
-	color: white;
-	font-size: 3em;
+    .presentationOnePageLeft img{
+        width: 300px;
+    }
 }

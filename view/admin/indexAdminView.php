@@ -35,18 +35,18 @@
 
 <?php ob_start(); ?>
 <section id="newAdminPage">
-    <p>Ajouter une nouvelle prestation</p>
-    <form action="index.php?action=creationAdminPage" method="post" enctype="multipart/form-data">
+    <button id="addServicesButtonAdmin" class="btn btn-primary">Ajouter une nouvelle prestation</button>
+    <form id="addServicesFormAdmin"action="index.php?action=creationAdminPage" method="post" enctype="multipart/form-data">
 		<label for="servicetype"><strong>Sélectionner le type de prestation à ajouter</strong></label><br />
-		<select name="serviceType">
+		<select name="serviceType" required>
 			<option value="">--Merci de choisir une option--</option>
 			<option value="1">Lieu de réception</option>
 			<option value="2">Wedding-Planner</option>
 			<option value="3">Autres prestataires</option>
 		</select>
-		<input class="btn btn-primary" type="submit" name="submit" value="Valider">
-	</form>
-	<button class="btn btn-primary"><a href="index.php">Annuler</a></button>
+    <input class="btn btn-primary" type="submit" name="submit" value="Valider">
+    <button id="cancelAddServicesAdminButton" class="btn btn-primary cancel-action"><a href="index.php">Annuler</a></button>
+  </form>
 </section>
 <section>
 <h3 class="center-title">Les lieux de réception tendances</h3>
@@ -111,6 +111,8 @@
 </section> 
 <?php $main_content = ob_get_clean(); ?>
 
-<?php $script = ""; ?>
+<?php ob_start(); ?>
+<script src="public/js/addServicesAdmin.js"></script>
+<?php $script = ob_get_clean(); ?>
 
 <?php require('templateBackend.php'); ?>

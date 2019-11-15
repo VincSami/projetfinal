@@ -6,12 +6,9 @@
 
 <?php $page_subtitle = ""; ?>
 
-<?php $main_content_title = "Vous êtes sur le point de créer un nouveau lieu de réception "; ?>
-
-<?php $main_content_subtitle = ""; ?>
-
 <?php ob_start(); ?>
-<form action="index.php?action=createPlaceAdmin&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+<section class="create-form">
+<form class="form" action="index.php?action=createPlaceAdmin&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
 		<input class="boutonVert" type="file" name="image" /><br /><br />
@@ -26,11 +23,11 @@
 	</div>
 	<div class="form-group">
 	<label for="positionx"><strong>positionx</strong></label><br />
-	<input type="number" name="positionx" placeholder="positionx">
+	<input type="text" name="positionx" placeholder="positionx">
 	</div>
 	<div class="form-group">
 	<label for="positiony"><strong>positiony</strong></label><br />
-	<input type="number" name="positiony" placeholder="positiony">
+	<input type="text" name="positiony" placeholder="positiony">
 	</div>
 	<div class="form-group">
 	<label for="region"><strong>Région</strong></label><br />
@@ -50,11 +47,12 @@
 	</div>	
 	<div class="form-group">
 	<label for="presentation"><strong>Présentation du lieu de réception</strong></label><br />
-	<textarea name="presentation" placeholder="Description du lieu de réception" required></textarea>
+	<textarea rows="10" cols="100" name="presentation" placeholder="Description du lieu de réception" required></textarea>
 	</div>
-    <input class="boutonVert" type="submit" name="submit" value="Publier le prestataire">
+    <input class="btn btn-primary" type="submit" name="submit" value="Publier le prestataire">
 </form>
-<button class="btn btn-primary" ><a href="index.php">Annuler</a></button>
+<button class="btn btn-primary cancel-create" ><a href="index.php">Annuler</a></button>
+</section>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>

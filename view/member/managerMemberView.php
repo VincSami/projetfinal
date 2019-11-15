@@ -21,13 +21,15 @@
             <option value="2">Wedding-Planner</option>
 			<option value="3">Autres prestataires</option>
 		</select>
-		<input type="submit" name="submit" value="Valider">
-	</form>
-	<button id="cancelAddServicesButton">Annuler</button>
+        <input class="btn btn-primary" type="submit" name="submit" value="Valider">
+        <button class="btn btn-primary" id="cancelAddServicesButton">Annuler</button>
+    </form>
 </section>
 <div id="memberProfil">
-<h3>Vos offres de service publiées</h3>
-<section id="memberPlaces">
+<h3 class="center-title">Vos offres de service publiées</h3>
+<section>
+<h4 class="center-title">Les lieux de réception</h4>
+<div id="memberPlaces">
 <?php
 if ($memberPlaces){
 foreach($memberPlaces as $memberPlace)
@@ -45,8 +47,11 @@ foreach($memberPlaces as $memberPlace)
 }
 }
 ?>
+</div>
 </section>
-<section id="memberweddingPlanners">
+<section>
+<h4 class="center-title">Les Wedding-Planners</h4>
+<div id="memberWeddingplanners">
 <?php
 if ($memberWeddingplanners){
 foreach($memberWeddingplanners as $memberWeddingplanner)
@@ -64,8 +69,11 @@ foreach($memberWeddingplanners as $memberWeddingplanner)
 }
 }
 ?>
+</div>
 </section>
-<section id="memberHelpers">
+<section>
+<h4 class="center-title">Les autres prestataires</h4>
+<div id="memberHelpers">
 <?php
 if ($memberHelpers){
 foreach($memberHelpers as $memberHelper)
@@ -83,6 +91,7 @@ foreach($memberHelpers as $memberHelper)
 }
 }
 ?>
+</div>
 </section>
 </div>
 <?php $main_content = ob_get_clean(); ?>

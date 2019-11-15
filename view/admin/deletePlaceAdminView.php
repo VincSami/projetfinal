@@ -6,16 +6,17 @@
 
 <?php $page_subtitle = "Supprimer le lieu de réception : " . htmlspecialchars($place['title']) ?>
 
-
-
-<?php $main_content_subtitle = ob_get_clean(); ?>
-
 <?php ob_start(); ?>
-    <div class="delete">
+<section class="delete-page">
+<div class="delete-buttons">    
     <button class="btn btn-primary"><a href="index.php?action=deletePlaceAdmin&amp;id=<?= $place['id'] ?>">Supprimer le lieu de réception</a></button>
     <button class="btn btn-primary"><a href="index.php">Annuler</a></button>
-    </div>
-    <?= htmlspecialchars($place['presentation']) ?>
+</div>
+<div class="delete-content">
+    <img class="fullwidth" src="public/img/place<?= $place['id'] ?>.jpg">
+    <p><?= htmlspecialchars($place['presentation']); ?></p>
+</div>
+</section>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>

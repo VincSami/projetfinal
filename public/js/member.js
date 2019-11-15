@@ -1,10 +1,10 @@
-const memberButton = document.getElementById("memberButton");
-const memberAccessForm = document.getElementById("memberAccess");
-const cancelMemberAccess = document.getElementById("cancelMemberAccess");
-const exitMember = document.getElementById("exitMember");
-const subscribeMemberButton = document.getElementById("subscribeMember");
-const memberSubscriptionForm = document.getElementById("memberSubscription");
-const cancelMemberSubscriptionButton = document.getElementById("cancelMemberSubscription");
+var memberButton = document.getElementById("memberButton");
+var memberAccessForm = document.getElementById("memberAccess");
+var cancelMemberAccess = document.getElementById("cancelMemberAccess");
+var exitMember = document.getElementById("exitMember");
+var subscribeMemberButton = document.getElementById("subscribeMember");
+var memberSubscriptionForm = document.getElementById("memberSubscription");
+var cancelMemberSubscriptionButton = document.getElementById("cancelMemberSubscription");
 
 memberButton.addEventListener("click", function() {
 	memberButton.style.display = "none";

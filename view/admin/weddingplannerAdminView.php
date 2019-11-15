@@ -7,16 +7,18 @@
 <?php $page_subtitle = "" ?>
 
 <?php ob_start(); ?>
-<section class="presentationOnePage">
+<div class="delete-buttons">
     <button class="btn btn-primary" id="deleteWeddingplannerPageAdmin"><a href="index.php?action=deleteWeddingplannerPageAdmin&amp;id=<?= $weddingplanner['id'] ?>">Supprimer</a></button>
     <button class="btn btn-primary" id="updateWeddingplannerPageAdmin"><a href="index.php?action=updateWeddingplannerPageAdmin&amp;id=<?= $weddingplanner['id'] ?>">Modifier</a></button>
+</div>
+<section class="presentationOnePage">
     <div class="presentationOnePageLeft">
         <h3><?= htmlspecialchars($weddingplanner['pseudo']) ?></h3>
         <img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg">
     </div>
     <div class="presentationOnePageRight">
         <p><?= htmlspecialchars($weddingplanner['presentation']) ?><br><br>
-        Contact : <?= htmlspecialchars($weddingplanner['mail']) ?></p>
+        Contact : <a href="mailto=<?= htmlspecialchars($weddingplanner['mail']) ?>"><?= htmlspecialchars($weddingplanner['mail']) ?></a></p>
     </div>
 </section>
 <?php $main_content = ob_get_clean(); ?>

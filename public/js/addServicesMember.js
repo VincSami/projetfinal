@@ -10,7 +10,8 @@ addServicesButton.addEventListener("click", function(){
     cancelAddServicesButton.style.display = "block";
 })
 
-cancelAddServicesButton.addEventListener("click", function(){
+cancelAddServicesButton.addEventListener("click", function(e){
+    e.preventDefault();
     addServicesButton.style.display = "block";
     addServicesForm.style.display = "none";
     cancelAddServicesButton.style.display = "none";

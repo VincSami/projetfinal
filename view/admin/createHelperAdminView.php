@@ -7,7 +7,8 @@
 <?php $page_subtitle = "Ajouter un nouveau prestataire"; ?>
 
 <?php ob_start(); ?>
-<form action="index.php?action=createHelperAdmin&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+<section class="create-form">
+<form class="form" action="index.php?action=createHelperAdmin&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
 		<input type="file" name="image" /><br /><br />
@@ -18,7 +19,7 @@
 	</div>
 	<div class="form-group">
 	<label for="content"><strong>Présentation de l'entreprise</strong></label><br />
-	<textarea name="content" placeholder="Description de vos services" required></textarea><br />
+	<textarea rows="10" cols="100" name="content" placeholder="Description de vos services" required></textarea><br />
 	</div>
 	<div class="form-group">
 	<label for="helperType"><strong>Type de prestation proposée</strong></label><br />
@@ -44,9 +45,10 @@
 	<label for="mail"><strong>Email</strong></label><br />
 	<input type="email" name="mail" placeholder="Votre email" required>		
 	</div>	
-    <input type="submit" name="submit" value="Publier le prestataire">
+    <input class="btn btn-primary" type="submit" name="submit" value="Publier le prestataire">
 </form>
-<button class="btn btn-primary" ><a href="index.php">Annuler</a></button>
+<button class="btn btn-primary cancel-create"><a href="index.php">Annuler</a></button>
+</section>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>

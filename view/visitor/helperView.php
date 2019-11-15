@@ -14,7 +14,7 @@
 </div>
 <div class="presentationOnePageRight">
 <p><?= htmlspecialchars($helper['content']) ?><br><br>
-Contact : <?= htmlspecialchars($helper['mail']) ?></p>
+Contact : <a href="mailto=<?= htmlspecialchars($helper['mail']) ?>"><?= htmlspecialchars($helper['mail']) ?></a></p>
 </div>
 </section>
 <?php $main_content = ob_get_clean(); ?>

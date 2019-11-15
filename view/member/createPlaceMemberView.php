@@ -2,12 +2,13 @@
 
 <?php $image_page = ""; ?>
 
-<?php $page_title = "Création d'un nouveau lieu de réception"; ?>
+<?php $page_title = "Page d'ajout d'un nouveau lieu de réception"; ?>
 
-<?php $page_subtitle = ""; ?>
+<?php $page_subtitle = "Ajouter un nouveau lieu de réception"; ?>
 
 <?php ob_start(); ?>
-<form action="index.php?action=createPlaceMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+<section class="create-form">
+<form class="form" action="index.php?action=createPlaceMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
 		<input class="boutonVert" type="file" name="image" /><br /><br />
@@ -46,11 +47,13 @@
 	</div>	
 	<div class="form-group">
 	<label for="presentation"><strong>Présentation du lieu de réception</strong></label><br />
-	<textarea name="presentation" placeholder="Description du lieu de réception" required></textarea>
+	<textarea rows="10" cols="100" name="presentation" placeholder="Description du lieu de réception" required></textarea>
 	</div>
-    <input class="boutonVert" type="submit" name="submit" value="Publier le prestataire">
+    <input class="btn btn-primary"" type="submit" name="submit" value="Publier le prestataire">
 </form>
-
+<button class="btn btn-primary cancel-create"><a href="index.php">Annuler</a></button>
+</section>
+=
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>

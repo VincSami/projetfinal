@@ -7,12 +7,17 @@
 <?php $page_subtitle = "Supprimer le prestataire : " . htmlspecialchars($helper['pseudo']) ?>
 
 <?php ob_start(); ?>
-    <div class="delete">
-        <button class="btn btn-primary"><a href="index.php?action=deleteHelperAdmin&amp;id=<?= $helper['id'] ?>">Supprimer le prestataire</a></button>
-        <button class="btn btn-primary"><a href="index.php">Annuler</a></button>
-    </div>
-    <?php htmlspecialchars($helper['presentation']) ?>
-<?php $main_content = ob_get_clean() ?>
+<section class="delete-page">
+<div class="delete-buttons">
+    <button class="btn btn-primary"><a href="index.php?action=deleteHelperAdmin&amp;id=<?= $helper['id'] ?>">Supprimer le prestataire</a></button>
+    <button class="btn btn-primary"><a href="index.php">Annuler</a></button>
+<div>
+<div class="delete-content">  
+    <img src="public/img/helper<?= $helper['id'] ?>.jpg">
+    <p><?= htmlspecialchars($helper['content']); ?></p>
+</div>
+</section>
+<?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>
 

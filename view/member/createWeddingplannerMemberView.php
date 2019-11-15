@@ -2,16 +2,13 @@
 
 <?php $image_page = ""; ?>
 
-<?php $page_title = "Page d'administration du site de Jean Forteroche"; ?>
+<?php $page_title = "Page d'ajout d'une nouvelle Wedding-Planner"; ?>
 
-<?php $page_subtitle = "Créer un nouvel épisode"; ?>
-
-<?php $main_content_title = "Vous êtes sur le point de créer un nouvel épisode "; ?>
-
-<?php $main_content_subtitle = ""; ?>
+<?php $page_subtitle = "Ajouter une nouvelle Wedding-Planner"; ?>
 
 <?php ob_start(); ?>
-<form action="index.php?action=createWeddingplannerMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+<section class="create-form">
+<form class="form" action="index.php?action=createWeddingplannerMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
 		<input type="file" name="image" /><br /><br />
@@ -34,7 +31,7 @@
 	</div>
 	<div class="form-group">
 		<label for="presentation"><strong>Présentation de l'entreprise</strong></label><br />
-		<textarea name="presentation" placeholder="Description de vos services" required></textarea><br />
+		<textarea rows="10" cols="100" name="presentation" placeholder="Description de vos services" required></textarea><br />
 	</div>
 	<div class="form-group">
 		<label for="website"><strong>Site Web</strong></label><br />
@@ -50,6 +47,8 @@
 	</div>	
     	<input class="btn btn-primary" type="submit" name="submit" value="Publier le prestataire">
 </form>
+<button class="btn btn-primary cancel-create"><a href="index.php">Annuler</a></button>
+</section>
 <?php $main_content = ob_get_clean(); ?>
 
 <?php $script = ""; ?>
