@@ -13,48 +13,51 @@
         
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=placesMember">Lieux de réception</a>
+              <a class="nav-link" href="index.php?action=places">Lieux de réception</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=weddingplannersMember">Wedding Planners</a>
+              <a class="nav-link" href="index.php?action=weddingplanners">Wedding Planners</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=helpersMember">Prestataires</a>
+              <a class="nav-link" href="index.php?action=helpers&amp;pageId=">Prestataires</a>
             </li>
-        </ul>
-      </div>
-        <div id="infoSession">
+          </ul>
+          <div id="infoSession">
           <p id="helloMember"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
           <button id="memberSpace" class="btn btn-primary"><a href ="index.php?action=profil&amp;authorId=<?= $_SESSION['id'] ?>">Profil</a></button>
           <button id="exitMember" class="btn btn-primary"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
         </div>
-      </nav>
-      <div class="titres-page">
-            <h3><?= $page_title ?></h3>
-            <h4><?= $page_subtitle ?></h4>
-      </div>
-      <?= $image_page ?>
-    </header>
-    <?= $main_content ?>
-    <footer>
-      <div id="contact">
-        <h2>Mariage & Coquillages</h2>
-        <p>19, rue de Belleville 31000<br><br>
-          <a href= "callto:0800112205">0 800 112 205</a><br><br>
-          <a href= "mailto:mariageetcoquillage@gmail.com">mariageetcoquillage@gmail.com</a><br>
-        </p>
-      </div>
-    </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <?= $script ?>
+        </div>
+    </nav>
+    <div class="titres-page">
+      <h3><?= $page_title ?></h3>
+      <h4><?= $page_subtitle ?></h4>
+    </div>
+    <?= $image_page ?>
+  </header>
+  <?= $main_content ?>
+  <footer>
+    <div id="contact">
+      <h2>Mariage & Coquillages</h2>
+      <p>19, rue de Belleville 31000<br><br>
+        <a href= "callto:0800112205">0 800 112 205</a><br><br>
+        <a href= "mailto:mariageetcoquillage@gmail.com">mariageetcoquillage@gmail.com</a><br>
+      </p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <?= $script ?>
   </body>
 </html>

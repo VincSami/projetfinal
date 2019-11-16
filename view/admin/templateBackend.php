@@ -14,26 +14,29 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-              <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="index.php?action=placesAdmin">Lieux de réception</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="index.php?action=weddingplannersAdmin">Wedding Planners</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="index.php?action=helpersAdmin">Prestataires</a>
-          </li>
-        </ul>
-      </div>
-      <div id="infoSession">
-        <p id="helloAdmin"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
-        <button class="btn btn-primary" id="exitAdmin"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
-      </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?action=places">Lieux de réception</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?action=weddingplanners">Wedding Planners</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?action=helpers&amp;pageId=">Prestataires</a>
+              </li>
+            </ul>
+            <div id="infoSession">
+            <p id="helloMember"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
+            <button id="exitMember" class="btn btn-primary"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
+          </div>
+          </div>
       </nav>
       <div class="titres-page">
             <h3><?= $page_title ?></h3>
