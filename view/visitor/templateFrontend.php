@@ -65,8 +65,8 @@
                             <input type="password" class="form-control" name="passSubscriber" id="passSubscriber" placeholder="Votre mot de passe">
                         </div>
                         <button type="submit" class="btn btn-primary">S'inscrire</button>
+                        <button id="cancelMemberSubscription" class="btn btn-primary">Annuler</button>
                     </form>
-                    <button id="cancelMemberSubscription" class="btn btn-primary">Annuler</button>
                 </div>
             </nav>
             <div class="titres-page">

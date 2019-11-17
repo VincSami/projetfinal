@@ -28,7 +28,8 @@ subscribeMemberButton.addEventListener("click", function() {
 	cancelMemberSubscriptionButton.style.display = "flex";
 });
 
-cancelMemberSubscriptionButton.addEventListener("click", function() {
+cancelMemberSubscriptionButton.addEventListener("click", function(e) {
+	e.preventDefault();
 	memberSubscriptionForm.style.display = "none";
 	cancelMemberSubscriptionButton.style.display = "none";
 	memberButton.style.display = "flex";
