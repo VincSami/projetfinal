@@ -13,7 +13,7 @@
     <button class="btn btn-primary"><a href="index.php">Annuler</a></button>
 <div>
 <div class="delete-content">  
-    <img src="public/img/helper<?= $helper['id'] ?>.jpg">
+    <img src="public/img/helper<?= $helper['id'] ?>.jpg" alt="image prestataire">
     <p><?= htmlspecialchars($helper['content']); ?></p>
 </div>
 </section>

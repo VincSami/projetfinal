@@ -33,7 +33,7 @@ foreach($helpers as $helper)
 {
 ?>
 <div class="card helpers"  data-helper="<?= $helper['id_type'] ?>" style="width: 18rem;">
-    <img src="public/img/helper<?= $helper['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <img src="public/img/helper<?= $helper['id'] ?>.jpg" class="card-img-top" alt="image prestataire">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($helper['pseudo']) ?><br></h5>
       <a href="index.php?action=helper&amp;id=<?= $helper['id'] ?>" class="btn btn-primary">En savoir plus</a>

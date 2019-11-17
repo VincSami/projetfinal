@@ -10,7 +10,7 @@
 <section class="presentationOnePage">
 <div class="presentationOnePageLeft">
 <h3><?= htmlspecialchars($weddingplanner['pseudo']) ?></h3>
-<img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg">
+<img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg" alt="image wedding-planner">
 </div>
 <div class="presentationOnePageRight">
 <p><?= htmlspecialchars($weddingplanner['presentation']) ?><br><br>

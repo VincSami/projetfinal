@@ -98,7 +98,7 @@
   {
   ?>
   <div class="card" style="width: 22rem;">
-    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image prestataire">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($helperType['title']) ?><br></h5>
       <a href="index.php?action=helpersTypeAdmin&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>

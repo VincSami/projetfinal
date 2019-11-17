@@ -42,7 +42,7 @@ foreach($places as $place)
 {
 ?>
 <div class="card places" data-region="<?= htmlspecialchars($place['region']) ?>" data-ranked="<?= htmlspecialchars($place['ranked']) ?>" style="width: 18rem;">
-    <img src="public/img/place<?= $place['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <img src="public/img/place<?= $place['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($place['title']) ?><br></h5>
       <a href="index.php?action=placeMember&amp;id=<?= $place['id'] ?>" class="btn btn-primary">En savoir plus</a>

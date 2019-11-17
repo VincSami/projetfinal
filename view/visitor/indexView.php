@@ -13,13 +13,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="public/img/accueil1" class="d-block w-100" alt="...">
+      <img src="public/img/accueil1" class="d-block w-100" alt="image mariage accueil">
     </div>
     <div class="carousel-item">
-      <img src="public/img/accueil2" class="d-block w-100" alt="...">
+      <img src="public/img/accueil2" class="d-block w-100" alt="image mariage accueil">
     </div>
     <div class="carousel-item">
-      <img src="public/img/accueil3" class="d-block w-100" alt="...">
+      <img src="public/img/accueil3" class="d-block w-100" alt="image mariage accueil">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -42,7 +42,7 @@
   {
   ?>
   <div class="card" style="width: 22rem;">
-    <img src="public/img/place<?= ($topPlace['id']) ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <img src="public/img/place<?= ($topPlace['id']) ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($topPlace['title']) ?><br></h5>
       <a href="index.php?action=place&amp;id=<?= $topPlace['id'] ?>" class="btn btn-primary">En savoir plus</a>
@@ -80,7 +80,7 @@
   {
   ?>
   <div class="card" style="width: 22rem;">
-    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
+    <img src="public/img/helpersType<?= $helperType['id'] ?>.jpg" class="card-img-top" alt="image prestataire">
     <div class="card-body">
       <h5 class="card-title"><?= htmlspecialchars($helperType['title']) ?><br></h5>
       <a href="index.php?action=helpersType&amp;id=<?= $helperType['id'] ?>" class="btn btn-primary">En savoir plus</a>

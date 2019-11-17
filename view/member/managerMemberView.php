@@ -58,7 +58,7 @@ foreach($memberWeddingplanners as $memberWeddingplanner)
 {
 ?>
 <div class="card" style="width: 18rem;">
-    <img src="public/img/weddingPlanner<?= $memberWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <img src="public/img/weddingPlanner<?= $memberWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
         <h5 class="card-title"><?= htmlspecialchars($memberWeddingplanner['pseudo']) ?><br></h5>
         <a href="index.php?action=deleteWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>&amp;authorId=<?= $memberWeddingplanner['author_id'] ?>" class="btn btn-primary">Supprimer</a>
@@ -80,7 +80,7 @@ foreach($memberHelpers as $memberHelper)
 {
 ?>
 <div class="card" style="width: 18rem;">
-    <img src="public/img/helper<?= $memberHelper['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
+    <img src="public/img/helper<?= $memberHelper['id'] ?>.jpg" class="card-img-top" alt="image prestataire">
     <div class="card-body">
         <h5 class="card-title"><?= htmlspecialchars($memberHelper['pseudo']) ?><br></h5>
         <a href="index.php?action=deleteHelperPageMember&amp;id=<?= $memberHelper['id'] ?>&amp;authorId=<?= $memberHelper['author_id'] ?>" class="btn btn-primary">Supprimer</a>

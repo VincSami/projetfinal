@@ -10,7 +10,7 @@
 <section class="presentationOnePage">
 <div class="presentationOnePageLeft">
 <h3><?= htmlspecialchars($helper['pseudo']) ?></h3>
-<img class="fullwidth" src="public/img/helper<?= $helper['id'] ?>.jpg">
+<img class="fullwidth" src="public/img/helper<?= $helper['id'] ?>.jpg" alt="image prestataire">
 </div>
 <div class="presentationOnePageRight">
 <p><?= htmlspecialchars($helper['content']) ?><br><br>

@@ -13,7 +13,7 @@
     <button class="btn btn-primary"><a href="index.php">Annuler</a></button>
 </div>       
 <div class="delete-content">  
-    <img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg">
+    <img class="fullwidth" src="public/img/weddingPlanner<?= $weddingplanner['id'] ?>.jpg" alt="image wedding-planner">
     <p><?= htmlspecialchars($weddingplanner['presentation']); ?></p>
 </div>
 </section>

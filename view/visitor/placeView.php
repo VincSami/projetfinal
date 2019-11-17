@@ -10,7 +10,7 @@
 <section class="presentationOnePage">
 <div class="presentationOnePageLeft">
 <h3><?= htmlspecialchars($place['title']) ?></h3>
-<img class="fullwidth" src="public/img/place<?= $place['id'] ?>.jpg">
+<img class="fullwidth" src="public/img/place<?= $place['id'] ?>.jpg" alt="image lieu de réception">
 </div>
 <div class="presentationOnePageRight">
 <p><?= htmlspecialchars($place['presentation']) ?><br><br>
