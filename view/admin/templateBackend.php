@@ -46,13 +46,22 @@
     </header>
     <?= $main_content ?>
     <footer>
-      <div id="contact">
-        <h2>Mariage & Coquillages</h2>
-        <p>19, rue de la Rivière 97400<br><br>
-          <a href= "callto:0262595854">0262 59 58 54</a><br><br>
-          <a href= "mailto:mariagecoquillages@reunion.com">mariagecoquillages@reunion.com</a><br>
-        </p>
-      </div>
+        <div id="contact">
+          <h1>Mariage et Coquillages</h1>
+          <p>19, rue de la Rivière 97400<br><br>
+            0262 58 59 54<br><br>
+            mariageetcoquillages@gmail.re<br>
+          </p>
+        </div>
+        <div id="social">
+          <p>Suivez-moi sur les réseaux sociaux</p>
+          <ul>
+              <li><a href="#"><img src="public/img/facebook.png" alt="facebook_icon"></a></li>
+              <li><a href="#"><img src="public/img/instagram.png" alt="instagram_icon"></a></li>
+              <li><a href="#"><img src="public/img/twitter.png" alt="twitter"></a></li>
+          </ul>
+          <p><a href="index.php?action=mentions">Mentions légales</a></p>
+        </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

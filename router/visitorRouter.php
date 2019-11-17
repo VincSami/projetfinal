@@ -69,6 +69,9 @@ function visitorRouter()
         elseif ($_GET['action'] == 'getPlacesCoords') {
             getPlacesCoords();
         }
+        elseif ($_GET['action'] == 'mentions'){
+            require ('view/mentions_legales.php');
+        }
     }
     else {
         home();

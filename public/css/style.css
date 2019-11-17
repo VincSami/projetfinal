@@ -404,7 +404,8 @@ footer{
 	color: white;
 	padding-left: 5%;
 	padding-right: 5%;
-	display: flex;
+    display: flex;
+    justify-content: space-between;
     box-shadow: 10px 5px 10px black;
 }
 
@@ -419,10 +420,23 @@ footer a {
     cursor: pointer;
 }
 
-#contact h2{
+#contact h1{
     color : white;
 }
 
+#social ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+#social ul li{
+    margin: 3%;
+}
+
+#social p{
+    text-align: center;
+}
 /* -------------------------------------------- PAGE ERREUR ----------------------------------- */
 
 #error_message h1{
