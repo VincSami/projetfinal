@@ -7,12 +7,6 @@ use VS\MariageCoquillages\Model\MemberManager;
 
 spl_autoload_register('autoloader');
 
-//Chargement des classes avec require_once (pour éviter des appels en doublons)
-/*require_once('model/PlaceManager.php');
-require_once('model/WeddingplannerManager.php');
-require_once('model/HelperManager.php');
-require_once('model/MemberManager.php');
-*/
 function home()
 {
     $placeManager = new PlaceManager();

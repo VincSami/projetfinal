@@ -1,9 +1,7 @@
 <?php
 
 function autoloader($className) {
-    echo( "tried to load : " . $className );
-    echo('  by including ' . 'model/' . $className . '.php' );
-    include_once('model/' . $className . '.php');
+    include_once('model/' . substr($className, 28) . '.php');
 }  
 
 session_start();

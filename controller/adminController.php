@@ -4,7 +4,7 @@ use VS\MariageCoquillages\Model\WeddingplannerManager;
 use VS\MariageCoquillages\Model\HelperManager;
 use VS\MariageCoquillages\Model\AdminManager;
 
-
+spl_autoload_register('autoloader');
 
 //Accueil Administrateur
 function homeAdmin()
