@@ -12,14 +12,15 @@ class MemberManager extends Manager
 		$pass = password_hash($_POST['passSubscriber'], PASSWORD_DEFAULT);
 		//Sinon on se connecte à la bdd
 		$db = $this->dbConnect();
-		$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 		//On récupère l'id et le mdp lié au pseudo renseigné
 		$req = $db->prepare("INSERT INTO members(pseudo, pass, email, subscription_date, member_type) VALUES (?, ?, ?, NOW(), 'user')");
 		$resultat = $req->execute(array($pseudo, $pass, $email));
-		var_dump($db->errorInfo());
 		if (! $resultat){
-			throw new Exception('Impossible de créer le nouveau membre');
+			throw new \Exception('Impossible de créer le nouveau membre');
 		}
+      	$_SESSION['member_type'] = "user";
+		$_SESSION['id'] = $db->lastInsertId();
+		$_SESSION['pseudo'] = $pseudo;
 	}
 
 	public function accessMember($pseudo, $pass)
@@ -40,7 +41,7 @@ class MemberManager extends Manager
 		//Si le pseudo renseigné n'est pas trouvé dans la bdd...
 		if (!$resultat)
 		{
-   			throw new Exception('Mauvais identifiant ou mot de passe !');
+   			throw new \Exception('Mauvais identifiant ou mot de passe !');
 		}
 		$isPasswordCorrect = password_verify($_POST['passMember'], $resultat['pass']);
 		//Si le pseudo est trouvé et que le mdp renseigné est correct, on connecte l'admin
@@ -58,7 +59,7 @@ class MemberManager extends Manager
     	}
     	//Si mauvais mdp ...
     	else {
-        throw new Exception('Mauvais identifiant ou mot de passe !');
+        throw new \Exception('Mauvais identifiant ou mot de passe !');
     	}	
 	}
 
@@ -79,7 +80,8 @@ class MemberManager extends Manager
 		
 		return $db->lastInsertId();
 	}
-		public function createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
+	
+  	public function createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
@@ -112,6 +114,7 @@ class MemberManager extends Manager
 			$req->execute(array($weddingplannerId));
 			$deleteWeddingplanner = $req->fetch(); 
 	}
+  
 	public function deleteHelper($helperId)
 	{
 			$db = $this->dbConnect();  
@@ -119,6 +122,7 @@ class MemberManager extends Manager
 			$req->execute(array($helperId));
 			$deletehelper = $req->fetch(); 
 	}
+  
 	public function modifyPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId)
 	{
 		if(isset($_POST['submit'])){

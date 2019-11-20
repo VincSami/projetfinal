@@ -52,7 +52,7 @@ class HelperManager extends Manager
         $helper = $req->fetch();
 		//On vérifie que le lieu de réception demandé existe bien
 	    if(! $helper){
-	    	throw new Exception("le prestataire n'existe pas");
+	    	throw new \Exception("le prestataire n'existe pas");
 	    }
 	    else {
 	    return $helper;

@@ -36,7 +36,7 @@ class PlaceManager extends Manager
 	    $place = $req->fetch();
 		//On vérifie que le lieu de réception demandé existe bien
 	    if(! $place){
-	    	throw new Exception("le lieu de réception n'existe pas");
+	    	throw new \Exception("le lieu de réception n'existe pas");
 	    }
 	    else {
 	    return $place;

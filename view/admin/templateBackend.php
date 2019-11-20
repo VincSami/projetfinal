@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Jean Forteroche</title>
+    <title>Mariage et Coquillages</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -49,8 +49,8 @@
         <div id="contact">
           <h1>Mariage et Coquillages</h1>
           <p>19, rue de la Rivière 97400<br><br>
-            0262 58 59 54<br><br>
-            <a href="mailto=mariageetcoquillages@gmail.re">mariageetcoquillages@gmail.re</a><br>
+            <a href="callto:0262585954">0262 58 59 54</a><br><br>
+            <a href="mailto:mariageetcoquillages@gmail.com">mariageetcoquillages@gmail.com</a><br>
           </p>
         </div>
         <div id="social">

@@ -8,7 +8,7 @@
 
 <?php ob_start(); ?>
 <section class="create-form">
-<form id="creationHelper" class="form" action="index.php?action=createHelperMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
+<form class="form creationForm" action="index.php?action=createHelperMember&amp;authorId=<?= $_SESSION['id'] ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">	
 		<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
 		<input type="file" name="image" /><br /><br />
@@ -39,7 +39,7 @@
 	</div>
 	<div class="form-group">
 	<label for="tel"><strong>Téléphone</strong></label><br />
-	<input id="phoneNumber" type="text" name="tel" placeholder="Votre n° de téléphone" required>
+	<input class="phoneNumber" type="text" name="tel" placeholder="Votre n° de téléphone" required>
 	</div>
 	<div class="form-group">		
 	<label for="mail"><strong>Email</strong></label><br />
@@ -52,6 +52,6 @@
 <?php $main_content = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-<script src="public/js/creation.js"></script>
+<script src="public/js/formPhoneNumberVerify.js"></script>
 <?php $script = ob_get_clean(); ?>
 <?php require('templateMember.php'); ?>

@@ -18,7 +18,7 @@
     </div>
     <div class="presentationOnePageRight">
         <p><?= htmlspecialchars($weddingplanner['presentation']) ?><br><br>
-        Contact : <a href="mailto=<?= htmlspecialchars($weddingplanner['mail']) ?>"><?= htmlspecialchars($weddingplanner['mail']) ?></a></p>
+        Contact : <a href="mailto:<?= htmlspecialchars($weddingplanner['mail']) ?>"><?= htmlspecialchars($weddingplanner['mail']) ?></a></p>
     </div>
 </section>
 <?php $main_content = ob_get_clean(); ?>

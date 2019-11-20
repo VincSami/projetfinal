@@ -41,7 +41,7 @@
                     <form id="memberAccess" action="index.php?action=connect" method="post">
                         <div class="form-group">
                             <label for="pseudoMember">Pseudo</label>
-                            <input type="text" class="form-control" name="pseudoMember" id="pseudoMember" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                            <input type="text" class="form-control" name="pseudoMember" id="pseudoMember" placeholder="Votre pseudo">
                         </div>
                         <div class="form-group">
                             <label for="passMember">Mot de passe</label>
@@ -57,16 +57,15 @@
                     <form id="memberSubscription" action="index.php?action=subscribe" method="post">
                         <div class="form-group">
                             <label for="pseudoSubscriber">Pseudo</label>
-                            <input type="text" class="form-control" name="pseudoSubscriber" id="pseudoSubscriber" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                            <input type="text" class="form-control" name="pseudoSubscriber" id="pseudoSubscriber" placeholder="Votre pseudo">
                         </div>    
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email">
-                            <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre email.</small>
-                        </div>
                         <div class="form-group">
                             <label for="passSubscriber">Mot de passe</label>
                             <input type="password" class="form-control" name="passSubscriber" id="passSubscriber" placeholder="Votre mot de passe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Votre email">
                         </div>
                         <button type="submit" class="btn btn-primary">S'inscrire</button>
                         <button id="cancelMemberSubscription" class="btn btn-primary">Annuler</button>
@@ -99,8 +98,8 @@
         <div id="contact">
           <h1>Mariage et Coquillages</h1>
           <p>19, rue de la Rivière 97400<br><br>
-            0262 58 59 54<br><br>
-            <a href="mailto=mariageetcoquillages@gmail.re">mariageetcoquillages@gmail.re</a><br>
+            <a href="callto:0262585954">0262 58 59 54</a><br><br>
+            <a href="mailto:mariageetcoquillages@gmail.com">mariageetcoquillages@gmail.com</a><br>
           </p>
         </div>
         <div id="social">

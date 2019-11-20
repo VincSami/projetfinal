@@ -155,7 +155,4 @@ function memberRouter()
             header('Location:index.php');
         }
     }
-    else{
-        home();
-    }
 }

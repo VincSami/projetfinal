@@ -1,13 +1,12 @@
 <?php
 
-use VS\MariageCoquillages\model\PlaceManager;
-use VS\MariageCoquillages\model\WeddingplannerManager;
-use VS\MariageCoquillages\model\HelperManager;
-use VS\MariageCoquillages\model\MemberManager;
-require_once('model/PlaceManager.php');
-require_once('model/WeddingplannerManager.php');
-require_once('model/HelperManager.php');
-require_once('model/MemberManager.php');
+use VS\MariageCoquillages\Model\PlaceManager;
+use VS\MariageCoquillages\Model\WeddingplannerManager;
+use VS\MariageCoquillages\Model\HelperManager;
+use VS\MariageCoquillages\Model\MemberManager;
+
+spl_autoload_register('autoloader');
+
 
 function userProfil()
 {
@@ -31,7 +30,7 @@ function deletePlacePageMember()
     if($place['author_id'] == $_SESSION['id']){
         require('view/member/deletePlaceMemberView.php');
     } else {
-        throw new Exception ("Vous n'êtes pas autorisé à réaliser cette action");
+        throw new \Exception ("Vous n'êtes pas autorisé à réaliser cette action");
     }
 }
 
@@ -44,7 +43,7 @@ function deleteWeddingplannerPageMember()
     if($weddingplanner['author_id'] == $_SESSION['id']){
         require('view/member/deleteWeddingplannerMemberView.php');
     } else {
-        throw new Exception ("Vous n'êtes pas autorisé à réaliser cette action");
+        throw new \Exception ("Vous n'êtes pas autorisé à réaliser cette action");
     }
 }
 
@@ -57,7 +56,7 @@ function deleteHelperPageMember()
     if($helper['author_id'] == $_SESSION['id']){
         require('view/member/deleteHelperMemberView.php');
     } else {
-        throw new Exception ("Vous n'êtes pas autorisé à réaliser cette action");
+        throw new \Exception ("Vous n'êtes pas autorisé à réaliser cette action");
     }
 }
 
@@ -91,7 +90,7 @@ function updatePlacePageMember()
     if($place['author_id'] == $_SESSION['id']){
     require('view/member/updatePlaceMemberView.php');
     } else{
-        throw new Exception ("Vous n'êtes pas autorisé à réaliser cette action");
+        throw new \Exception ("Vous n'êtes pas autorisé à réaliser cette action");
     }
 }
 
@@ -104,7 +103,7 @@ function updateWeddingplannerPageMember()
     if($weddingplanner['author_id'] == $_SESSION['id']){
         require('view/member/updateWeddingplannerMemberView.php');
     } else{
-        throw new Exception ("Vous n'êtes pas autorisé à réaliser cette action");
+        throw new \Exception ("Vous n'êtes pas autorisé à réaliser cette action");
     }
 }
 
@@ -117,7 +116,7 @@ function updateHelperPageMember()
     if($weddingplanner['author_id'] == $_SESSION['id']){
         require('view/member/updateHelperMemberView.php');
     } else{
-        throw new Exception ("Vous n'êtes pas autorisé à réaliser cette action");
+        throw new \Exception ("Vous n'êtes pas autorisé à réaliser cette action");
     }
 }
 
@@ -128,10 +127,10 @@ function updatePlaceMember($title, $city, $positionx, $positiony, $region, $webs
     $updatedPlace = $memberManager->modifyPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId);
     $placeImage = $memberManager->placeImageMember($placeId);
     if ($updatedPlace == false) {
-        throw new Exception('Impossible de modifier le lieu de réception !');
+        throw new \Exception('Impossible de modifier le lieu de réception !');
     } 
     else {
-        header('Location: index.php?action=placeMember&id=' . $placeId);
+        header('Location: index.php?action=place&id=' . $placeId);
     }
 }
 
@@ -143,10 +142,10 @@ function updateWeddingplannerMember($pseudo, $specialty, $presentation, $website
     $weddingplannerImage = $memberManager->weddingplannerImageMember($weddingplannerId);
     
     if ($updatedWeddingplanner == false) {
-        throw new Exception('Impossible de modifier le wedding-planner !');
+        throw new \Exception('Impossible de modifier le wedding-planner !');
     } 
     else {
-        header('Location: index.php?action=weddingplannerMember&id=' . $weddingplannerId);
+        header('Location: index.php?action=weddingplanner&id=' . $weddingplannerId);
     }
 }
 
@@ -157,10 +156,10 @@ function updateHelperMember($pseudo, $content, $website, $tel, $mail, $helperTyp
     $updatedHelper = $memberManager->modifyHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $helperId);
     $helperImage = $memberManager->helperImageMember($helperId);
     if ($updatedHelper == false) {
-        throw new Exception('Impossible de modifier le prestataire !');
+        throw new \Exception('Impossible de modifier le prestataire !');
     } 
     else {
-        header('Location: index.php?action=helperMember&id=' . $helperId);
+        header('Location: index.php?action=helper&id=' . $helperId);
     }
 }
 
@@ -171,10 +170,10 @@ function newPlaceMember($title, $city, $positionx, $positiony, $region, $website
     $placeCreated = $memberManager->createPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId);
     $placeImage = $memberManager->placeImageMember($placeCreated);
     if ($placeCreated === false) {
-        throw new Exception('Impossible d\'ajouter le lieu de réception !');
+        throw new \Exception('Impossible d\'ajouter le lieu de réception !');
     } 
     else {
-        header('Location: index.php?action=placeMember&id=' . $placeCreated);
+        header('Location: index.php?action=place&id=' . $placeCreated);
     }
 }
 
@@ -187,7 +186,7 @@ function newWeddingplannerMember($pseudo, $specialty, $presentation, $website, $
         throw new Exception('Impossible d\'ajouter le wedding-planner !');
     } 
     else {
-         header('Location: index.php?action=weddingplannerMember&id=' . $weddingplannerCreated);
+         header('Location: index.php?action=weddingplanner&id=' . $weddingplannerCreated);
     }
 }
 
@@ -197,16 +196,9 @@ function newHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, 
     $helperCreated = $memberManager->createHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId);
     $helperImage = $memberManager->helperImageMember($helperCreated);
     if ($helperCreated === false) {
-        throw new Exception('Impossible d\'ajouter le prestataire !');
+        throw new \Exception('Impossible d\'ajouter le prestataire !');
     } 
     else {
-        header('Location: index.php?action=helperMember&id=' . $helperCreated);
+        header('Location: index.php?action=helper&id=' . $helperCreated);
     }
-}
-function getPlacesCoordsMember()
-{
-    $placeManager = new PlaceManager();
-    $placesCoords = $placeManager->getCoordinates();
-    
-    echo(json_encode($placesCoords));
 }

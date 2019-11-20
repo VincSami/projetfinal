@@ -1,5 +1,11 @@
 <?php
 
+function autoloader($className) {
+    echo( "tried to load : " . $className );
+    echo('  by including ' . 'model/' . $className . '.php' );
+    include_once('model/' . $className . '.php');
+}  
+
 session_start();
 
 require('router/visitorRouter.php');

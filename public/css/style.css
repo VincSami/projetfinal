@@ -147,6 +147,10 @@ nav ul{
 	margin-bottom: 50px;
 }
 
+.helpers-view{
+  	margin-top: 200px;
+}
+
 /* ----------------------------------------- PAGE PRESENTATION LIEUX DE RECEPTION/ WEDDING-PLANNER/ PRESTATAIRES ------------------------------ */
 
 .presentationOnePage{
@@ -221,7 +225,7 @@ nav ul{
     text-align: center;
 }
 
-.places-filter, .helpers-filter, .weddingplanners-filter{
+.places-filter, .weddingplanners-filter{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -240,10 +244,6 @@ nav ul{
 
 .places-filter{
     margin-top: 50px;
-}
-
-.helpers-filter{
-    margin-top: 250px;
 }
 
 /* ----------------------------------------- PAGINATION ------------------------------ */

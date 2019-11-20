@@ -26,10 +26,10 @@
               <a class="nav-link" href="index.php?action=places">Lieux de réception</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=weddingplannersMember">Wedding Planners</a>
+              <a class="nav-link" href="index.php?action=weddingplanners">Wedding Planners</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=helpersMember">Prestataires</a>
+              <a class="nav-link" href="index.php?action=helpers">Prestataires</a>
             </li>
           </ul>
           <div id="infoSession">
@@ -50,8 +50,8 @@
       <div id="contact">
         <h1>Mariage et Coquillages</h1>
         <p>19, rue de la Rivière 97400<br><br>
-          0262 58 59 54<br><br>
-          <a href="mailto=mariageetcoquillages@gmail.re">mariageetcoquillages@gmail.re</a><br>
+          <a href="callto:0262585954">0262 58 59 54</a><br><br>
+          <a href="mailto:mariageetcoquillages@gmail.com">mariageetcoquillages@gmail.com</a><br>
         </p>
       </div>
       <div id="social">

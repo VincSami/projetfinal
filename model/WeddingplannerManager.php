@@ -36,7 +36,7 @@ class WeddingplannerManager extends Manager
         $weddingplanner = $req->fetch();
 		//On vérifie que le lieu de réception demandé existe bien
 	    if(! $weddingplanner){
-	    	throw new Exception("le lieu de réception n'existe pas");
+	    	throw new \Exception("le lieu de réception n'existe pas");
 	    }
 	    else {
 	    return $weddingplanner;

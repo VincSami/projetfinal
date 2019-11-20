@@ -1,13 +1,10 @@
 <?php
-use VS\MariageCoquillages\model\PlaceManager;
-use VS\MariageCoquillages\model\WeddingplannerManager;
-use VS\MariageCoquillages\model\HelperManager;
-use VS\MariageCoquillages\model\AdminManager;
-//Chargement des classes avec require_once (pour éviter des appels en doublons)
-require_once('model/PlaceManager.php');
-require_once('model/WeddingplannerManager.php');
-require_once('model/HelperManager.php');
-require_once('model/AdminManager.php');
+use VS\MariageCoquillages\Model\PlaceManager;
+use VS\MariageCoquillages\Model\WeddingplannerManager;
+use VS\MariageCoquillages\Model\HelperManager;
+use VS\MariageCoquillages\Model\AdminManager;
+
+
 
 //Accueil Administrateur
 function homeAdmin()
@@ -58,7 +55,6 @@ function helpersAdmin($pageId)
     $numberOfPages = $helperManager->getPageCount();
     require('view/admin/helpersAdminView.php');
 }
-
 
 function helpersTypeAdmin($typeId)
 {
@@ -226,6 +222,7 @@ function newHelperAdmin($pseudo, $content, $website, $tel, $mail, $helperType, $
         header('Location: index.php?action=helperAdmin&id=' . $helperCreated);
     }
 }
+
 function getPlacesCoordsAdmin()
 {
     $placeManager = new PlaceManager();

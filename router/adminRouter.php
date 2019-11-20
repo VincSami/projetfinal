@@ -276,9 +276,11 @@ function adminRouter()
         //Appelle de la fonction getPlacesCoordsAdmin pour la map des lieux de réception
         elseif ($_GET['action'] == 'getPlacesCoords') {
             getPlacesCoordsAdmin();
+          return true;
         }
     }
     else{
         homeAdmin();
+      return true;
     }
 }
