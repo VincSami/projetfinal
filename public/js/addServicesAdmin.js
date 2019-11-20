@@ -1,6 +1,6 @@
-const addServicesButtonAdmin = document.getElementById("addServicesButtonAdmin");
-const addServicesFormAdmin = document.getElementById("addServicesFormAdmin");
-const cancelAddServicesAdminButton = document.getElementById("cancelAddServicesAdminButton");
+var addServicesButtonAdmin = document.getElementById("addServicesButtonAdmin");
+var addServicesFormAdmin = document.getElementById("addServicesFormAdmin");
+var cancelAddServicesAdminButton = document.getElementById("cancelAddServicesAdminButton");
 addServicesFormAdmin.style.display = "none";
 
 addServicesButtonAdmin.addEventListener("click", function(){

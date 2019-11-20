@@ -1,6 +1,6 @@
-const addServicesButton = document.getElementById("addServicesButton");
-const addServicesForm = document.getElementById("addServicesForm");
-const cancelAddServicesButton = document.getElementById("cancelAddServicesButton");
+var addServicesButton = document.getElementById("addServicesButton");
+var addServicesForm = document.getElementById("addServicesForm");
+var cancelAddServicesButton = document.getElementById("cancelAddServicesButton");
 addServicesForm.style.display = "none";
 cancelAddServicesButton.style.display = "none";
 
@@ -16,3 +16,5 @@ cancelAddServicesButton.addEventListener("click", function(e){
     addServicesForm.style.display = "none";
     cancelAddServicesButton.style.display = "none";
 })
+
+
