@@ -1,10 +1,9 @@
 <?php
-//Chargement des classes avec require_once (pour éviter des appels en doublons)
 use VS\MariageCoquillages\model\PlaceManager;
 use VS\MariageCoquillages\model\WeddingplannerManager;
 use VS\MariageCoquillages\model\HelperManager;
 use VS\MariageCoquillages\model\AdminManager;
-
+//Chargement des classes avec require_once (pour éviter des appels en doublons)
 require_once('model/PlaceManager.php');
 require_once('model/WeddingplannerManager.php');
 require_once('model/HelperManager.php');
@@ -75,7 +74,6 @@ function helperAdmin($helperId)
     require('view/admin/helperAdminView.php');
 }
 
-//Page de suppression du billet et des commentaires
 function deletePlacePageAdmin()
 { 
     $placeManager = new PlaceManager();
@@ -100,7 +98,6 @@ function deleteHelperPageAdmin()
     require('view/admin/deleteHelperAdminView.php');
 }
 
-//Suppression du billet et des commentaires
 function erasePlaceAdmin($placeId)
 {
     $adminManager = new AdminManager();
@@ -146,7 +143,6 @@ function updateHelperPageAdmin()
     require('view/admin/updateHelperAdminView.php');
 }
 
-//Modification du billet
 function updatePlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId)
 {  
     $adminManager = new AdminManager();

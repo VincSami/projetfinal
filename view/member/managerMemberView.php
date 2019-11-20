@@ -39,8 +39,8 @@ foreach($memberPlaces as $memberPlace)
     <img src="public/img/place<?= $memberPlace['id'] ?>.jpg" class="card-img-top" alt="image lieu de réception">
     <div class="card-body">
         <h5 class="card-title"><?= htmlspecialchars($memberPlace['title']) ?><br></h5>
-        <a href="index.php?action=deletePlacePageMember&amp;id=<?= $memberPlace['id'] ?>&amp;authorId=<?= $memberPlace['author_id'] ?>" class="btn btn-primary">Supprimer</a>
-        <a href="index.php?action=updatePlacePageMember&amp;id=<?= $memberPlace['id'] ?>&amp;authorId=<?= $memberPlace['author_id'] ?>" class="btn btn-primary">Modifier</a>
+        <a href="index.php?action=deletePlacePageMember&amp;id=<?= $memberPlace['id'] ?>" class="btn btn-primary">Supprimer</a>
+        <a href="index.php?action=updatePlacePageMember&amp;id=<?= $memberPlace['id'] ?>" class="btn btn-primary">Modifier</a>
     </div>
 </div>
 <?php
@@ -61,8 +61,8 @@ foreach($memberWeddingplanners as $memberWeddingplanner)
     <img src="public/img/weddingPlanner<?= $memberWeddingplanner['id'] ?>.jpg" class="card-img-top" alt="image wedding-planner">
     <div class="card-body">
         <h5 class="card-title"><?= htmlspecialchars($memberWeddingplanner['pseudo']) ?><br></h5>
-        <a href="index.php?action=deleteWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>&amp;authorId=<?= $memberWeddingplanner['author_id'] ?>" class="btn btn-primary">Supprimer</a>
-        <a href="index.php?action=updateWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>&amp;authorId=<?= $memberWeddingplanner['author_id'] ?>" class="btn btn-primary">Modifier</a>
+        <a href="index.php?action=deleteWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>" class="btn btn-primary">Supprimer</a>
+        <a href="index.php?action=updateWeddingplannerPageMember&amp;id=<?= $memberWeddingplanner['id'] ?>" class="btn btn-primary">Modifier</a>
     </div>
 </div>
 <?php
@@ -83,8 +83,8 @@ foreach($memberHelpers as $memberHelper)
     <img src="public/img/helper<?= $memberHelper['id'] ?>.jpg" class="card-img-top" alt="image prestataire">
     <div class="card-body">
         <h5 class="card-title"><?= htmlspecialchars($memberHelper['pseudo']) ?><br></h5>
-        <a href="index.php?action=deleteHelperPageMember&amp;id=<?= $memberHelper['id'] ?>&amp;authorId=<?= $memberHelper['author_id'] ?>" class="btn btn-primary">Supprimer</a>
-        <a href="index.php?action=updateHelperPageMember&amp;id=<?= $memberHelper['id'] ?>&amp;authorId=<?= $memberHelper['author_id'] ?>" class="btn btn-primary">Modifier</a>
+        <a href="index.php?action=deleteHelperPageMember&amp;id=<?= $memberHelper['id'] ?>" class="btn btn-primary">Supprimer</a>
+        <a href="index.php?action=updateHelperPageMember&amp;id=<?= $memberHelper['id'] ?>" class="btn btn-primary">Modifier</a>
     </div>
 </div>
 <?php

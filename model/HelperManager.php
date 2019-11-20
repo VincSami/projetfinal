@@ -70,12 +70,12 @@ class HelperManager extends Manager
 	    return $helpersType;
 	}
 
-	public function getMemberHelpers($authorId)
+	public function getMemberHelpers()
 	{
 		$db = $this->dbConnect();  
 	    $req = $db->prepare('SELECT id, pseudo, author_id FROM helpers WHERE author_id = ?');
 		$req->setFetchMode(\PDO::FETCH_ASSOC);
-		$req->execute(array($authorId));
+		$req->execute(array($_SESSION['id']));
 	    $memberHelpers = $req->fetchAll();
 		//On vérifie que le lieu de réception demandé existe bien
 		return $memberHelpers;

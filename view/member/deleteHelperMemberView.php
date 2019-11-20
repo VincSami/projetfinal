@@ -9,7 +9,7 @@
 <?php ob_start(); ?>
 <section class="delete-page">
 <div class="delete-buttons">
-    <button class="btn btn-primary"><a href="index.php?action=deleteHelperMember&amp;id=<?= $helper['id'] ?>&amp;authorId=<?= $helper['author_id'] ?>">Supprimer le prestataire</a></button>
+    <button class="btn btn-primary"><a href="index.php?action=deleteHelperMember&amp;id=<?= $helper['id'] ?>">Supprimer le prestataire</a></button>
     <button class="btn btn-primary"><a href="index.php">Annuler</a></button>
 <div>
 <div class="delete-content">  

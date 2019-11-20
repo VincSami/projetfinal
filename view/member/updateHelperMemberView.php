@@ -8,7 +8,7 @@
 
 <?php ob_start(); ?>
 <section class="update-form">
-    <form class="form" action="index.php?action=updateHelperMember&amp;helperId=<?= $helper['id'] ?>&amp;authorId=<?= $helper['author_id'] ?>" method="post" enctype="multipart/form-data">
+    <form class="form" action="index.php?action=updateHelperMember&amp;helperId=<?= $helper['id'] ?>" method="post" enctype="multipart/form-data">
 		<div class="form-group">	
 			<label for="image"><strong>Définir l'image d'illustration</strong></label><br />
 			<input type="file" name="image" /><br /><br />

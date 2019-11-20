@@ -23,7 +23,7 @@
               <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?action=placesMember">Lieux de réception</a>
+              <a class="nav-link" href="index.php?action=places">Lieux de réception</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.php?action=weddingplannersMember">Wedding Planners</a>
@@ -34,9 +34,9 @@
           </ul>
           <div id="infoSession">
           <p id="helloMember"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
-          <button id="memberSpace" class="btn btn-primary"><a href ="index.php?action=profil&amp;authorId=<?= $_SESSION['id'] ?>">Profil</a></button>
+          <button id="memberSpace" class="btn btn-primary"><a href ="index.php?action=profil">Profil</a></button>
           <button id="exitMember" class="btn btn-primary"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
-        </div>
+          </div>
         </div>
     </nav>
     <div class="titres-page">

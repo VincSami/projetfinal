@@ -29,9 +29,13 @@
                             <a class="nav-link" href="index.php?action=weddingplanners">Wedding Planners</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=helpers&amp;pageId=">Prestataires</a>
+                            <a class="nav-link" href="index.php?action=helpers">Prestataires</a>
                         </li>
                     </ul>
+                    <?php
+                    if (!isset($_SESSION['pseudo']))
+                    {
+                    ?>
                     <button id="memberButton" class="btn btn-primary">S'identifier</button>
                     <div id="sign-in">
                     <form id="memberAccess" action="index.php?action=connect" method="post">
@@ -67,6 +71,19 @@
                         <button type="submit" class="btn btn-primary">S'inscrire</button>
                         <button id="cancelMemberSubscription" class="btn btn-primary">Annuler</button>
                     </form>
+                <?php
+                } 
+                else 
+                {
+                ?>
+                <div id="infoSession">
+                    <p id="helloMember"><?php echo 'Bonjour ' . $_SESSION['pseudo'] . ' !'; ?></p>
+                    <button id="memberSpace" class="btn btn-primary"><a href ="index.php?action=profil">Profil</a></button>
+                    <button id="exitMember" class="btn btn-primary"><a href ="index.php?action=disconnect">Se déconnecter</a></button>
+                </div>
+                <?php
+                }
+                ?>
                 </div>
             </nav>
             <div class="titres-page">

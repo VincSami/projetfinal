@@ -9,7 +9,6 @@ require_once('model/HelperManager.php');
 require_once('model/MemberManager.php');
 require_once('model/AdminManager.php');
 
-//Affichage des posts sur la page d'acceuil visiteur
 function home()
 {
     $placeManager = new PlaceManager();
@@ -73,7 +72,6 @@ function helpers($pageId)
     $numberOfPages = $helperManager->getPageCount();
     require('view/visitor/helpersView.php');
 }
-
 
 function helpersType($typeId)
 {
