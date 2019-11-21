@@ -84,11 +84,11 @@ function helper($helperId)
     $helper = $helperManager->getHelper($helperId);
     require('view/visitor/helperView.php');
 }
-
+//récupère les coordonnées des lieux de réception
 function getPlacesCoords()
 {
     $placeManager = new PlaceManager();
     $placesCoords = $placeManager->getCoordinates();
-    
+    //une fois les données récupérées, on les encode au format JSON pour les utiliser avec leaflet via un appel AJAX
     echo(json_encode($placesCoords));
 }

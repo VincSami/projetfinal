@@ -1,9 +1,10 @@
 <?php
+//inclue les namespaces à utiliser
 use VS\MariageCoquillages\Model\PlaceManager;
 use VS\MariageCoquillages\Model\WeddingplannerManager;
 use VS\MariageCoquillages\Model\HelperManager;
 use VS\MariageCoquillages\Model\AdminManager;
-
+//autolaod des classes
 spl_autoload_register('autoloader');
 
 //Accueil Administrateur
@@ -12,35 +13,35 @@ function homeAdmin()
     $placeManager = new PlaceManager();
     $weddingplannerManager = new WeddingplannerManager();
     $helperManager = new HelperManager();
-    
+    //on récupère les les prestataires les mieux notés
     $topPlaces = $placeManager->getTopPlaces();
     $topWeddingplanners = $weddingplannerManager->getTopWeddingplanners();
     $helperTypes = $helperManager->getHelperTypes();
 
     require('view/admin/indexAdminView.php');
 }
-
+//récupère les lieux de réception
 function placesAdmin()
 {
     $placeManager = new PlaceManager();
     $places = $placeManager->getPlaces();
     require('view/admin/placesAdminView.php');
 }
-
+//récupère un lieu de réception
 function placeAdmin($placeId)
 {
     $placeManager = new PlaceManager();
     $place = $placeManager->getPlace($placeId);
     require('view/admin/placeAdminView.php');
 }
-
+//récupère les wedding-planner
 function weddingPlannersAdmin()
 {
     $weddingplannerManager = new WeddingplannerManager();
     $weddingplanners = $weddingplannerManager->getWeddingplanners();
     require('view/admin/weddingplannersAdminView.php');
 }
-
+//récupère le wedding-planner demandé
 function weddingPlannerAdmin($weddingplannerId)
 {
     $weddingplannerManager = new WeddingplannerManager();

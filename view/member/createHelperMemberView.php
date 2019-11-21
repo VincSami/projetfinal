@@ -54,4 +54,5 @@
 <?php ob_start(); ?>
 <script src="public/js/formPhoneNumberVerify.js"></script>
 <?php $script = ob_get_clean(); ?>
+
 <?php require('templateMember.php'); ?>

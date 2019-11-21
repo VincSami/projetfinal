@@ -7,22 +7,26 @@ require_once('model/Manager.php');
 
 class MemberManager extends Manager
 {
+	//inscritpion d'un nouveau membre
 	public function subscribeMember($pseudo, $pass, $email)
 	{
+		//hashage du mot de passe entré par l'utilisateur pour plus de sécurité
 		$pass = password_hash($_POST['passSubscriber'], PASSWORD_DEFAULT);
-		//Sinon on se connecte à la bdd
+		//connexion à la bdd
 		$db = $this->dbConnect();
-		//On récupère l'id et le mdp lié au pseudo renseigné
+		//on insère les informations du nouveau membre dans la table 
 		$req = $db->prepare("INSERT INTO members(pseudo, pass, email, subscription_date, member_type) VALUES (?, ?, ?, NOW(), 'user')");
 		$resultat = $req->execute(array($pseudo, $pass, $email));
+		//on vérifie que l'insertion a bien été réalisé
 		if (! $resultat){
 			throw new \Exception('Impossible de créer le nouveau membre');
 		}
+		//on attribue des informations de session au nouveau membre pour lui permettre de se connecter directement
       	$_SESSION['member_type'] = "user";
 		$_SESSION['id'] = $db->lastInsertId();
 		$_SESSION['pseudo'] = $pseudo;
 	}
-
+	//connexion d'un membre existant
 	public function accessMember($pseudo, $pass)
 	{
 		//Si déjà connecté on termine la fonction ici
@@ -62,7 +66,7 @@ class MemberManager extends Manager
         throw new \Exception('Mauvais identifiant ou mot de passe !');
     	}	
 	}
-
+	//création d'un nouveau prestataire
 	public function createMemberPage($userTypeId)
 	{
 		$db = $this->dbConnect();
@@ -71,7 +75,7 @@ class MemberManager extends Manager
 	    $pageType = $req->fetch();
 		return $pageType;
 	}
-
+	//création lieu de réception
 	public function createPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 	{
 		$db = $this->dbConnect();
@@ -80,7 +84,7 @@ class MemberManager extends Manager
 		
 		return $db->lastInsertId();
 	}
-	
+	//création wedding-planner
   	public function createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 	{
 		$db = $this->dbConnect();
@@ -89,7 +93,7 @@ class MemberManager extends Manager
 		
 		return $db->lastInsertId();
 	}
-	
+	//création prestataire
 	public function createHelperMember($pseudo, $content, $website, $tel, $mail, $helperType, $authorId)
 	{
 		$db = $this->dbConnect();
@@ -98,7 +102,7 @@ class MemberManager extends Manager
 		
 		return $db->lastInsertId();
 	}
-		
+	//suppression
 	public function deletePlace($placeId)
 	{
 			$db = $this->dbConnect();  
@@ -122,7 +126,7 @@ class MemberManager extends Manager
 			$req->execute(array($helperId));
 			$deletehelper = $req->fetch(); 
 	}
-  
+  //mise à jour
 	public function modifyPlaceMember($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId)
 	{
 		if(isset($_POST['submit'])){

@@ -7,6 +7,7 @@ use VS\MariageCoquillages\Model\MemberManager;
 
 spl_autoload_register('autoloader');
 
+//page de profil de l'utilisateur
 function userProfil()
 {
     $placeManager = new PlaceManager();

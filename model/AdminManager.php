@@ -1,12 +1,14 @@
 <?php
-
+//On attribue un namespace à la classe pour éviter les éventuels conflits (même noms de classe)
 namespace VS\MariageCoquillages\Model;
 
 //On charge Manager.php (pour récupérer la connexion à la bdd)
 require_once('model/Manager.php');
 
+//Déclare la classe AdminManager en la faisant hériter de la class Manager (connexion bdd)
 class AdminManager extends Manager
 {
+	//suppression 
   	public function deletePlace($placeId)
 	{
 	        $db = $this->dbConnect();  
@@ -30,7 +32,7 @@ class AdminManager extends Manager
 	        $req->execute(array($helperId));
 	        $deletehelper = $req->fetch(); 
 	}
-	
+	//création
 	public function createPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId)
 	{
 		$db = $this->dbConnect();
@@ -57,7 +59,7 @@ class AdminManager extends Manager
 		
 		return $db->lastInsertId();
 	}
-		
+	//mise à jour	
 	public function modifyPlaceAdmin($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $placeId)
 	{
 		if(isset($_POST['submit'])){
@@ -87,6 +89,7 @@ class AdminManager extends Manager
 				return $updatedHelper;
 		}
 	}
+	
 	public function placeImageAdmin($placeId)
 	{
 		//Si un fichier a été transmis

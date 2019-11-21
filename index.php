@@ -1,15 +1,17 @@
 <?php
-
+//implémentation de l'autoload pour le chargement automatique des classes
 function autoloader($className) {
     include_once('model/' . substr($className, 28) . '.php');
 }  
 
 session_start();
 
+//inclue les routers nécessaires
 require('router/visitorRouter.php');
 require('router/adminRouter.php');
 require('router/memberRouter.php');
 
+//détermine le routeur à appeler selon l'id de session et le type de membre
 $routeFound=false;
 try {
     if (isset($_SESSION['id'])) {
