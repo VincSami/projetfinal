@@ -1,9 +1,12 @@
 var form = document.getElementsByClassName("creationForm");
 var phoneNumber = document.getElementsByClassName("phoneNumber");
-var correctPhoneNumer = /^((\+)262|0)[1-9](\d{2}){4}$/;
+var regex = /^0[1-9](\d{2}){4}$/g;
+
+console.log(phoneNumber[0].value);
+
 
 form[0].addEventListener("submit", function(e){
-if(correctPhoneNumer.test("phoneNumber[0]")){
+if(regex.test(phoneNumber[0].value)){
     return true;
 }
 else{

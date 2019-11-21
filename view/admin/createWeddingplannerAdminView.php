@@ -39,7 +39,7 @@
 	</div>
 	<div class="form-group">
 		<label for="tel"><strong>Téléphone</strong></label><br />
-		<input class="phoneNumber" type="text" name="tel" placeholder="Votre n° de téléphone" required>
+		<input class="phoneNumber" type="text" name="tel" placeholder="0123456789" required>
 	</div>
 	<div class="form-group">		
 		<label for="mail"><strong>Email</strong></label><br />
