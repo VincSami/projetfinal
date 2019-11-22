@@ -81,16 +81,16 @@ class MemberManager extends Manager
 		$db = $this->dbConnect();
 		$req = $db->prepare('INSERT INTO places(title, city, positionx, positiony, region, website, tel, mail, presentation, creation_date, ranked, author_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NULL, ?)');
 		$placeCreated = $req->execute(array($title, $city, $positionx, $positiony, $region, $website, $tel, $mail, $presentation, $authorId));
-		
+
 		return $db->lastInsertId();
 	}
 	//création wedding-planner
   	public function createWeddingplannerMember($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
+		$req = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, popular, author_id) VALUES(?, ?, ?, ?, ?, ?, 0, ?)');
 		$weddingplannerCreated = $req->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId));
-		
+
 		return $db->lastInsertId();
 	}
 	//création prestataire

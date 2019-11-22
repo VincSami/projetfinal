@@ -4,6 +4,7 @@ use VS\MariageCoquillages\Model\PlaceManager;
 use VS\MariageCoquillages\Model\WeddingplannerManager;
 use VS\MariageCoquillages\Model\HelperManager;
 use VS\MariageCoquillages\Model\AdminManager;
+
 //autolaod des classes
 spl_autoload_register('autoloader');
 

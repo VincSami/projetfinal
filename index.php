@@ -1,10 +1,11 @@
 <?php
+
+session_start();
+
 //implémentation de l'autoload pour le chargement automatique des classes
 function autoloader($className) {
     include_once('model/' . substr($className, 28) . '.php');
 }  
-
-session_start();
 
 //inclue les routers nécessaires
 require('router/visitorRouter.php');

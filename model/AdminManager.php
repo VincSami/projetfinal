@@ -45,7 +45,7 @@ class AdminManager extends Manager
 	public function createWeddingplannerAdmin($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, author_id) VALUES(?, ?, ?, ?, ?, ?, ?)');
+		$req = $db->prepare('INSERT INTO weddingplanners(pseudo, specialty, presentation, website, tel, mail, popular, author_id) VALUES(?, ?, ?, ?, ?, ?, NULL, ?)');
 		$weddingplannerCreated = $req->execute(array($pseudo, $specialty, $presentation, $website, $tel, $mail, $authorId));
 		
 		return $db->lastInsertId();

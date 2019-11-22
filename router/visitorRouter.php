@@ -8,7 +8,8 @@ function visitorRouter()
         if ($_GET['action'] == 'subscribe') {
           	if(!empty($_POST['pseudoSubscriber']) && !empty($_POST['passSubscriber']) && !empty($_POST['email'])){
                 subscribe(htmlspecialchars($_POST['pseudoSubscriber']), htmlspecialchars($_POST['passSubscriber']), htmlspecialchars($_POST['email']));
-            } else { throw new Exception('Tous les champs ne sont pas remplis !');
+            } else { 
+                throw new Exception('Tous les champs ne sont pas remplis !');
             }
         }
         elseif ($_GET['action'] == 'connect') {

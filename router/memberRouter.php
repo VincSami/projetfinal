@@ -34,7 +34,7 @@ function memberRouter()
                 //on récupère l'id de l'auteur en s'assurant que c'est un bien un nombre entier
                 $_GET['authorId'] = intval($_GET['authorId']);
                 //On appelle la fonction newPlaceAdmin en passant en paramètre les champs remplis en évitant les injections XSS en les entourant de la fonction htmlspecialchars et on passe également en paramètre l'id de l'auteur qui a créé le nouveau prestataire
-                newPlaceMember(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['city']), htmlspecialchars($_POST['positionx']), htmlspecialchars($_POST['positiony']), htmlspecialchars($_POST['region']), htmlspecialchars($_POST['website']), htmlspecialchars($_POST['tel']), htmlspecialchars($_POST['mail']), htmlspecialchars($_POST['presentation']), $_GET['authorId']);
+                newPlaceMember(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['city']), htmlspecialchars($_POST['positionx']), htmlspecialchars($_POST['positiony']), htmlspecialchars($_POST['region']), htmlspecialchars($_POST['website']), htmlspecialchars($_POST['tel']), htmlspecialchars($_POST['mail']), htmlspecialchars($_POST['presentation']), intval($_GET['authorId']));
             } else {
                 throw new Exception('Tous les champs ne sont pas remplis !');
             }
@@ -42,7 +42,6 @@ function memberRouter()
         //création wedding-plnner
         elseif ($_GET['action'] == 'createWeddingplannerMember') {
             if (!empty($_POST['pseudo']) && !empty($_POST['specialty']) && !empty($_POST['presentation']) && !empty($_POST['tel']) && !empty($_POST['mail']) && !empty($_GET['authorId'])) {
-                $_GET['authorId'] = intval($_GET['authorId']);
                 newWeddingplannerMember(htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['specialty']), htmlspecialchars($_POST['presentation']), htmlspecialchars($_POST['website']), htmlspecialchars($_POST['tel']), htmlspecialchars($_POST['mail']), intval($_GET['authorId']));
             } else {
                 throw new Exception('Tous les champs ne sont pas remplis !');
