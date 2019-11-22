@@ -47,7 +47,7 @@
 	</div>	
 	<div class="form-group">
 	<label for="presentation"><strong>Présentation du lieu de réception</strong></label><br />
-	<textarea rows="10" cols="100" name="presentation" placeholder="Description du lieu de réception" required></textarea>
+	<textarea name="presentation" placeholder="Description du lieu de réception" required></textarea>
 	</div>
     <input class="btn btn-primary" type="submit" name="submit" value="Publier le prestataire">
 </form>

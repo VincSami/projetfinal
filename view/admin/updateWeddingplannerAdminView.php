@@ -31,7 +31,7 @@
 		</div>
 		<div class="form-group">
 			<label for="presentation"><strong>Présentation de l'entreprise</strong></label><br />
-			<textarea rows="10" cols="100" name="presentation" required><?= htmlspecialchars($weddingplanner['presentation']) ?></textarea><br />
+			<textarea name="presentation" required><?= htmlspecialchars($weddingplanner['presentation']) ?></textarea><br />
 		</div>
 		<div class="form-group">
 			<label for="website"><strong>Site Web</strong></label><br />

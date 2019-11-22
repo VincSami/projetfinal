@@ -19,7 +19,7 @@
 		</div>
 		<div class="form-group">
 		<label for="content"><strong>Présentation de l'entreprise</strong></label><br />
-		<textarea rows="10" cols="100" name="content" placeholder="Description de vos services" required><?= htmlspecialchars($helper['content']) ?></textarea><br />
+		<textarea name="content" placeholder="Description de vos services" required><?= htmlspecialchars($helper['content']) ?></textarea><br />
 		</div>
 		<div class="form-group">
 		<label for="website"><strong>Site Web</strong></label><br />

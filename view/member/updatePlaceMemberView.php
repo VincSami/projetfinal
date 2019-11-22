@@ -47,7 +47,7 @@
 		</div>	
 		<div class="form-group">
 		<label for="presentation"><strong>Présentation du lieu de réception</strong></label><br />
-	    <textarea rows="10" cols="100" name="presentation" required><?= htmlspecialchars($place['presentation']) ?></textarea><br />
+	    <textarea name="presentation" required><?= htmlspecialchars($place['presentation']) ?></textarea><br />
 		</div>	
 	    <input class="btn btn-primary" type="submit" name="submit" value="Mettre à jour le lieu de réception">
 	</form>

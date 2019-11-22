@@ -45,6 +45,11 @@ input{
     padding: 10px;
 }
 
+textarea{
+    width: 500px;
+    height: 300px;
+}
+
 /*------------------------ HEADER --------------------------------- */
 
 header{
@@ -66,10 +71,12 @@ nav ul{
 
 #cancelSubscribeButtons{
   display : flex;
+  flex-wrap: wrap;
 }
 
 #infoSession{
-	display: flex;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #helloMember{
@@ -97,11 +104,12 @@ nav ul{
 }
 
 #cancelMemberSubscription{
-	display: none;
+    display: none;
 }
 
 #memberAccess {
     display: none;
+    flex-wrap: wrap;
 }
 
 #memberSubscription{
@@ -490,7 +498,7 @@ footer a {
 }
 
 @media screen and (max-width : 800px) {
-    header .titres-page{
+        header .titres-page{
         position: relative;
         width: 100%;
         text-align: center;
@@ -520,6 +528,12 @@ footer a {
     }
 }
 
+@media screen and (min-width : 425px) and (max-width : 550px){
+    textarea{
+        width: 350px;
+    }
+}
+
 @media screen and (max-width : 425px) {
     #contact {
         width: 100%;
@@ -540,5 +554,11 @@ footer a {
 
     .presentationOnePageLeft img{
         width: 300px;
+    }
+    textarea{
+        width: 250px;
+    }
+    .form{
+        width: 90%;
     }
 }
